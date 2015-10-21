@@ -1,0 +1,12 @@
+Progetto ING SW 2
+
+Consigliato latex
+
+- Requirements (Follow IEEE standard)
+	NO ("User must ...")
+	"Required functionality that the system to be has to provide"
+	"Requirements are about functionalities provided by the system"
+	Non functional requirements before functional requirements (so we can reference them)(check standard)
+	Make references to previous pages. One step follows another
+	Use Cases (one use case that contains other use cases)
+	Represent state machines for every object 
