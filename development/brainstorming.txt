@@ -1,4 +1,4 @@
-1) Scope
+	1) Scope
 
 	a) Identifying the softwares to be developed :
 		- Web application, mobile application(Android, iOS, Blackberry, Winzozz) per utente
@@ -6,15 +6,8 @@
 		- Backend + pannello di controllo
 
 	b) Explain software product purposes :
-		- User application :
-			prenotare taxi quando ti pare all'interno del perimetro del servizio,
-			riservare, condividere, rendere intuitiva e facile l'esperienza
-		- App per taxisti :
-			segnalare posizione, accettare incarico, segnalazione problemi relativi alla strada,
-			sommario degli incarichi eseguiti.
-		- Backend :
-			gestione dei servizi, mappature dei movimenti, heatmap delle chiamate, registrazione utenti
-			database, interfaccia di controllo per operatore.
+		
+		simplifiy the access to the taxi service and create a fair system of queueing and a ride share system. make it intuitive.
 
 	c) Describe application :
 		benefits, objective, goals;
@@ -38,10 +31,71 @@
 5) Overall description 
  
 	a) Product Perspective :
-		- block diagram con le varie API utilizzate, statistiche al comune, Google Maps, varie librerie
-		- 
 
-	b) 
+		- block diagram con le varie API utilizzate, statistiche al 		comune, Google Maps, varie librerie
+
+		- User Interface :
+			layout spiegati 
+
+		- Hardware interface :
+			dispositivi supportati dalle tre applicazioni, GPS
+
+		- Software interface :
+			tutte le API
+			— Name;— Mnemonic;— Specification number;— Version number;— Source.
+
+		- Communication interfaces :
+			3G/4G o wi-fi
+
+		- Memory constraints :
+			un poco di memoria 
+
+		- Operation : 
+			nella user interface
+			(cio che l'utente deve fare per usare tutte le funzionalita)
+
+		- Site adaptation requirements :
+			differenze tra le varie piattaforme, ad esempio i layout tra android e ios, le diverse api di google maps ecc. ecc.
+
+	b) Product Function 2.2 SRS:
+
+		Funzioni principali : FARE BENE LA LISTA CON REFERENCES
+
+		- User application :
+			prenotare taxi quando ti pare all'interno del perimetro del servizio,riservare, condividere.
+
+		- App per taxisti :
+			segnalare posizione, accettare incarico, segnalazione problemi relativi alla strada,
+			sommario degli incarichi eseguiti.
+
+		- Backend :
+			gestione dei servizi, mappature dei movimenti, heatmap delle chiamate, registrazione utenti
+			database, interfaccia di controllo per operatore.
+
+	c) Actors 2.3 SRS :
+
+		Multiple types actors to be described to use them later in the uses cases. 
+		I.e. Students, managers, pope & renato zero. 
+		Taxists.
+		Operator.
+
+	d) Constraints 2.4 SRS:
+
+		- Regulatory policies :
+			data treatment, data crypting, taxists policy.
+
+		- Hardware limitation : 
+			compatible hardware i.e. gps, right version of android/iOS.
+			internet connection.
+
+		- Interfaces to other application :
+			the app should be compatible with the design guidelines of the respective system stores.
+			google maps.
+
+		- Parallel operation : 
+			request queue and overlapping requests problem.
+
+		- 
 
 
 
