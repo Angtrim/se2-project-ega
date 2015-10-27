@@ -116,6 +116,89 @@
 		- Taxi driver: hardware per connettersi a internet, gps.
 		- User: hardware per internet.
 
+	f) Apportioning of requirements 2.6 SRS :
+
+		- non ho capito, comunque le cose che saranno sviluppate in futuro
+
+Specific Requirements: 
+
+	a) External interfaces: 
+
+		USER
+		- input posizione+identificativo output disponibilità taxi
+		- input tratta output possibilità di sharing
+		- input cancella richiesta output conferma
+		- input prenotazione output conferma
+		- input modifica dati output conferma
+
+		TAXIST
+		- input accetta corse output conferma
+		- input log in output corse disponibili 
+		- input refresh output refresh corse
+		- input segnalazione generica output conferma 
+		- input modifica dati output conferma
+
+		OPERATOR 
+		- input segnalazione problema broadcast output conferma
+		- input richiesta di comunicazione con tassista output 
+		- input get taxi info output taxi info
+
+		MAINTENANCER TODO(add actor)
+		- input restart system output ok
+		- input log status output status log 
+		- input 
+
+
+
+
+	b) Functions:
+
+		- Validity check of the inputs :
+			check of credential of all the actors, every request should have a hash key in its parameters
+
+		- Exact sequence of operation : 
+			sequence diagram
+
+		- Response to abnormal situations :
+			
+			* Overflow :
+				mirror server 
+				taxi non disponibili, aspetta un attimo
+
+			* Communication facilities :
+				connection down the system send an SMS broadcasting all the taxists warning them of the problem.
+
+			* Error Handling and recovery :
+				call service for taxists facing problems with the application.
+
+				USER 
+				◊ GPS fail, manual location or move
+				◊ Generic crash, automatic reporting SDK
+				◊ Internet fail, wait for connection
+				
+				TAXIST
+				◊ GPS fail, warn him, and wait for correction (5min wait)
+				◊ Internet fail, SMS/Call (5min wait)
+
+				OPERATOR 
+				◊ System fail call maintencer 
+
+				BACKEND 
+				◊ Crash, put down the system and warn the users
+
+				TODO (assumption a single crash doesn't influence the whole system)
+
+	c) Performance requirements:
+
+	d) Logical Database requirements:
+
+	e) Design Constraints:
+
+	f) Starndard Compliance:
+
+
+	
+
 
 
 
