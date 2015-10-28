@@ -21,7 +21,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 \subsubsection{Software Interfaces}
 
 
-\paragraph{Software interfaces for the Web Application (User)} 
+\paragraph{Web Application (User)} 
 
 \begin{itemize}
 	\item MyTaxyService API
@@ -37,7 +37,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 
 \end{itemize}
 
-\paragraph{Software interfaces for the Mobile Application (User and Taxi Driver)} 
+\paragraph{Mobile Application (User and Taxi Driver)} 
 \begin{itemize}
 	\item MyTaxyService API
 	\begin{itemize}
@@ -79,7 +79,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 	\end{itemize}		
 \end{itemize}
 
-\paragraph{Software interfaces for the Back-end Application} 
+\paragraph{Back-end Application} 
 
 \begin{itemize}
 	\item Node.js API
@@ -126,6 +126,36 @@ The Back-End application can not exceed 15GB of total RAM usage.
 \label{ssub:site_adaptation_requirements}
 \paragraph{Software Adaptation} \mbox{} \\
 Every Mobile Application has to be developed according to the platforms design guidelines.
+
+\subsection{Product Functions} % (fold)
+\label{sub:product_functions}
+This section highlights the main product functions sorted by application.
+
+\subsubsection{Web Application and Mobile Application (User)}
+\label{ssub:web_application_and_mobile_application_}
+\begin{itemize}
+	\item {[FUN1\label{itm:FUN1}]}: the app has to allow the user to book a taxi on the spot.
+	\item {[FUN2\label{itm:FUN2}]}: the app has to allow the user to reserve a taxi ride up to 7 days before the chosen date.
+	\item {[FUN3\label{itm:FUN3}]}: the app has to allow the user to share his ride with other people whose destination is included in the ride path.
+\end{itemize}
+
+\subsubsection{Mobile Application (Taxi Driver)} % (fold)
+\label{ssub:mobile_application_}
+\begin{itemize}
+	\item {[FUN4\label{itm:FUN4}]}: the app has to provide position updates to the \emph{back-end application}
+	\item {[FUN5\label{itm:FUN5}]}: the app has to allow the taxi driver to accept or refuse a ride request.
+	\item {[FUN6\label{itm:FUN6}]}: the app has to allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
+	\item {[FUN7\label{itm:FUN7}]}: the app has to allow the taxi driver to overview a history of his last rides.
+	\item {[FUN8\label{itm:FUN8}]}: the app has to allow the taxi driver to report a absent user.
+\end{itemize}
+
+\subsubsection{Back-End Application} 
+\label{ssub:back_end_application}
+
+
+
+
+
 
 
 
