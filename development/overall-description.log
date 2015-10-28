@@ -1,0 +1,126 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.26)  28 OCT 2015 19:00
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**overall-description.tex -recorder
+(./overall-description.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tree-dvips/lingmacros.sty
+\c@enums=\count87
+\widelabel=\dimen103
+\c@tempcnt=\count88
+\c@enumsi=\count89
+\eeindent=\dimen104
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tree-dvips/tree-dvips.sty
+tree-dvips version .91 of May 16, 1995
+\nodemargin=\dimen105
+\treelinewidth=\dimen106
+\dashlength=\dimen107
+\arrowwidth=\dimen108
+\arrowlength=\dimen109
+\arrowinset=\dimen110
+\pos@t=\toks14
+\pos@b=\toks15
+\pos@l=\toks16
+\pos@r=\toks17
+\pos@tl=\toks18
+\pos@tr=\toks19
+\pos@bl=\toks20
+\pos@br=\toks21
+\@arrow=\count90
+\@tempdimc=\dimen111
+) (./overall-description.aux)
+\openout1 = `overall-description.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+[1
+
+
+Non-PDF special ignored!{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/upd
+map/pdftex.map}]
+Overfull \hbox (35.86577pt too wide) in paragraph at lines 36--37
+[] []\OT1/cmr/m/n/12 Source : \OT1/cmr/m/it/12 https://developers.google.com/ma
+ps/documentation/javascript/ 
+ []
+
+
+Overfull \hbox (11.52505pt too wide) in paragraph at lines 42--42
+ \OT1/cmr/bx/n/12 Soft-ware in-ter-faces for the Mo-bile Ap-pli-ca-tion (User a
+nd Taxi Driver)[] 
+ []
+
+
+Overfull \hbox (50.09915pt too wide) in paragraph at lines 72--73
+[] []\OT1/cmr/m/n/12 Source : \OT1/cmr/m/it/12 http://www.microsoft.com/en-us/d
+ownload/details.aspx?id=17284 
+ []
+
+[2]
+Overfull \hbox (35.86577pt too wide) in paragraph at lines 104--105
+[] []\OT1/cmr/m/n/12 Source : \OT1/cmr/m/it/12 https://developers.google.com/ma
+ps/documentation/javascript/ 
+ []
+
+[3] (./overall-description.aux) ) 
+Here is how much of TeX's memory you used:
+ 346 strings out of 493089
+ 4171 string characters out of 6134841
+ 60057 words of memory out of 5000000
+ 3902 multiletter control sequences out of 15000+600000
+ 6060 words of font info for 22 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 22i,4n,19p,315b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti12.pfb>
+Output written on overall-description.pdf (3 pages, 60932 bytes).
+PDF statistics:
+ 30 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
