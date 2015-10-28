@@ -6,17 +6,17 @@
 
 The product we will release is composed by four main software applications.
 \begin{itemize}
-  \item A \textbf{Web Application (User)} addressed to the \emph{users}  to use our service. This application has to interface mainly with the \textbf{Back-end Application} and with Google's Maps API.
-  \item A \textbf{Mobile Application (User)} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application has to interface mainly with our \textbf{Back-end Application} and with Google's Maps API
-  \item A \textbf{Mobile Application (Taxi Driver)} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application has to interface mainly with our \textbf{Back-end Application} and with Google's Maps API
+  \item A \textbf{Web Application (User)} addressed to the \emph{users}  to use our service. This application must interface mainly with the \textbf{Back-end Application} and with Google's Maps API.
+  \item A \textbf{Mobile Application (User)} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{Back-end Application} and with Google's Maps API
+  \item A \textbf{Mobile Application (Taxi Driver)} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{Back-end Application} and with Google's Maps API
 
-  \item A \textbf{Back-end Application} that will handle all the business logic and that has to interface mainly with Google's Maps API and with a MongoDB database .
+  \item A \textbf{Back-end Application} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MongoDB database .
 \end{itemize}
 
 \subsubsection{User Interfaces}
 %to complete
 \subsubsection{Hardware Interfaces}
-Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi Driver)} has to interface with the GPS module and with the Network module.\\
+Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi Driver)} must interface with the GPS module and with the Network module.\\
 
 \subsubsection{Software Interfaces}
 
@@ -112,7 +112,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 \subsubsection{Communication Interfaces} 
 \label{ssub:communication_interfaces}
 \paragraph{Web Application (User)}\mbox{} \\
-Every application has to interface with the Internet network. This interface is handled by the operative systems and not by the applications themselves.
+Every application must interface with the Internet network. This interface is handled by the operative systems and not by The applications themselves.
 
 \subsubsection{Memory Constrains} % (fold)
 
@@ -125,7 +125,7 @@ The Back-End application can not exceed 15GB of total RAM usage.
 \subsubsection{Site Adaptation Requirements} % (fold)
 \label{ssub:site_adaptation_requirements}
 \paragraph{Software Adaptation} \mbox{} \\
-Every Mobile Application has to be developed according to the platforms design guidelines.
+Every Mobile Application must be developed according to the platforms design guidelines.
 
 \subsection{Product Functions} % (fold)
 \label{sub:product_functions}
@@ -134,23 +134,30 @@ This section highlights the main product functions sorted by application.
 \subsubsection{Web Application and Mobile Application (User)}
 \label{ssub:web_application_and_mobile_application_}
 \begin{itemize}
-	\item {[FUN1\label{itm:FUN1}]}: the app has to allow the user to book a taxi on the spot.
-	\item {[FUN2\label{itm:FUN2}]}: the app has to allow the user to reserve a taxi ride up to 7 days before the chosen date.
-	\item {[FUN3\label{itm:FUN3}]}: the app has to allow the user to share his ride with other people whose destination is included in the ride path.
+	\item {[FUN1\label{itm:FUN1}]}: The app must allow the user to book a taxi on the spot.
+	\item {[FUN2\label{itm:FUN2}]}: The app must allow the user to reserve a taxi ride up to 7 days before the chosen date.
+	\item {[FUN3\label{itm:FUN3}]}: The app must allow the user to share his ride with other people whose destination is included in the ride path.
 \end{itemize}
 
 \subsubsection{Mobile Application (Taxi Driver)} % (fold)
 \label{ssub:mobile_application_}
 \begin{itemize}
-	\item {[FUN4\label{itm:FUN4}]}: the app has to provide position updates to the \emph{back-end application}
-	\item {[FUN5\label{itm:FUN5}]}: the app has to allow the taxi driver to accept or refuse a ride request.
-	\item {[FUN6\label{itm:FUN6}]}: the app has to allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
-	\item {[FUN7\label{itm:FUN7}]}: the app has to allow the taxi driver to overview a history of his last rides.
-	\item {[FUN8\label{itm:FUN8}]}: the app has to allow the taxi driver to report a absent user.
+	\item {[FUN4\label{itm:FUN4}]}: The app must provide position updates to the \emph{back-end application}
+	\item {[FUN5\label{itm:FUN5}]}: The app must allow the taxi driver to accept or refuse a ride request.
+	\item {[FUN6\label{itm:FUN6}]}: The app must allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
+	\item {[FUN7\label{itm:FUN7}]}: The app must allow the taxi driver to overview a history of his last rides.
+	\item {[FUN8\label{itm:FUN8}]}: The app must allow the taxi driver to report a absent user.
 \end{itemize}
 
 \subsubsection{Back-End Application} 
 \label{ssub:back_end_application}
+\begin{itemize}
+	\item {[FUN9\label{itm:FUN9}]}: The application must provide an interface for the registration process of users and taxi drivers
+	\item {[FUN10\label{itm:FUN10}]}: The application must handle the request queue using a fair policy [Rif needed]
+	\item {[FUN11\label{itm:FUN11}]}: The application must provide an accurate [rif needed] estimate of the total cost and time of a ride
+	\item {[FUN11\label{itm:FUN12}]}: The application must provide an interface to allow an operator to manually all basics CRUD operations
+
+\end{itemize}
 
 
 
