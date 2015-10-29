@@ -27,15 +27,24 @@ This way, each and every reader will have a clear understanding of the \emph{sys
 \subsection{Scope}
 
 The aim of \emph{myTaxiService} presented in the RASD is to:
-\begin{itemize}
-\item Make the process of requesting a service intuitive for any kind of user.
-\item Lower the time required from a user to request or book a taxi. Request time is less than 30 seconds, booking time is less than 1,5 minutes.
-\item Enable the user to take advantage of the taxi service from a wide range of locations, namely from every location where the user has access to an Internet enabled device that can run the application.
-\item Guarantee a fair management of the taxi queue by minimizing the idle time of every taxi driver using the service.
-\end{itemize}
+\begin{enumerate} [label = \textbf{[G\arabic*]}]
+\item \textbf{Intuitive service}\hfill \\
+\label{goal:intuitive}
+Make the process of requesting a service intuitive for any kind of user.
+\item \textbf{Fast}\hfill \\
+\label{goal:time}
+Lower the time required from a user to request or book a taxi. Request time is less than 30 seconds, booking time is less than 1,5 minutes.
+\item \textbf{Availability}\hfill \\
+\label{goal:availability}
+Enable the user to take advantage of the taxi service from a wide range of locations, namely from every location where the user has access to an Internet enabled device that can run the application.
+\item \textbf{Fair queues}\hfill \\
+\label{goal:queue}
+Guarantee a fair management of the taxi queue by minimizing the idle time of every taxi driver using the service.
+%TODO: molti altri goal
+\end{enumerate}
 To accommodate these goals the following pieces of software are to be developed:
 
-\begin{enumerate} [label = \textbf{APP.\arabic*}]
+\begin{enumerate} [label = \textbf{[APP\arabic*]}]
   \item \textbf{Mobile application} (User) \hfill \\
   \label{app:mobileuser}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
