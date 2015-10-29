@@ -3,22 +3,22 @@
 \subsection{Product Perspective}
 As stated in the \emph{\nameref{sub:scope}} section the product we will release is composed by four main software applications.
 \begin{itemize}
-  \item A \textbf{Web Application (User)} addressed to the \emph{users}  to use our service. This application must interface mainly with the \textbf{Back-end Application} and with Google's Maps API.
-  \item A \textbf{Mobile Application (User)} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{Back-end Application} and with Google's Maps API
-  \item A \textbf{Mobile Application (Taxi Driver)} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{Back-end Application} and with Google's Maps API
+  \item A \textbf{\nameref{app:web}} addressed to the \emph{users}  to use our service. This application must interface mainly with the \textbf{\nameref{app:backend}} and with Google's Maps API.
+  \item A \textbf{\nameref{app:mobileuser}} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
+  \item A \textbf{\nameref{app:mobiledriver}} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
 
-  \item A \textbf{Back-end Application} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MongoDB database .
+  \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MongoDB database .
 \end{itemize}
 
 \subsubsection{User Interfaces}
 %to complete
 \subsubsection{Hardware Interfaces}
-Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi Driver)} must interface with the GPS module and with the Network module.\\
+Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}} must interface with the GPS module and with the Network module.\\
 
 \subsubsection{Software Interfaces}
 
 
-\paragraph{Web Application (User)} 
+\paragraph{\nameref{app:web}}
 
 \begin{itemize}
 	\item MyTaxyService API
@@ -34,7 +34,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 
 \end{itemize}
 
-\paragraph{Mobile Application (User and Taxi Driver)} 
+\paragraph{\nameref{app:mobileuser} and \nameref{app:mobiledriver}} 
 \begin{itemize}
 	\item MyTaxyService API
 	\begin{itemize}
@@ -76,7 +76,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 	\end{itemize}		
 \end{itemize}
 
-\paragraph{Back-end Application} 
+\paragraph{\nameref{app:backend}} 
 
 \begin{itemize}
 	\item Node.js API
@@ -108,15 +108,15 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 
 \subsubsection{Communication Interfaces} 
 \label{ssub:communication_interfaces}
-\paragraph{Web Application (User)}\mbox{} \\
+\paragraph{\nameref{app:web}}\mbox{} \\
 Every application must interface with the Internet network. This interface is handled by the operative systems and not by The applications themselves.
 
 \subsubsection{Memory Constrains} 
 
 \label{ssub:memory_constrains}
-\paragraph{Mobile Applications (User and Taxi Driver) and Web Application}
+\paragraph{\nameref{app:web} and \nameref{app:mobileuser} and \nameref{app:mobiledriver} }
 The Mobile and Web Applications can not exceed 75MB of RAM usage.
-\paragraph{Back-End Application}
+\paragraph{\nameref{app:backend}}
 The Back-End application can not exceed 15GB of total RAM usage.
 
 \subsubsection{Site Adaptation Requirements} 
@@ -128,7 +128,7 @@ Every Mobile Application must be developed according to the platforms design gui
 \label{sub:product_functions}
 This section highlights the main product functions sorted by application.
 
-\subsubsection{Web Application and Mobile Application (User)}
+\subsubsection{\nameref{app:web} and \nameref{app:mobileuser}}
 \label{ssub:web_application_and_mobile_application_}
 \begin{enumerate} [label = \textbf{[F\arabic*]}]
 	\item  The app must allow the user to book a taxi on the spot.
@@ -136,7 +136,7 @@ This section highlights the main product functions sorted by application.
 	\item  The app must allow the user to share his ride with other people whose destination is included in the ride path.
 \end{enumerate}
 
-\subsubsection{Mobile Application (Taxi Driver)} 
+\subsubsection{\nameref{app:mobiledriver}} 
 \label{ssub:mobile_application_}
 \begin{enumerate} [resume*]
 	\item  The app must provide position updates to the \emph{back-end application}
@@ -146,7 +146,7 @@ This section highlights the main product functions sorted by application.
 	\item  The app must allow the taxi driver to report a absent user.
 \end{enumerate}
 
-\subsubsection{Back-End Application} 
+\subsubsection{\nameref{app:backend}} 
 \label{ssub:back_end_application}
 \begin{enumerate} [resume*]
 	\item  The application must provide an interface for the registration process of users and taxi drivers
@@ -186,31 +186,30 @@ The Web Application must be developed in order to be available for the 100\% of 
 
 \subsubsection{Interfaces to other applications} 
 \label{ssub:interfaces_to_other_applications}
-\paragraph{Mobile Application (User)} 
-\label{par:mobile_application_}
-The developer of the Mobile Application (User) must follow the design guideline [rif needed ] of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
+\paragraph{\nameref{app:mobileuser}} 
+The developer of the \textbf{\nameref{app:mobileuser}} must follow the design guideline [rif needed ] of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
 The application must interface with Google's Maps API [rif needed].
-\paragraph{Web Application (User)} 
+\paragraph{\nameref{app:web}} 
 The application must interface with Google's Maps API [rif needed].
-\paragraph{Mobile Application (Taxi Driver)} 
+\paragraph{\nameref{app:mobiledriver}} 
 The application must interface with Google's Maps API [rif needed].
-\paragraph{Back-end Application} 
+\paragraph{\nameref{app:backend}} 
 The application must interface with Google's Maps API [rif needed].
 
 \subsubsection{Parallel Operations} 
 \label{ssub:parrallel_operations}
-\paragraph{Back-end Application} 
-The Back-end Application must handle parallel request from multiple users without generating conflicts or inconsistency.\\
+\paragraph{\nameref{app:backend}} 
+The \textbf{\nameref{app:backend}} must handle parallel request from multiple users without generating conflicts or inconsistency.\\
 The system must decline a request from a user if it finds another active request from the same user.
 
 \subsubsection{Reliability Requirements} 
 \label{ssub:reliability_requirements}
-\paragraph{Back-end Application} 
+\paragraph{\nameref{app:backend}} 
 This requirement of reliability and availability refers to the total time the system is available for the applications of the end users.\\
 The system must reach a 99.99\% uptime (corresponding to a inactivity time of 50 minutes/year).
 \subsubsection{Safety and Security} 
 \label{ssub:safety_and_security}
-\paragraph{Mobile Application (Taxi Driver)} 
+\paragraph{\nameref{app:mobiledriver}} 
 The application must include an automatic night mode and gallery mode in order not to compromise the driver security [rif needed]
 
 \subsection{Assumptions And Dependencies} 
@@ -218,7 +217,7 @@ The application must include an automatic night mode and gallery mode in order n
 \subsubsection{Domain Assumptions} 
 \label{ssub:domain}
 We assume that the system will be deployed in a city of about 1.5M inhabitants with about 4800 regular licensed taxi drivers.\\
-We assume that at launch time the end user mobile application will reach an audience of about 100k users while the web application will reach an audience of about 10k users.\\
+We assume that at launch time the end user \textbf{\nameref{app:mobileuser}} will reach an audience of about 100k users while the \textbf{\nameref{app:web}} will reach an audience of about 10k users.\\
 We assume that the city is dived in taxi zones.
 \subsubsection{Taxi Driver Assumptions} 
 We assume that every taxi driver will have a compatible device (personal or provided by the project client) [rif needed] with a working GPS module.
