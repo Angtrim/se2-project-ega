@@ -1,4 +1,6 @@
 \documentclass[12pt, a4paper]{article}
+\usepackage{hyperref}
+
 \begin{document}
 
 \section{Overall Description}
@@ -32,7 +34,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 	\begin{itemize}
 		\item Mnemonic : Google Maps API
 		\item Version Number : V3
-		\item Source : \emph{https://developers.google.com/maps/documentation/javascript/} 
+		\item Source : \url{https://developers.google.com/maps/documentation/javascript/} 
 	\end{itemize}
 
 \end{itemize}
@@ -47,35 +49,35 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 	\begin{itemize}
 		\item Mnemonic : Google Maps API
 		\item Version Number : V3
-		\item Source : \emph{https://developers.google.com/maps/} 
+		\item Source : \url{https://developers.google.com/maps/} 
 	\end{itemize}
 
 	\item Android SDK
 	\begin{itemize}
 		\item Mnemonic : Android
 		\item Version Number : 6.0
-		\item Source : \emph{http://developer.android.com/sdk/index.html} 
+		\item Source : \url{http://developer.android.com/sdk/index.html} 
 	\end{itemize}
 
 	\item iOS SDK
 	\begin{itemize}
 		\item Mnemonic : iOS
 		\item Version Number : 9.2
-		\item Source : \emph{https://developer.apple.com/ios/download/} 
+		\item Source : \url{https://developer.apple.com/ios/download/} 
 	\end{itemize}
 
 	\item Windows Mobile SDK
 	\begin{itemize}
 		\item Mnemonic : Windows Mobile
 		\item Version Number : 6.5
-		\item Source : \emph{http://www.microsoft.com/en-us/download/details.aspx?id=17284} 
+		\item Source : \url{http://www.microsoft.com/en-us/download/details.aspx?id=17284} 
 	\end{itemize}
 
 	\item BlackBerry SDK
 	\begin{itemize}
 		\item Mnemonic : BlackBerry
 		\item Version Number : 10
-		\item Source : \emph{https://developer.blackberry.com/} 
+		\item Source : \url{https://developer.blackberry.com/} 
 	\end{itemize}		
 \end{itemize}
 
@@ -86,26 +88,26 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 	\begin{itemize}
 		\item Mnemonic : Node.js
 		\item Version : 4.2.1
-		\item Source : \emph{https://nodejs.org/api/}
+		\item Source : \url{https://nodejs.org/api/}
 	\end{itemize}
 
 	\item MongoDB API
 	\begin{itemize}
 		\item Mnemonic : MongoDB
 		\item Version : 3.0
-		\item Source : \emph{https://docs.mongodb.org/manual/}
+		\item Source : \url{https://docs.mongodb.org/manual/}
 	\end{itemize}
 
 	\item Google Maps API
 	\begin{itemize}
 		\item Mnemonic : Google Maps API
 		\item Version Number : V3
-		\item Source : \emph{https://developers.google.com/maps/documentation/javascript/}
+		\item Source : \url{https://developers.google.com/maps/documentation/javascript/}
 	\end{itemize}
 	\item Javascript API
 	\begin{itemize}
 		\item Mnemonic : Javascript
-		\item Source : \emph{https://developer.mozilla.org/en/docs/Web/API} 
+		\item Source : \url{https://developer.mozilla.org/en/docs/Web/API} 
 	\end{itemize}
 \end{itemize}
 
@@ -114,7 +116,7 @@ Both the \emph{Mobile Application (User)} and the \emph{Mobile Application (Taxi
 \paragraph{Web Application (User)}\mbox{} \\
 Every application must interface with the Internet network. This interface is handled by the operative systems and not by The applications themselves.
 
-\subsubsection{Memory Constrains} % (fold)
+\subsubsection{Memory Constrains} 
 
 \label{ssub:memory_constrains}
 \paragraph{Mobile Applications (User and Taxi Driver) and Web Application}
@@ -122,12 +124,12 @@ The Mobile and Web Applications can not exceed 75MB of RAM usage.
 \paragraph{Back-End Application}
 The Back-End application can not exceed 15GB of total RAM usage.
 
-\subsubsection{Site Adaptation Requirements} % (fold)
+\subsubsection{Site Adaptation Requirements} 
 \label{ssub:site_adaptation_requirements}
 \paragraph{Software Adaptation} \mbox{} \\
 Every Mobile Application must be developed according to the platforms design guidelines.
 
-\subsection{Product Functions} % (fold)
+\subsection{Product Functions} 
 \label{sub:product_functions}
 This section highlights the main product functions sorted by application.
 
@@ -139,7 +141,7 @@ This section highlights the main product functions sorted by application.
 	\item {[FUN3\label{itm:FUN3}]}: The app must allow the user to share his ride with other people whose destination is included in the ride path.
 \end{itemize}
 
-\subsubsection{Mobile Application (Taxi Driver)} % (fold)
+\subsubsection{Mobile Application (Taxi Driver)} 
 \label{ssub:mobile_application_}
 \begin{itemize}
 	\item {[FUN4\label{itm:FUN4}]}: The app must provide position updates to the \emph{back-end application}
@@ -168,6 +170,67 @@ Has to be familiar with standard mobile applications interfaces.
 \paragraph{Maintenance Guy} \label{par:maintenance_guy}
 [rif needed] The maintenance guy must be able to debug and identify issues in a full stack environment. The maintenance guys must be familiar with the application requirements and the overall infrastructure and design.
 \paragraph{Support Operator} \label{par:support_operator} The support operator must be familiar with the overall application design and has to know how to resolve common user's issues.
+
+\subsection{Constraints} 
+\label{sub:constraints}
+
+\subsubsection{Regulatory Policies} 
+\label{ssub:regulatory_policies}
+\begin{itemize}
+	\item \textbf{Privacy Policy} Data should be collected and stored following the privacy policy guidelines provided by Mozzilla Foundation [rif needed] 	\url{https://developer.mozilla.org/en-US/Marketplace/Publishing/Policies_and_Guidelines/Privacy_policies}
+	\item \textbf{Taxi Driver Policy} The client application for taxi drivers must be accessible only by registered and regularly licensed driver.[rif neeeded]
+\end{itemize}
+
+\subsubsection{Hardware Limitations} 
+\label{ssub:hardware_limitations}
+\paragraph{Mobile Application (User)} 
+The Mobile Application (User) must be developed in order to be available for the 80\% of the devices currently on the market for each different platform.
+\paragraph{Web Application (User)}
+The Web Application must be developed in order to be available for the 100\% of devices that support the latest version [rif needed] of most used browser [rif needed]
+
+
+\subsubsection{Interfaces to other applications} 
+\label{ssub:interfaces_to_other_applications}
+\paragraph{Mobile Application (User)} 
+\label{par:mobile_application_}
+The developer of the Mobile Application (User) must follow the design guideline [rif needed ] of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
+The application must interface with Google's Maps API [rif needed].
+\paragraph{Web Application (User)} 
+The application must interface with Google's Maps API [rif needed].
+\paragraph{Mobile Application (Taxi Driver)} 
+The application must interface with Google's Maps API [rif needed].
+\paragraph{Back-end Application} 
+The application must interface with Google's Maps API [rif needed].
+
+\subsubsection{Parallel Operations} 
+\label{ssub:parrallel_operations}
+\paragraph{Back-end Application} 
+The Back-end Application must handle parallel request from multiple users without generating conflicts or inconsistency.\\
+The system must decline a request from a user if it finds another active request from the same user.
+
+\subsubsection{Reliability Requirements} 
+\label{ssub:reliability_requirements}
+\paragraph{Back-end Application} 
+This requirement of reliability and availability refers to the total time the system is available for the applications of the end users.\\
+The system must reach a 99.99\% uptime (corresponding to a inactivity time of 50 minutes/year).
+\subsubsection{Safety and Security} 
+\label{ssub:safety_and_security}
+\paragraph{Mobile Application (Taxi Driver)} 
+The application must include an automatic night mode and gallery mode in order not to compromise the driver security [rif needed]
+
+\subsection{Assumptions And Dependencies} 
+\label{sub:assumptions_and_dependencies}
+\subsubsection{Domain Assumptions} 
+\label{ssub:domain}
+We assume that the system will be deployed in a city of about 1.5M inhabitants with about 4800 regular licensed taxi drivers.\\
+We assume that at launch time the end user mobile application will reach an audience of about 100k users while the web application will reach an audience of about 10k users.
+\subsubsection{Taxi Driver Assumptions} 
+We assume that every taxi driver will have a compatible device (personal or provided by the project client) [rif needed] with a working GPS module.
+\subsubsection{User Assumptions} 
+\label{ssub:user_assumptions}
+We assume that every user will have a device with an enable Internet connection.
+
+
 
 
 
