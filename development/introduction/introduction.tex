@@ -1,4 +1,6 @@
+
 \documentclass[12pt, a4paper]{article}
+\usepackage{hyperref, enumitem}
 \begin{document}
 
 \section{Introduction}
@@ -33,26 +35,30 @@ The aim of \emph{myTaxiService} presented in the RASD is to:
 \end{itemize}
 To accommodate these goals the following pieces of software are to be developed:
 
-\begin{description}
-  \item[Mobile application] \hfill \\
+\begin{enumerate} [label = \textbf{APP.\arabic*}]
+  \item \textbf{Mobile application} (User) \hfill \\
+  \label{app:mobileuser}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
-  There are two different version of the app, one specifically addressed to the \emph{taxi user}, another one specifically addressed to the \emph{taxi driver}.
-
-  The former gives the \emph{user} the opportunity to manage his profile, request a taxi and make or dismiss a reservation.
+  This one is specifically addressed towards the taxi user, giving him a broad range of actions to perform.
+  It gives the \emph{user} the opportunity to manage his profile, request a taxi and make or dismiss a reservation. %TODO: and maybe more
   The latter enables the \emph{taxi} driver to accept a request issued from the system or dismiss it, signal any problem to the operators.
 
-  \item[Web application] \hfill \\
+  \item \textbf{Mobile application} (Taxi Driver) \hfill \\
+  \label{app:mobiledriver}
+  The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
+  This one is specifically addressed towards the taxi driver.
+  It enables the \emph{taxi driver} to accept a request issued from the system or dismiss it, signal any problem to the operators.
+
+  \item \textbf{Web application} \hfill \\
+  \label{app:web}
   The web application is thought as an alternate way for the \emph{taxi user} to manage his profile, request a taxi and make or dismiss a reservation.
 
-  \item[Back-end] \hfill \\
-  The back-end is the application that manages the request system and queue system. 
-
-  \item[Control Panel] \hfill \\
-  The control panel is the application used by the \emph{operator} to have an overall view of the whole system, issue warnings to users or taxi drivers.
-\end{description}
+  \item \textbf{Back-end} \hfill \\
+  \label{app:backend}
+  The back-end is the application that manages the request system and queue system. This also provides a control panel used by the \emph{operator} to have an overall view of the whole system, and enables him to issue warnings to users or taxi drivers.
+\end{enumerate}
 
 %%
-
 \subsection{Definitions}
 
 \subsection{References}
