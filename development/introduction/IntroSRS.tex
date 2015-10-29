@@ -3,26 +3,35 @@
 
 \section{Introduction}
 
-This is the intro.
-
 \subsection{Purpose}
 
 The current document represents the \emph{Requirement Analysis and Specification Document} (RASD) of \emph{myTaxiService} system.
 This document is intended to be read and used by everyone involved with the development of the software (i.e. developers, testers, project managers). Therefore its purpose is to provide the intended reader with a fulfilling guideline, that can be used as the main resource for the development of the system.
-An incredible amount of effort has been put into every section of this document; every aspect of the \emph{system-to-be} has been explored, analyzed and studied so that every situation can be addressed in a unique way and and can be interpreted without ambiguity.
+An incredible amount of effort has been put into every section of this document; every aspect of the \emph{system-to-be} has been thoroughly explored, meticulously analyzed and accurately studied so that every situation can be addressed in a unique way and can be interpreted without ambiguity.
 
 In the following sections the system is broken down into its components, examining its functional and non-functional requirements; an in depth analysis of the relationship between the system and the external world is conducted throughout the document, stressing the assumptions that have been taken and highlighting the constraints that every requirement has to satisfy in order to have a functional and useful system.
 
+%TODO: refer to specific sections of the document, saying where to find the mentioned resources.
+
+The reader of this document will find UML class diagrams, sequence diagrams and use cases that provide all the needed information required to build the system.
+Furthermore, every use case is justified by the goals and assumptions that lead to the need of a specific use case.
+
+Moreover, the delegating institution will find a reason for every design choice taken and therefore is able understand the necessity of a specific feature.
+
+This way, each and every reader will have a clear understanding of the \emph{system-to-be}, by finding a justification for every decision taken concerning any aspect that is worth of considering for a successful development of the investigated system.
+
+\newpage
+
 \subsection{Scope}
 
-The aim of the system being presented in the RASD is to:
+The aim of \emph{myTaxiService} presented in the RASD is to:
 \begin{itemize}
 \item Make the process of requesting a service intuitive for any kind of user.
 \item Lower the time required from a user to request or book a taxi. Request time is less than 30 seconds, booking time is less than 1,5 minutes.
 \item Enable the user to take advantage of the taxi service from a wide range of locations, namely from every location where the user has access to an Internet enabled device that can run the application.
 \item Guarantee a fair management of the taxi queue by minimizing the idle time of every taxi driver using the service.
 \end{itemize}
-To accommodate these goals the following pieces of software will have to be developed:
+To accommodate these goals the following pieces of software are to be developed:
 
 \begin{description}
   \item[Mobile application] \hfill \\
@@ -33,10 +42,10 @@ To accommodate these goals the following pieces of software will have to be deve
   The latter enables the \emph{taxi} driver to accept a request issued from the system or dismiss it, signal any problem to the operators.
 
   \item[Web application] \hfill \\
-  The web application is thought to an alternate way for the \emph{taxi user} to manage his profile, request a taxi and make or dismiss a reservation.
+  The web application is thought as an alternate way for the \emph{taxi user} to manage his profile, request a taxi and make or dismiss a reservation.
 
   \item[Back-end] \hfill \\
-  The back-end is the application that manages the request system and queue system.
+  The back-end is the application that manages the request system and queue system. 
 
   \item[Control Panel] \hfill \\
   The control panel is the application used by the \emph{operator} to have an overall view of the whole system, issue warnings to users or taxi drivers.
