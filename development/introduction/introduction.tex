@@ -21,6 +21,8 @@ This way, each and every reader will have a clear understanding of the \emph{sys
 
 \subsection{Scope}
 \label{sub:scope}
+\subsubsection{Goals} % (fold)
+\label{ssub:goals}
 The aim of \emph{myTaxiService} presented in the RASD is to:
 \begin{enumerate} [label = \textbf{[G\arabic*]}]
 \item \textbf{Intuitive service}\hfill \\
@@ -37,31 +39,36 @@ Enable the user to take advantage of the taxi service from a wide range of locat
 Guarantee a fair management of the taxi queue by minimizing the idle time of every taxi driver using the service.
 %TODO: molti altri goal
 \end{enumerate}
+% subsubsection goals (end)
+
+\subsubsection{Applications} % (fold)
+\label{ssub:applications}
 To accommodate these goals the following pieces of software are to be developed:
 
-\begin{enumerate} [label = \textbf{[APP\arabic*]}]
-  \item \textbf{Mobile application} (User) \hfill \\
-  \label{app:mobileuser}
+%%%%%%%%%%%%%%
+\paragraph{Mobile Application (User)} % (fold)
+\label{app:mobileuser}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
   This one is specifically addressed towards the taxi user, giving him a broad range of actions to perform.
   It gives the \emph{user} the opportunity to manage his profile, request a taxi and make or dismiss a reservation. %TODO: and maybe more
   The latter enables the \emph{taxi} driver to accept a request issued from the system or dismiss it, signal any problem to the operators.
+% subsubsection mobile_application_ (end)
 
-  \item \textbf{Mobile application} (Taxi Driver) \hfill \\
+\paragraph{Mobile Application (Taxi Driver)} % (fold)
   \label{app:mobiledriver}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
   This one is specifically addressed towards the taxi driver.
   It enables the \emph{taxi driver} to accept a request issued from the system or dismiss it, signal any problem to the operators.
 
-  \item \textbf{Web application} \hfill \\
+\paragraph{Web Application} % (fold)
   \label{app:web}
   The web application is thought as an alternate way for the \emph{taxi user} to manage his profile, request a taxi and make or dismiss a reservation.
 
-  \item \textbf{Back-end} \hfill \\
+\paragraph{Back-end} % (fold)
   \label{app:backend}
   The back-end is the application that manages the request system and queue system. This also provides a control panel used by the \emph{operator} to have an overall view of the whole system, and enables him to issue warnings to users or taxi drivers.
-\end{enumerate}
-
+%%%%%%%%%%
+% subsubsection applications (end)
 %%
 \subsection{Definitions}
 
@@ -78,7 +85,10 @@ To accommodate these goals the following pieces of software are to be developed:
 This document provides a detailed description of the system and it is structured in three main sections:
 
 \begin{description}
-  \item[Introduction] This section gives a high level description of the main topics covered throughout the whole document, that is the system purpose and its scope.
-  \item[Overall description] This section offers the reader an overview over the general factors that affect the product and its requirements.
-  \item[Specific requirements] This offers an insight over every functional and non functional requirement
+  \item[Introduction] \hfill \\
+  This section gives a high level description of the main topics covered throughout the whole document, that is the system purpose and its scope.
+  \item[Overall description] \hfill \\
+  This section offers the reader an overview over the general factors that affect the product and its requirements.
+  \item[Specific requirements] \hfill \\
+  This offers an insight over every functional and non functional requirement
 \end{description}
