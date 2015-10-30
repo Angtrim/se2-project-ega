@@ -32,7 +32,7 @@
  
 	a) Product Perspective :
 
-		- block diagram con le varie API utilizzate, statistiche al 		comune, Google Maps, varie librerie
+		- block diagram con le varie API utilizzate, statistiche al comune, Google Maps, varie librerie
 
 		- User Interface :
 			layout spiegati 
