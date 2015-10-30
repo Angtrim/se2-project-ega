@@ -47,31 +47,46 @@ Guarantee a fair management of the taxi queue by minimizing the idle time of eve
 To accommodate these goals the following pieces of software are to be developed:
 
 %%%%%%%%%%%%%%
-\paragraph{Mobile Application (User)} % (fold)
+\paragraph{Mobile Application (\emph{\nameref{def:user}})} \indent
 \label{app:mobileuser}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
-  This one is specifically addressed towards the taxi user, giving him a broad range of actions to perform.
-  It gives the \emph{user} the opportunity to manage his profile, request a taxi and make or dismiss a reservation. %TODO: and maybe more
-  The latter enables the \emph{taxi} driver to accept a request issued from the system or dismiss it, signal any problem to the operators.
+  This one is specifically addressed towards the \emph{\nameref{def:user}}, giving him a broad range of actions to perform.
+  It gives the \emph{\nameref{def:user}} the opportunity to manage his profile, request a taxi and make or dismiss a reservation. %TODO: and maybe more
 % subsubsection mobile_application_ (end)
 
-\paragraph{Mobile Application (Taxi Driver)} % (fold)
+\paragraph{Mobile Application (\emph{\nameref{def:taxidriver}})} % (fold)
   \label{app:mobiledriver}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
-  This one is specifically addressed towards the taxi driver.
-  It enables the \emph{taxi driver} to accept a request issued from the system or dismiss it, signal any problem to the operators.
+  This one is specifically addressed towards the \emph{\nameref{def:taxidriver}}.
+  It enables the \emph{\nameref{def:taxidriver}} to accept a request issued by the system or dismiss it, signal any problem to the \emph{\nameref{def:operator}}.
 
 \paragraph{Web Application} % (fold)
   \label{app:web}
-  The web application is thought as an alternate way for the \emph{taxi user} to manage his profile, request a taxi and make or dismiss a reservation.
+  %TODO: alternate way to what?
+  The web application is thought as an alternate way, for the \emph{\nameref{def:user}} to manage his profile, request a taxi and make or dismiss a reservation.
 
 \paragraph{Back-End Application} % (fold)
   \label{app:backend}
-  The back-end is the application that manages the request system and queue system. This also provides a control panel used by the \emph{operator} to have an overall view of the whole system, and enables him to issue warnings to users or taxi drivers.
+  The back-end is the application that manages the request system and queue system. This also provides a control panel used by the \emph{\nameref{def:operator}} to have an overall view of the whole system, and enables him to issue warnings to \emph{\nameref{def:user}s} or \emph{\nameref{def:taxidriver}s}.
 %%%%%%%%%%
 % subsubsection applications (end)
 %%
 \subsection{Definitions}
+Here is a list of the words used in this document:
+
+%paragraph
+\paragraph{User} \hfill \\
+\label{def:user} He/She is the end user of the service. The one that, once subscribed, makes use of the taxi service, by 
+
+\paragraph{Taxi Driver} \hfill \\
+\label{def:taxidriver} He/She is another kind of customer of the service. He/She is the one that, once subscribed, will be commissioned with a work.
+
+\paragraph{Operator} \hfill \\
+\label{def:operator} He/She is the person that is in charge of the customer service and interfaces with the customers, both the taxi drivers and the users.
+
+\paragraph{Technician} \hfill \\
+\label{def:technician} He/She is responsible for the maintenance.
+
 
 \subsection{References}
 \begin{itemize}
@@ -91,5 +106,5 @@ This document provides a detailed description of the system and it is structured
   \item[Overall description] \hfill \\
   This section offers the reader an overview over the general factors that affect the product and its requirements.
   \item[Specific requirements] \hfill \\
-  This offers an insight over every functional and non functional requirement
+  This offers an insight over every functional and non functional requirement.
 \end{description}
