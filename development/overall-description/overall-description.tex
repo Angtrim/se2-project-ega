@@ -16,6 +16,7 @@ As stated in the \emph{\nameref{sub:scope}} section the product we will release 
 Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}} must interface with the GPS module and with the Network module.\\
 
 \subsubsection{Software Interfaces}
+\label{subs:softwareinterfaces}
 
 
 \paragraph{\nameref{app:web}}
@@ -158,13 +159,14 @@ This section highlights the main product functions sorted by application.
 
 \subsection{User Characteristics} 
 \label{sub:user_characteristics}
-This section identifies all the different users of the product.
-\paragraph{User}\label{par:user} [rif needed] The user has to be at least 13 years old.\\ 
-Has to be familiar with standard mobile applications interfaces.
-\paragraph{Taxi Driver}\label{par:taxy_driver} [rif needed] The driver has to be a regularly licensed taxi driver.\\ The driver has to be familiar with standard mobile applications interfaces and is required to own a compatible device [rif needed]
-\paragraph{Maintenance Guy} \label{par:maintenance_guy}
-[rif needed] The maintenance guy must be able to debug and identify issues in a full stack environment. The maintenance guys must be familiar with the application requirements and the overall infrastructure and design.
-\paragraph{Support Operator} \label{par:support_operator} The support operator must be familiar with the overall application design and has to know how to resolve common user's issues.
+This section highlights the main characteristics of the  \emph{actors} defined in section \ref{sub:def} on page \pageref{sub:def}.
+
+\paragraph{\nameref{def:user}} The user has to be at least 14 years old and own a valid ID.\\ 
+The user to be familiar with standard mobile applications interfaces.
+\paragraph{\nameref{def:taxidriver}} The driver has to be a regularly licensed taxi driver.\\ The driver has to be familiar with standard mobile applications interfaces.
+\paragraph{\nameref{def:technician}} 
+The technician must be able to debug and identify issues in a full stack environment. The technician must be familiar with the application requirements and the overall infrastructure and design.
+\paragraph{\nameref{def:operator}}  The support operator must be familiar with the overall application design and has to know how to resolve common user's issues.
 
 \subsection{Constraints} 
 \label{sub:constraints}
@@ -172,8 +174,8 @@ Has to be familiar with standard mobile applications interfaces.
 \subsubsection{Regulatory Policies} 
 \label{ssub:regulatory_policies}
 \begin{itemize}
-	\item \textbf{Privacy Policy} Data should be collected and stored following the privacy policy guidelines provided by Mozzilla Foundation [rif needed] 	\url{https://developer.mozilla.org/en-US/Marketplace/Publishing/Policies_and_Guidelines/Privacy_policies}
-	\item \textbf{Taxi Driver Policy} The client application for taxi drivers must be accessible only by registered and regularly licensed driver.[rif neeeded]
+	\item \textbf{Privacy Policy} Data should be collected and stored following the privacy policy guidelines provided by Mozzilla Foundation \url{https://developer.mozilla.org/en-US/Marketplace/Publishing/Policies_and_Guidelines/Privacy_policies}
+	\item \textbf{Taxi Driver Policy} The client application for taxi drivers must be accessible only by registered and regularly licensed driver.
 \end{itemize}
 
 \subsubsection{Hardware Limitations} 
@@ -181,20 +183,20 @@ Has to be familiar with standard mobile applications interfaces.
 \paragraph{Mobile Application (User)} 
 The Mobile Application (User) must be developed in order to be available for the 80\% of the devices currently on the market for each different platform.
 \paragraph{Web Application (User)}
-The Web Application must be developed in order to be available for the 100\% of devices that support the latest version [rif needed] of most used browser [rif needed]
+The Web Application must be developed in order to be available for the 100\% of devices that support the latest version of most used browser \footnote {\url{http://www.w3schools.com/browsers/browsers_stats.asp}}
 
 
 \subsubsection{Interfaces to other applications} 
 \label{ssub:interfaces_to_other_applications}
 \paragraph{\nameref{app:mobileuser}} 
-The developer of the \textbf{\nameref{app:mobileuser}} must follow the design guideline [rif needed ] of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
-The application must interface with Google's Maps API [rif needed].
+The developer of the \textbf{\nameref{app:mobileuser}} must follow the design guideline \footnote{\url{http://developer.android.com/design/index.html}} \footnote{\url{https://developer.apple.com/design/}} of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
+The application must interface with Google's Maps API \footnote{See section \ref{subs:softwareinterfaces} on page \pageref{subs:softwareinterfaces}}
 \paragraph{\nameref{app:web}} 
-The application must interface with Google's Maps API [rif needed].
+The application must interface with Google's Maps API.
 \paragraph{\nameref{app:mobiledriver}} 
-The application must interface with Google's Maps API [rif needed].
+The application must interface with Google's Maps API.
 \paragraph{\nameref{app:backend}} 
-The application must interface with Google's Maps API [rif needed].
+The application must interface with Google's Maps API.
 
 \subsubsection{Parallel Operations} 
 \label{ssub:parrallel_operations}
@@ -210,7 +212,7 @@ The system must reach a 99.99\% uptime (corresponding to a inactivity time of 50
 \subsubsection{Safety and Security} 
 \label{ssub:safety_and_security}
 \paragraph{\nameref{app:mobiledriver}} 
-The application must include an automatic night mode and gallery mode in order not to compromise the driver security [rif needed]
+The application must include an automatic night mode and gallery mode in order not to compromise the driver security.
 
 \subsection{Assumptions And Dependencies} 
 \label{sub:assumptions_and_dependencies}
@@ -220,8 +222,9 @@ We assume that the system will be deployed in a city of about 1.5M inhabitants w
 We assume that at launch time the end user \textbf{\nameref{app:mobileuser}} will reach an audience of about 100k users while the \textbf{\nameref{app:web}} will reach an audience of about 10k users.\\
 We assume that the city is dived in taxi zones.
 \subsubsection{Taxi Driver Assumptions} 
-We assume that every taxi driver will have a compatible device (personal or provided by the project client) [rif needed] with a working GPS module.
+We assume that every taxi driver will have a compatible device  \footnote{See section \ref{sub:constraints} on page \pageref{sub:constraints}} (personal or provided by the project client) with a working GPS module.
 \subsubsection{User Assumptions} 
 \label{ssub:user_assumptions}
 We assume that every user will have a device with an enabled Internet connection.\\
 We also assume that the location provided by the user (manually or automatically via GPS) is always correct.
+
