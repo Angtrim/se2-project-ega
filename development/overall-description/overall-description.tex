@@ -8,7 +8,7 @@ As stated in the \emph{\nameref{sub:scope}} section the product we will release 
   \item A \textbf{\nameref{app:mobileuser}} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
   \item A \textbf{\nameref{app:mobiledriver}} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
 
-  \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MongoDB database .
+  \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MySQL database .
 \end{itemize}
 
 \subsubsection{User Interfaces}
@@ -84,18 +84,18 @@ Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}
 \paragraph{\nameref{app:backend}} 
 
 \begin{itemize}
-	\item Node.js API
+	\item MySQL API
 	\begin{itemize}
-		\item Mnemonic : Node.js
-		\item Version : 4.2.1
-		\item Source : \url{https://nodejs.org/api/}
+		\item Mnemonic : MySQL
+		\item Version : 5.0
+		\item Source : \url{https://dev.mysql.com/doc/refman/5.0/en/c-api.html}
 	\end{itemize}
 
-	\item MongoDB API
+	\item Java EE API
 	\begin{itemize}
-		\item Mnemonic : MongoDB
-		\item Version : 3.0
-		\item Source : \url{https://docs.mongodb.org/manual/}
+		\item Mnemonic : Java
+		\item Version : 6
+		\item Source : \url{http://docs.oracle.com/javaee/6/api/}
 	\end{itemize}
 
 	\item Google Maps API
@@ -104,11 +104,7 @@ Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}
 		\item Version Number : V3
 		\item Source : \url{https://developers.google.com/maps/documentation/javascript/}
 	\end{itemize}
-	\item Javascript API
-	\begin{itemize}
-		\item Mnemonic : Javascript
-		\item Source : \url{https://developer.mozilla.org/en/docs/Web/API} 
-	\end{itemize}
+
 \end{itemize}
 
 \subsubsection{Communication Interfaces} 
@@ -131,21 +127,25 @@ Every Mobile Application must be developed according to the platforms design gui
 
 \subsection{Product Functions} 
 \label{sub:product_functions}
-This section highlights the main product functions sorted by application.
+This section highlights the main product functions sorted by application.\\
+Functions are here described in high level language to give a general overview of the products.\\
+Detailed requirements are listed in section \ref{sec:functionalrequirement} on page \pageref{sec:functionalrequirement}
 
 \subsubsection{\nameref{app:web} and \nameref{app:mobileuser}}
 \label{ssub:web_application_and_mobile_application_}
 \begin{enumerate} [label = \textbf{[F\arabic*]}]
+	\item The app must allow the user to register and login
 	\item  The app must allow the user to book a taxi on the spot.
-	\item  The app must allow the user to reserve a taxi ride up to 7 days before the chosen date.
+	\item  The app must allow the user to reserve a taxi ride
 	\item  The app must allow the user to share his ride with other people whose destination is included in the ride path.
 \end{enumerate}
 
 \subsubsection{\nameref{app:mobiledriver}} 
-\label{ssub:mobile_application_}
+\label{ssub:mobile_application_driver}
 \begin{enumerate} [resume*]
+	\item The app must allow the taxi driver to login
 	\item  The app must provide position updates to the \emph{back-end application}
-	\item  The app must allow the taxi driver to accept or refuse a ride request.
+	\item  The app must allow the taxi driver handle ride requests
 	\item  The app must allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
 	\item  The app must allow the taxi driver to overview a history of his last rides.
 	\item  The app must allow the taxi driver to report a absent user.
@@ -154,9 +154,12 @@ This section highlights the main product functions sorted by application.
 \subsubsection{\nameref{app:backend}} 
 \label{ssub:back_end_application}
 \begin{enumerate} [resume*]
+
 	\item  The application must provide an interface for the registration process of users and taxi drivers
-	\item  The application must handle the request queue using a fair policy [Rif needed]
-	\item  The application must provide an accurate [rif needed] estimate of the total cost and time of a ride
+	\item The application must provide an interface for the data modification process of the users
+	\item The application must implement a password recovery system
+	\item  The application must handle the request queue using a fair policy 
+	\item  The application must provide an accurate estimate of the total cost and time of a ride
 	\item  The application must provide an interface to allow an operator to perform all basics CRUD operations
 
 \end{enumerate}
@@ -231,4 +234,8 @@ We assume that every taxi driver will have a compatible device  \footnote{See se
 \label{ssub:user_assumptions}
 We assume that every user will have a device with an enabled Internet connection.\\
 We also assume that the location provided by the user (manually or automatically via GPS) is always correct.
+\subsubsection{Taxi Driver Assumptions} 
+\label{ssub:driver_assumptions}
+We assume that the taxi driver has to send his personal information (license number, name, surname, C.F) via email to the support address to get valid login credentials.\\
+We assume that every taxi driver handles all his rides with our application.
 
