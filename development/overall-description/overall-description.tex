@@ -132,16 +132,18 @@ This section highlights the main product functions sorted by application.
 \subsubsection{\nameref{app:web} and \nameref{app:mobileuser}}
 \label{ssub:web_application_and_mobile_application_}
 \begin{enumerate} [label = \textbf{[F\arabic*]}]
+	\item The app must allow the user to register and login
 	\item  The app must allow the user to book a taxi on the spot.
-	\item  The app must allow the user to reserve a taxi ride up to 7 days before the chosen date.
+	\item  The app must allow the user to reserve a taxi ride
 	\item  The app must allow the user to share his ride with other people whose destination is included in the ride path.
 \end{enumerate}
 
 \subsubsection{\nameref{app:mobiledriver}} 
-\label{ssub:mobile_application_}
+\label{ssub:mobile_application_driver}
 \begin{enumerate} [resume*]
+	\item The app must allow the taxi driver to login
 	\item  The app must provide position updates to the \emph{back-end application}
-	\item  The app must allow the taxi driver to accept or refuse a ride request.
+	\item  The app must allow the taxi driver handle ride requests
 	\item  The app must allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
 	\item  The app must allow the taxi driver to overview a history of his last rides.
 	\item  The app must allow the taxi driver to report a absent user.
@@ -227,4 +229,7 @@ We assume that every taxi driver will have a compatible device  \footnote{See se
 \label{ssub:user_assumptions}
 We assume that every user will have a device with an enabled Internet connection.\\
 We also assume that the location provided by the user (manually or automatically via GPS) is always correct.
+\subsubsection{Taxi Driver Assumptions} 
+\label{ssub:driver_assumptions}
+We assume that the taxi driver has to send his personal information (license number, name, surname, C.F) via email to the support address to get valid login credentials.
 

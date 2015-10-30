@@ -1,6 +1,48 @@
 %!TEX root = ../RASD/main.tex
 
-\subsection{Functions} % (fold)
-\label{sec:Functions}
+\subsection{Functional Requirements} % (fold)
+\label{sec:functionalrequirement}
+\subsubsection{\nameref{app:web}}
+Requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
+\begin{enumerate}[label = \textbf{[FR\arabic*]}]
+	\item The application must allow every unregistered person above 13 years old to register
+	\item The application must allow only registered user to access the service
+	\item The application must allow the user to choose his starting position
+	\item The application must allow the user to select the destination position
+	\item The application must check that only valid coordinates and addresses  are selected by the user
+	\item The application must allow the user to book a taxi only if there are not other reservations
+	\item The application must allow the user to reserve a taxi for a chosen  date and position
+	\item The application must allow the user to active the sharing option to allow other users to share the ride
+	\item The application must allow the user to find sharing rides available in his path. 
+\end{enumerate}
 
-% section Functions (end)
+
+\subsubsection{\nameref{app:mobileuser}}
+Requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
+\begin{enumerate}[resume*]
+	\item The application must allow every unregistered person above 13 years old to register
+	\item The application must allow only registered user to access the service
+	\item The application must allow the user to choose his starting position
+	\item The application must allow the user to use the GPS interface to select the starting position
+	\item The application must allow the user to select the destination position
+	\item The application must check that only valid coordinates and addresses  are selected by the user
+	\item The application must allow the user to book a taxi only if there are not other reservations
+	\item The application must allow the user to reserve a taxi for a chosen  date and position
+	\item The application must allow the user to active the sharing option to allow other users to share the ride
+	\item The application must allow the user to find sharing rides available in his path. 
+\end{enumerate}
+
+\subsubsection{\nameref{app:mobiledriver}}
+Requirements for the main functions specified in section \ref{ssub:mobile_application_driver} on page \pageref{ssub:mobile_application_driver}.
+\begin{enumerate}[resume*]
+	\item The application must allow only registered drivers \footnote{See section \ref{ssub:driver_assumptions} on page \pageref{ssub:driver_assumptions}} to access the service
+	\item The application must send every 2 minutes a position update to the \nameref{app:backend}.
+	\item The application must allow the driver to accept a ride request in just one tap
+	\item The application must allow the driver to refuse a ride request in just one tap
+	\item The application must allow the driver to report issues using a drop-down 
+	\item The application must show a list of the last 30 rides, providing information about time, passenger and cost.
+	\item The application must allow the driver to report an absent user selecting the appropriate ride request.
+	\item The application must dim the screen light during late hours and when a gallery is detected by the GPS
+
+\end{enumerate}
+
