@@ -5,7 +5,7 @@
 \subsubsection{\nameref{app:web}}
 Requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
 \begin{enumerate}[label = \textbf{[FR\arabic*]}]
-	\item The application must allow every unregistered person above 13 years old to register
+	\item The application must allow every unregistered person above 13 years old to register providing email, ID number, name, surname, date of birth.
 	\item The application must allow only registered user to access the service
 	\item The application must allow the user to choose his starting position
 	\item The application must allow the user to select the destination position
@@ -13,14 +13,15 @@ Requirements for the main functions specified in section \ref{ssub:web_applicati
 	\item The application must allow the user to book a taxi only if there are not other reservations
 	\item The application must allow the user to reserve a taxi for a chosen  date and position
 	\item The application must allow the user to active the sharing option to allow other users to share the ride
-	\item The application must allow the user to find sharing rides available in his path. 
+	\item The application must allow the user to find sharing rides available in his path.
+	\item The application must allow the user to modify his personal information (except for the ID number)	 
 \end{enumerate}
 
 
 \subsubsection{\nameref{app:mobileuser}}
 Requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
 \begin{enumerate}[resume*]
-	\item The application must allow every unregistered person above 13 years old to register
+	\item The application must allow every unregistered person above 13 years old to register providing email, ID number, name, surname, date of birth.
 	\item The application must allow only registered user to access the service
 	\item The application must allow the user to choose his starting position
 	\item The application must allow the user to use the GPS interface to select the starting position
@@ -30,6 +31,7 @@ Requirements for the main functions specified in section \ref{ssub:web_applicati
 	\item The application must allow the user to reserve a taxi for a chosen  date and position
 	\item The application must allow the user to active the sharing option to allow other users to share the ride
 	\item The application must allow the user to find sharing rides available in his path. 
+	\item The application must allow the user to modify his personal information (except for the ID number)
 \end{enumerate}
 
 \subsubsection{\nameref{app:mobiledriver}}
@@ -60,7 +62,9 @@ Requirements for the main functions specified in section \ref{ssub:back_end_appl
 	\item The application must handle one queue for every city zone
 	\item The application must assign a driver to a queue if and only if the driver is in the zone of the corresponding queue
 	\item The application must sort the queue in a descending order using the driver idle time as ordering parameter
-	\item The application must calculate an estimated time and cost for every ride request using Google's Maps API 
+	\item The application must calculate an estimated time and cost for every ride request using Google's Maps API
+	\item The application must update the database after a user request some data modification
+	\item The application must send a password reset email when the user signal that he has lost his password
 
 
 \end{enumerate}

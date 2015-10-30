@@ -7,7 +7,7 @@ As stated in the \emph{\nameref{sub:scope}} section the product we will release 
   \item A \textbf{\nameref{app:mobileuser}} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
   \item A \textbf{\nameref{app:mobiledriver}} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
 
-  \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MongoDB database .
+  \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MySQL database .
 \end{itemize}
 
 \subsubsection{User Interfaces}
@@ -80,18 +80,18 @@ Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}
 \paragraph{\nameref{app:backend}} 
 
 \begin{itemize}
-	\item Node.js API
+	\item MySQL API
 	\begin{itemize}
-		\item Mnemonic : Node.js
-		\item Version : 4.2.1
-		\item Source : \url{https://nodejs.org/api/}
+		\item Mnemonic : MySQL
+		\item Version : 5.0
+		\item Source : \url{https://dev.mysql.com/doc/refman/5.0/en/c-api.html}
 	\end{itemize}
 
-	\item MongoDB API
+	\item Java EE API
 	\begin{itemize}
-		\item Mnemonic : MongoDB
-		\item Version : 3.0
-		\item Source : \url{https://docs.mongodb.org/manual/}
+		\item Mnemonic : Java
+		\item Version : 6
+		\item Source : \url{http://docs.oracle.com/javaee/6/api/}
 	\end{itemize}
 
 	\item Google Maps API
@@ -100,11 +100,7 @@ Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}
 		\item Version Number : V3
 		\item Source : \url{https://developers.google.com/maps/documentation/javascript/}
 	\end{itemize}
-	\item Javascript API
-	\begin{itemize}
-		\item Mnemonic : Javascript
-		\item Source : \url{https://developer.mozilla.org/en/docs/Web/API} 
-	\end{itemize}
+
 \end{itemize}
 
 \subsubsection{Communication Interfaces} 
@@ -154,9 +150,12 @@ Detailed requirements are listed in section \ref{sec:functionalrequirement} on p
 \subsubsection{\nameref{app:backend}} 
 \label{ssub:back_end_application}
 \begin{enumerate} [resume*]
+
 	\item  The application must provide an interface for the registration process of users and taxi drivers
+	\item The application must provide an interface for the data modification process of the users
+	\item The application must implement a password recovery system
 	\item  The application must handle the request queue using a fair policy 
-	\item  The application must provide an accurate [rif needed] estimate of the total cost and time of a ride
+	\item  The application must provide an accurate estimate of the total cost and time of a ride
 	\item  The application must provide an interface to allow an operator to perform all basics CRUD operations
 
 \end{enumerate}
