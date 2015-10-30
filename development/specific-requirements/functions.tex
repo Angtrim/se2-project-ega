@@ -39,10 +39,29 @@ Requirements for the main functions specified in section \ref{ssub:mobile_applic
 	\item The application must send every 2 minutes a position update to the \nameref{app:backend}.
 	\item The application must allow the driver to accept a ride request in just one tap
 	\item The application must allow the driver to refuse a ride request in just one tap
-	\item The application must allow the driver to report issues using a drop-down 
+	\item The application must allow the driver to report most common issues using a drop-down 
 	\item The application must show a list of the last 30 rides, providing information about time, passenger and cost.
 	\item The application must allow the driver to report an absent user selecting the appropriate ride request.
+	\item The application must notify the driver when the sharing option is active
+	\item The application must show the driver all the starting and arrival position when the sharing option is active
 	\item The application must dim the screen light during late hours and when a gallery is detected by the GPS
+
+\end{enumerate}
+
+\subsubsection{\nameref{app:backend}}
+\label{subs:backend_requirements}
+Requirements for the main functions specified in section \ref{ssub:back_end_application} on page \pageref{ssub:back_end_application}.
+\begin{enumerate}[resume*]
+	\item The application must accept registration request from the \nameref{app:mobileuser} and the \nameref{app:web} and create a new user
+	\item The application must provide a control panel to allow the operator to register a new taxi driver
+	\item The control panel must be accessible only with a secret password
+	\item The application must generate automatically login credentials for new taxi driver
+	\item The application must record every ride and store all the data in the database
+	\item The application must handle one queue for every city zone
+	\item The application must assign a driver to a queue if and only if the driver is in the zone of the corresponding queue
+	\item The application must sort the queue in a descending order using the driver idle time as ordering parameter
+	\item The application must calculate an estimated time and cost for every ride request using Google's Maps API 
+
 
 \end{enumerate}
 
