@@ -68,7 +68,9 @@ Alice is logged in. She wants to change some data she entered wrong.
 \subsubsection{Taxi Request} 
 \label{ssub:taxirequest_scenario}
 \paragraph{Scenario} \hfill \\
-Alice is logged in. She wants to book a taxi. She opens the app, she fills all the fields, she asks for a taxi and waits for the response.
+Alice is logged in. She wants to book a taxi. She opens the app, she fills all the fields, she asks for a taxi and waits for the response.\\
+Bob is a taxi driver, he is now free.\\
+Bob receives a ride request and decide whether to accept it or not.
 % Table
 \import{../tables/}{userbooktaxitable.tex}
 % Sequence diagram
@@ -113,6 +115,44 @@ Bob asked for a taxi 2 minutes ago. Bob finds out he does not need a taxi ride a
 \begin{figure}
 \caption{Sequence Diagram}
 \includegraphics[width=\textwidth]{Collaboration6__Interaction1__DeleteRequest_5}
+\centering
+\end{figure}
+\vfill
+\clearpage
+
+% Report problem
+\subsubsection{Report Problem} 
+\label{ssub:reportproblem_scenario}
+\paragraph{Scenario} \hfill \\
+Bob is a taxi driver. Bob is riding his cab while a incident occurs and he will have to wait at least 30 minutes. Bob report the incident to the system using the app.
+% Table
+\import{../tables/}{reportproblemtable.tex}
+% Sequence diagram
+\newpage
+\vfill
+\begin{figure}
+\caption{Sequence Diagram}
+\includegraphics[width=\textwidth]{Collaboration7__Interaction1__ReportRoadProblem_6}
+\centering
+\end{figure}
+\vfill
+\clearpage
+
+% Report problem
+\subsubsection{Ride Sharing} 
+\label{ssub:ridesharing_scenario}
+\paragraph{Scenario} \hfill \\
+Bob wants to cut the price of the taxi ride he is booking. He decides to enable the sharing option on the app.\\
+Alice wants to cut the price too.\\
+She decides to enable the sharing option on the app and if their paths are admissible, the will share the same ride.
+% Table
+\import{../tables/}{reportproblemtable.tex}
+% Sequence diagram
+\newpage
+\vfill
+\begin{figure}
+\caption{Sequence Diagram}
+\includegraphics[width=\textwidth]{Collaboration9__Interaction1__RideSharing_12}
 \centering
 \end{figure}
 \vfill
