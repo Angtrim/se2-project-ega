@@ -63,8 +63,13 @@ Requirements for the main functions specified in section \ref{ssub:back_end_appl
 	\item The application must assign a driver to a queue if and only if the driver is in the zone of the corresponding queue
 	\item The application must sort the queue in a descending order using the driver idle time as ordering parameter
 	\item The application must calculate an estimated time and cost for every ride request using Google's Maps API
+	\item The application must allow two users to share a taxi ride only if their path are admissible\footnote{See section \ref{def:admissible} on page \pageref{def:admissible}}
 	\item The application must update the database after a user request some data modification
-	\item The application must send a password reset email when the user signal that he has lost his password
+	\item The application must send a password reset email when the user signals that he has lost his password
+	\item The application must ban a user if he cancel a request that has been already processed
+	\item The application must ban a user if the taxi driver report the user as absent
+	\item The application must accept a ride request from a user only if the user is not banned and if the user has not other pending request
+	\item The application must be developed in order to be extensible \footnote{The application developer should follows these guidelines \url{https://docs.oracle.com/javase/tutorial/ext/basics/spi.html}}
 
 
 \end{enumerate}
