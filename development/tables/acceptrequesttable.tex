@@ -1,0 +1,14 @@
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|c|c|}
+\hline
+Actor            & Taxi Driver                                                                                                                                                                                                                                                         \\ \hline
+Goal             & Accept request ({[}F5{]})                                                                                                                                                                                                                                           \\ \hline
+Input condition  & \begin{tabular}[c]{@{}c@{}}Driver is correctly logged in.\\ Driver is available and ready to accept a request.\end{tabular}                                                                                                                                         \\ \hline
+Event flow       & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. Driver receive a notification with the request details\\ 2. Driver accept the request pushing the accept button\\ 3. Backend notify the user who required the taxi\\ 4. Backend notify the driver\end{tabular}} \\ \hline
+Output condition & Driver can leave to reach the agreed address.                                                                                                                                                                                                                       \\ \hline
+Exception        & \multicolumn{1}{l|}{1. Connection down}                                                                                                                                                                                                                             \\ \hline
+\end{tabular}
+\end{table}
