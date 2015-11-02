@@ -4,6 +4,8 @@
 \usepackage{import}
 \usepackage{tocbibind}
 \usepackage[bookmarks, breaklinks]{hyperref} 
+\usepackage{graphicx}
+\graphicspath{ {../diagrams/} }
 \linespread{1.2}
 
 \begin{document}
@@ -20,19 +22,19 @@
 \newpage
 
 % 1 - Intro
-
 \import{../introduction/}{introduction.tex}
 
 % 2 - Overall description
 \import{../overall-description/}{overall-description.tex}
 
-%3 - Specific requirements
+% 3 - Specific requirements
 \section{Specific Requirements} % (fold)
 \label{sec:specific_rquirements}
 
-%\import{../specific-requirements/}{external-interfaces.tex}
+% 4 - Use cases
+\import{../specific-requirements/}{use-cases.tex}
 
+% 5 - Functions
 \import{../specific-requirements/}{functions.tex}
 
-% section specific_rquirements (end)
 \end{document}
