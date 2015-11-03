@@ -10,16 +10,13 @@ sig User {
 }
 
 abstract sig Ride {
+	passenger: some User,
 	driver: one TaxiDriver
 }
 
-sig SingleRide extends Ride {
-	passenger: one User
-}
+sig SingleRide extends Ride {} {#passenger = 1}
 
-sig SharedRide extends Ride {
-	passenger: some User
-} {#passenger > 1}
+sig SharedRide extends Ride {} {#passenger > 1}
 
 sig TaxiDriver {
 	ID: one GenericString,
@@ -60,8 +57,7 @@ one sig TaxiAvailable extends TaxiStatus {}
 /*************** Facts ***************/
 
 fact allPassengersFit {
-	no r1: SingleRide | #r1.passenger > r1.driver.car.seats
-	no r2: SharedRide | #r2.passenger > r2.driver.car.seats
+	no r: Ride | #r.passenger > r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
@@ -72,8 +68,7 @@ fact maxTaxiSeats {
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
-	no r1: SingleRide | #r1.passenger < 1
-	no r2: SharedRide | #r2.passenger < 2
+	no r: SingleRide | #r.passenger < 1
 }
 
 //there exists at least one driver per taxi 
@@ -84,7 +79,7 @@ fact taxiCarHasReasonToExist {
 //two different rides can't have the same user
 
 fact userHasOneRide {
-	all u: User | lone r: SingleRide | lone sr: SharedRide | u in r.passenger+sr.passenger
+	all u: User | lone r: Ride  | u in r.passenger
 }
 
 //two different queues can't have the same taxi driver
@@ -105,6 +100,7 @@ fact uniqueDrive {
 //if the driver is not in a ride then the status is available
 fact availability {
 	//one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status
+	one s: TaxiAvailable | all d: TaxiDriver | all r: Ride | r.driver = d implies d.status = s
 }
 
 //if the driver is in a ride then the status is busy 
@@ -151,6 +147,7 @@ assert availableDriver {
 
 check availableDriver for 10
 */
+
 /*************** Predicates ***************/
 pred show {
 	#Ride > 1
