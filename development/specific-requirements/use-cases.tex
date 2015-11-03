@@ -5,7 +5,7 @@
 This section describes the most common scenarios of the \emph{system-to-be} highlighting all the interactions between the user and the system.
 
 % Sign Up
-\subsubsection{Sign-up} 
+\subsubsection{User Sign-up} 
 \label{ssub:sign_up_scenario}
 \paragraph{Scenario} 
 Alice is tired of calling a taxi by phone. So she decides to download a new app called \emph{MyTaxiService}.
@@ -29,7 +29,7 @@ Once the download is completed she opens the app and signs-up providing her emai
 
 
 % Log in
-\subsubsection{Log in} 
+\subsubsection{User Log in} 
 \label{ssub:login_scenario}
 \paragraph{Scenario} \hfill \\
 Bob is a registered user. Bob wants to book a taxi, he opens the mobile app, he provides his email and his password and after the verification he can access the service.
@@ -145,14 +145,51 @@ Bob is a taxi driver. Bob is riding his cab while a incident occurs and he will 
 Bob wants to cut the price of the taxi ride he is booking. He decides to enable the sharing option on the app.\\
 Alice wants to cut the price too.\\
 She decides to enable the sharing option on the app and if their paths are admissible, the will share the same ride.
-% Table
-\import{../tables/}{reportproblemtable.tex}
 % Sequence diagram
 \newpage
 \vfill
 \begin{figure}
 \caption{Sequence Diagram}
 \includegraphics[width=\textwidth]{Collaboration9__Interaction1__RideSharing_12}
+\centering
+\end{figure}
+\vfill
+\clearpage
+
+\subsection{Class Diagram} 
+\begin{figure}[h!t]
+\includegraphics[width=\textwidth]{ClassDiagram1}
+\centering
+\end{figure}
+\newpage
+
+\subsection{State Charts} 
+Here are presented the state charts of the main objects of the \emph{system-to-be}
+
+\begin{figure}[h!]
+\caption{User State Chart}
+\includegraphics[width=\textwidth]{StateMachine2__UserStateChart_10}
+\centering
+\end{figure}
+
+% Ride
+\newpage
+\vfill
+\begin{figure}
+\caption{Ride State Chart}
+\includegraphics[width=\textwidth]{StateMachine1__RideStateChart_9}
+\centering
+\end{figure}
+\vfill
+\clearpage
+
+
+% Driver
+\newpage
+\vfill
+\begin{figure}
+\caption{Driver State Chart}
+\includegraphics[width=\textwidth]{StateMachine3__DriverStateChart_11}
 \centering
 \end{figure}
 \vfill
