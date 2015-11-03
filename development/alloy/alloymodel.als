@@ -2,16 +2,24 @@ module myTaxiService
 
 /*************** Classes ***************/
 
-sig GenericString {}
+/*This is a class that stands for all the alphanumeric codes*/
+one sig GenericString {}
 
 sig User {
 	ID: one GenericString
 }
 
-sig Ride {
-	passenger: some User,
+abstract sig Ride {
 	driver: one TaxiDriver
 }
+
+sig SingleRide extends Ride {
+	passenger: one User
+}
+
+sig SharedRide extends Ride {
+	passenger: some User
+} {#passenger > 1}
 
 sig TaxiDriver {
 	ID: one GenericString,
@@ -24,13 +32,6 @@ sig TaxiZone {
 	ID: one GenericString,
 	queue: one Queue
 }
-
-abstract sig TaxiStatus {}
-
-
-one sig TaxiBusy extends TaxiStatus {}
-one sig TaxiAvailable extends TaxiStatus {}
-
 
 sig Taxi {
 	seats: one Int,
@@ -46,10 +47,16 @@ one sig QueueManager {
 	queues: some Queue
 }
 
+abstract sig TaxiStatus {}
+
+one sig TaxiBusy extends TaxiStatus {}
+one sig TaxiAvailable extends TaxiStatus {}
+
 /*************** Facts ***************/
 
 fact allPassengersFit {
-	no r: Ride | #r.passenger > r.driver.car.seats
+	no r: SingleRide | #r.passenger > r.driver.car.seats
+	no r: SharedRide | #r.passenger > r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
@@ -60,7 +67,8 @@ fact maxTaxiSeats {
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
-	no r: Ride | #r.passenger < 1
+	no r: SingleRide | #r.passenger < 1
+	no r: SharedRide | #r.passenger < 1
 }
 
 //there exists at least one driver per taxi 
@@ -71,7 +79,8 @@ fact taxiCarHasReasonToExist {
 //two different rides can't have the same user
 
 fact userHasOneRide {
-	all u: User | lone r: Ride | u in r.passenger
+	all u: User | lone r: SingleRide | u in r.passenger
+	all u: User | lone r: SharedRide | u in r.passenger
 }
 
 
@@ -117,8 +126,11 @@ fact oneZoneOneQueue {
 
 /*************** Predicates ***************/
 pred show {
-	#Queue > 4
-	#Queue < #TaxiDriver
+	#User > 5
+	#TaxiDriver > #User
+	#Ride < #User
+	#SingleRide = 2
+	#SharedRide = 2
 }
 
-run show for 5
+run show for 10
