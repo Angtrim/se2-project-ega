@@ -2,11 +2,14 @@
 \usepackage{enumitem, lmodern}
 \usepackage[bottom]{footmisc}
 \usepackage{import}
-\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{tocbibind}
 \usepackage[bookmarks, breaklinks]{hyperref} 
 \usepackage{graphicx}
-\graphicspath{ {../diagrams/pngs/} }
+\usepackage{mwe}
+
+\graphicspath{ {../images/} }
 \linespread{1.2}
 
 \begin{document}
@@ -29,6 +32,8 @@
 \import{../overall-description/}{overall-description.tex}
 
 % 3 - Specific requirements
+\newpage
+\vfill
 \section{Specific Requirements} % (fold)
 \label{sec:specific_rquirements}
 
