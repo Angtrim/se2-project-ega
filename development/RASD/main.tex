@@ -2,6 +2,7 @@
 \usepackage{enumitem, lmodern}
 \usepackage[bottom]{footmisc}
 \usepackage{import}
+\usepackage{subfigure}
 \usepackage{tocbibind}
 \usepackage[bookmarks, breaklinks]{hyperref} 
 \usepackage{graphicx}
@@ -32,9 +33,12 @@
 \label{sec:specific_rquirements}
 
 % 4 - Use cases
+\import{../specific-requirements/}{user-interface.tex}
+
+% 5 - Use cases
 \import{../specific-requirements/}{use-cases.tex}
 
-% 5 - Functions
+% 6 - Functions
 \import{../specific-requirements/}{functions.tex}
 
 \end{document}
