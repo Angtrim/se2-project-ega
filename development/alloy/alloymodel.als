@@ -39,8 +39,6 @@ sig Taxi {
 	plate: one GenericString
 }
 
-
-
 sig Queue {
 	driver: some TaxiDriver,
 }
@@ -106,9 +104,17 @@ fact uniqueDrive {
 
 //if the driver is not in a ride then the status is available
 fact availability {
-	one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status 
+	//one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status
 }
 
+//if the driver is in a ride then the status is busy 
+fact unavailability {
+	//one s: TaxiBusy | all d: TaxiDriver | some r:Ride | d in r.driver && s in d.status 
+}
+
+fact noBusyDriverBelongsToQueue {
+	no d: TaxiDriver | one s: TaxiBusy | some q: Queue | d.status = s && d in q.driver
+} 
 /*
 //if the driver is in a ride then the taxi associated to that driver is busy
 fact unavailability {
@@ -137,6 +143,14 @@ fact allRidesBelongToQueueManager {
 	all r: Ride | one rm: RideManager | r in rm.rides
 }
 
+/*************** Assertions ***************/
+/*
+assert availableDriver {
+	some d: TaxiDriver | one s: TaxiBusy | some q: Queue | d.status = s && d in q.driver
+}
+
+check availableDriver for 10
+*/
 /*************** Predicates ***************/
 pred show {
 	#Ride > 1
