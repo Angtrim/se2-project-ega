@@ -1,7 +1,6 @@
 module myTaxiService
 
-/* class declaration */
-
+/*************** Classes ***************/
 
 sig GenericString {}
 
@@ -47,7 +46,7 @@ one sig QueueManager {
 	queues: some Queue
 }
 
-//facts
+/*************** Facts ***************/
 
 fact allPassengersFit {
 	no r: Ride | #r.passenger > r.driver.car.seats
@@ -97,27 +96,29 @@ fact availability {
 }
 
 //if the driver is in a ride then the taxi associated to that driver is TaxiBusy
-fact availability {
+fact unavailability {
 	one s: TaxiBusy | no d: TaxiDriver | some r:Ride | !(d in r.driver) && s in d.status 
 }
 
 //it cannot exist a queue not associated with a taxi TaxiZone
-fact eachQueueHasZone {
-	all z: TaxiZone | no q: Queue | !(q in z.queue)
-}
-
-//two queues cannot have the same zone 
-//fact oneZoneOneQueue {
-//	all z: TaxiZone | lone q: Queue | q in z.queue
+//fact eachQueueHasZone {
+//	all z: TaxiZone | no q: Queue | !(q in z.queue)
 //}
+
+//all queues belong to one queue QueueManager
+fact allQueuesBelongToQueueManager {
+	all q: Queue | one qm: QueueManager | q in qm.queues
+}
 
 //two zones cannot have the same queue 
 fact oneZoneOneQueue {
-	all q: Queue | lone z: TaxiZone | q in z.queue
+	all q: Queue | one z: TaxiZone | q in z.*queue
 }
 
-//run
-pred show {}
+/*************** Predicates ***************/
+pred show {
+	#Queue > 4
+	#Queue < #TaxiDriver
+}
 
-//run show for 1 but 4 User, 3 Ride, 5 TaxiDriver, 4 Queue, 3 TaxiZone
-run show
+run show for 5
