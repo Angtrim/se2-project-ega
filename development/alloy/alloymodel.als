@@ -28,6 +28,7 @@ sig TaxiDriver {
 	status: one TaxiStatus
 }
 
+
 sig TaxiZone {
 	ID: one GenericString,
 	queue: one Queue
@@ -39,12 +40,18 @@ sig Taxi {
 }
 
 
+
 sig Queue {
 	driver: some TaxiDriver,
 }
 
 one sig QueueManager {
 	queues: some Queue
+}
+
+
+one sig RideManager {
+	rides: some Ride
 }
 
 abstract sig TaxiStatus {}
@@ -55,20 +62,20 @@ one sig TaxiAvailable extends TaxiStatus {}
 /*************** Facts ***************/
 
 fact allPassengersFit {
-	no r: SingleRide | #r.passenger > r.driver.car.seats
-	no r: SharedRide | #r.passenger > r.driver.car.seats
+	no r1: SingleRide | #r1.passenger > r1.driver.car.seats
+	no r2: SharedRide | #r2.passenger > r2.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
 fact maxTaxiSeats {
-	no t: Taxi | t.seats < 1
-	no t: Taxi | t.seats > 6
+	no t1: Taxi | t1.seats < 1
+	no t2: Taxi | t2.seats > 6
 }
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
-	no r: SingleRide | #r.passenger < 1
-	no r: SharedRide | #r.passenger < 1
+	no r1: SingleRide | #r1.passenger < 1
+	no r2: SharedRide | #r2.passenger < 2
 }
 
 //there exists at least one driver per taxi 
@@ -79,10 +86,8 @@ fact taxiCarHasReasonToExist {
 //two different rides can't have the same user
 
 fact userHasOneRide {
-	all u: User | lone r: SingleRide | u in r.passenger
-	all u: User | lone r: SharedRide | u in r.passenger
+	all u: User | lone r: SingleRide | lone sr: SharedRide | u in r.passenger+sr.passenger
 }
-
 
 //two different queues can't have the same taxi driver
 fact uniqueQueue {
@@ -99,22 +104,24 @@ fact uniqueDrive {
 	all d: TaxiDriver | lone r: Ride | d in r.driver
 }
 
-//if the driver is not in a ride then the taxi associated to that driver is available
+//if the driver is not in a ride then the status is available
 fact availability {
 	one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status 
 }
 
-//if the driver is in a ride then the taxi associated to that driver is TaxiBusy
+/*
+//if the driver is in a ride then the taxi associated to that driver is busy
 fact unavailability {
 	one s: TaxiBusy | no d: TaxiDriver | some r:Ride | !(d in r.driver) && s in d.status 
 }
+*/
 
-//it cannot exist a queue not associated with a taxi TaxiZone
-//fact eachQueueHasZone {
-//	all z: TaxiZone | no q: Queue | !(q in z.queue)
-//}
+//no busy driver can ever belong to a queue
+fact noBusyDriverBelongsToQueue {
+	one s: TaxiBusy | all q: Queue | no t: TaxiDriver | t.status = s && t in q.driver
+}
 
-//all queues belong to one queue QueueManager
+//all queues belong to the QueueManager
 fact allQueuesBelongToQueueManager {
 	all q: Queue | one qm: QueueManager | q in qm.queues
 }
@@ -124,13 +131,15 @@ fact oneZoneOneQueue {
 	all q: Queue | one z: TaxiZone | q in z.*queue
 }
 
+
+//all rides belong to the RideManager
+fact allRidesBelongToQueueManager {
+	all r: Ride | one rm: RideManager | r in rm.rides
+}
+
 /*************** Predicates ***************/
 pred show {
-	#User > 5
-	#TaxiDriver > #User
-	#Ride < #User
-	#SingleRide = 2
-	#SharedRide = 2
+	#Ride > 1
 }
 
 run show for 10
