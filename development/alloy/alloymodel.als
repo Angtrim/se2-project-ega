@@ -3,10 +3,10 @@ module myTaxiService
 /* class declaration */
 
 
-sig GenericText {}
+sig GenericString {}
 
 sig User {
-	ID: one GenericText,
+	ID: one GenericString
 }
 
 sig Ride {
@@ -15,29 +15,35 @@ sig Ride {
 }
 
 sig TaxiDriver {
-	ID: one GenericText,
-	license: one GenericText,
+	ID: one GenericString,
+	license: one GenericString,
 	car: one Taxi,
-	//status: one TaxiStatus
+	status: one TaxiStatus
 }
 
-/*
-sig TaxiStatus {
-	code: one Int
-} {	code >= 0
-	code <= 5}
-*/
+sig TaxiZone {
+	ID: one GenericString,
+	queue: one Queue
+}
+
+abstract sig TaxiStatus {}
+
+
+one sig TaxiBusy extends TaxiStatus {}
+one sig TaxiAvailable extends TaxiStatus {}
+
+
 sig Taxi {
 	seats: one Int,
-	plate: one GenericText
+	plate: one GenericString
 }
 
 
 sig Queue {
 	driver: some TaxiDriver,
 }
-/*
-sig QueueManager {
+
+one sig QueueManager {
 	queues: some Queue
 }
 
@@ -58,26 +64,60 @@ fact rideHasReasonToExist {
 	no r: Ride | #r.passenger < 1
 }
 
+//there exists at least one driver per taxi 
+fact taxiCarHasReasonToExist {
+	all t: Taxi | one d: TaxiDriver | t in d.car
+}
+
 //two different rides can't have the same user
-*/
+
 fact userHasOneRide {
 	all u: User | lone r: Ride | u in r.passenger
 }
 
 
-//A single taxi driver cant't belong to two different queues
+//two different queues can't have the same taxi driver
 fact uniqueQueue {
 	all t: TaxiDriver | lone q: Queue | t in q.driver
 }
-/*
-//there is only one queue manager
-fact oneQueueManager {
 
+//two different taxi drivers can't have the same car
+fact uniqueQueue {
+	all t: Taxi | lone d: TaxiDriver | t in d.car
 }
-*/
+
+//two rides can't have the same driver
+fact uniqueDrive {
+	all d: TaxiDriver | lone r: Ride | d in r.driver
+}
+
+//if the driver is not in a ride then the taxi associated to that driver is available
+fact availability {
+	one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status 
+}
+
+//if the driver is in a ride then the taxi associated to that driver is TaxiBusy
+fact availability {
+	one s: TaxiBusy | no d: TaxiDriver | some r:Ride | !(d in r.driver) && s in d.status 
+}
+
+//it cannot exist a queue not associated with a taxi TaxiZone
+fact eachQueueHasZone {
+	all z: TaxiZone | no q: Queue | !(q in z.queue)
+}
+
+//two queues cannot have the same zone 
+//fact oneZoneOneQueue {
+//	all z: TaxiZone | lone q: Queue | q in z.queue
+//}
+
+//two zones cannot have the same queue 
+fact oneZoneOneQueue {
+	all q: Queue | lone z: TaxiZone | q in z.queue
+}
+
 //run
-pred show {
+pred show {}
 
-}
-
-run show for 1 but 4 User, 3 Ride, 3 TaxiDriver, 4 Queue
+//run show for 1 but 4 User, 3 Ride, 5 TaxiDriver, 4 Queue, 3 TaxiZone
+run show
