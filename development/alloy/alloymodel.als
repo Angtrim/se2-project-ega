@@ -65,9 +65,12 @@ fact singleRideHasOneUser{
 	no r : SingleRide | #r.passenger != 1
 }
 
+fact sharedRideHasMoreThanOneUser {
+	no r : SharedRide | #r.passenger = 1
+}
+
 fact allPassengersFit {
-	no r1: SingleRide | #r1.passenger > r1.driver.car.seats
-	no r2: SharedRide | #r2.passenger > r2.driver.car.seats
+	no r: Ride | #r.passenger > r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
@@ -78,8 +81,7 @@ fact maxTaxiSeats {
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
-	no r1: SingleRide | #r1.passenger < 1
-	no r2: SharedRide | #r2.passenger < 2
+	no r: SingleRide | #r.passenger < 1
 }
 
 //there exists at least one driver per taxi 
@@ -110,6 +112,11 @@ fact uniqueDrive {
 //if the driver is available he is not in a ride
 fact availability {
     all d: TaxiDriver | isAvailable[d] => !( isInRide[d] )  
+}
+
+//if the driver is available he is in a queue
+fact availability {
+    all d: TaxiDriver | isAvailable[d] => !( isNotInQueue[d] )  
 }
 
 //if the driver is in a ride then the status is busy 
