@@ -115,7 +115,7 @@ fact availability {
 }
 
 //if the driver is available he is in a queue
-fact availability {
+fact availabilityInQueue {
     all d: TaxiDriver | isAvailable[d] implies !( isNotInQueue[d] )  
 }
 
