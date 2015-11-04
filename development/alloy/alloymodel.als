@@ -10,16 +10,17 @@ sig User {
 }
 
 abstract sig Ride {
-	driver: one TaxiDriver
+	driver: one TaxiDriver,
+	passenger: some User
 }
 
 sig SingleRide extends Ride {
-	passenger: one User
+
 }
 
 sig SharedRide extends Ride {
-	passenger: some User
-} {#passenger > 1}
+
+} 
 
 sig TaxiDriver {
 	ID: one GenericString,
@@ -59,6 +60,11 @@ one sig TaxiAvailable extends TaxiStatus {}
 
 /*************** Facts ***************/
 
+// Single Ride has exactly one user
+fact singleRideHasOneUser{
+	no r : SingleRide | #r.passenger != 1
+}
+
 fact allPassengersFit {
 	no r1: SingleRide | #r1.passenger > r1.driver.car.seats
 	no r2: SharedRide | #r2.passenger > r2.driver.car.seats
@@ -82,18 +88,17 @@ fact taxiCarHasReasonToExist {
 }
 
 //two different rides can't have the same user
-
 fact userHasOneRide {
-	all u: User | lone r: SingleRide | lone sr: SharedRide | u in r.passenger+sr.passenger
+	all u: User | lone r: Ride | u in r.passenger
 }
 
 //two different queues can't have the same taxi driver
-fact uniqueQueue {
-	all t: TaxiDriver | lone q: Queue | t in q.driver
+fact uniqueQueueForDriver {
+	all d: TaxiDriver | lone q: Queue | d in q.driver
 }
 
 //two different taxi drivers can't have the same car
-fact uniqueQueue {
+fact uniqueTaxi{
 	all t: Taxi | lone d: TaxiDriver | t in d.car
 }
 
@@ -102,30 +107,20 @@ fact uniqueDrive {
 	all d: TaxiDriver | lone r: Ride | d in r.driver
 }
 
-//if the driver is not in a ride then the status is available
+//if the driver is available he is not in a ride
 fact availability {
-	//one s: TaxiAvailable | no d: TaxiDriver | some r:Ride | d in r.driver && s in d.status
+    all d: TaxiDriver | isAvailable[d] => !( isInRide[d] )  
 }
 
 //if the driver is in a ride then the status is busy 
 fact unavailability {
-	//one s: TaxiBusy | all d: TaxiDriver | some r:Ride | d in r.driver && s in d.status 
+	 all d: TaxiDriver | isInRide[d] => isBusy[d]
 }
 
+//if the driver is busy, he is not in a queue
 fact noBusyDriverBelongsToQueue {
-	no d: TaxiDriver | one s: TaxiBusy | some q: Queue | d.status = s && d in q.driver
+	all d: TaxiDriver | isBusy[d] => isNotInQueue[d]
 } 
-/*
-//if the driver is in a ride then the taxi associated to that driver is busy
-fact unavailability {
-	one s: TaxiBusy | no d: TaxiDriver | some r:Ride | !(d in r.driver) && s in d.status 
-}
-*/
-
-//no busy driver can ever belong to a queue
-fact noBusyDriverBelongsToQueue {
-	one s: TaxiBusy | all q: Queue | no t: TaxiDriver | t.status = s && t in q.driver
-}
 
 //all queues belong to the QueueManager
 fact allQueuesBelongToQueueManager {
@@ -139,7 +134,7 @@ fact oneZoneOneQueue {
 
 
 //all rides belong to the RideManager
-fact allRidesBelongToQueueManager {
+fact allRidesBelongToRideManager {
 	all r: Ride | one rm: RideManager | r in rm.rides
 }
 
@@ -152,8 +147,30 @@ assert availableDriver {
 check availableDriver for 10
 */
 /*************** Predicates ***************/
-pred show {
-	#Ride > 1
+
+pred isAvailable [ d: TaxiDriver ] {
+	some s: TaxiAvailable | d.status in s
 }
+
+pred isBusy [ d: TaxiDriver ] {
+	some s: TaxiBusy | d.status in s
+}
+
+pred isInRide [ d: TaxiDriver ] {
+	some r:Ride | d in r.driver
+}
+
+pred isNotInQueue[ d: TaxiDriver]{
+	no q:Queue | d in q.driver
+}
+
+
+
+
+pred show {
+ 
+}
+
+
 
 run show for 10
