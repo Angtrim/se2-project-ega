@@ -116,7 +116,7 @@ fact availability {
 
 //if the driver is available he is in a queue
 fact availability {
-    all d: TaxiDriver | isAvailable[d] => !( isNotInQueue[d] )  
+    all d: TaxiDriver | isAvailable[d] implies !( isNotInQueue[d] )  
 }
 
 //if the driver is in a ride then the status is busy 
