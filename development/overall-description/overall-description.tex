@@ -1,21 +1,18 @@
 %!TEX root = ../RASD/main.tex
 \section{Overall Description}
+\label{sec:overall-description}
 This section highlights all the main functionalities and constrains of the system-to-be.
-Some of these functionalities and interfaces require a more detailed description that is provided in the \emph{\nameref{sec:specific_rquirements}} section on page \pageref{sec:specific_rquirements}.
+Some of these functionalities and interfaces require a more detailed description that is provided in the \emph{\nameref{sec:specific-requirements}} section on page \pageref{sec:specific-requirements}.
 \subsection{Product Perspective}
 \label{sec:product_perspective}
 As stated in the \emph{\nameref{sub:scope}} section the product we will release is composed by four main software applications.
 \begin{itemize}
-  \item A \textbf{\nameref{app:web}} addressed to the \emph{users}  to use our service. This application must interface mainly with the \textbf{\nameref{app:backend}} and with Google's Maps API.
-  \item A \textbf{\nameref{app:mobileuser}} addressed to the \emph{users} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
-  \item A \textbf{\nameref{app:mobiledriver}} addressed to the \emph{taxi drivers} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
+  \item A \textbf{\nameref{app:web}} addressed to the \emph{\nameref{def:user}s}  to use our service. This application must interface mainly with the \textbf{\nameref{app:backend}} and with Google's Maps API.
+  \item A \textbf{\nameref{app:mobileuser}} addressed to the \emph{\nameref{def:user}s} to use our service and available for Android, iOS, Windows Mobile and Blackberry. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
+  \item A \textbf{\nameref{app:mobiledriver}} addressed to the \emph{\nameref{def:taxidriver}s} to use our service and available for Android, iOS. This application must interface mainly with our \textbf{\nameref{app:backend}} and with Google's Maps API
 
   \item A \textbf{\nameref{app:backend}} that will handle all the business logic and that must interface mainly with Google's Maps API and with a MySQL database .
 \end{itemize}
-
-\subsubsection{User Interfaces}
-\label{subs:user_interfaces}
-%to complete
 
 \subsubsection{Hardware Interfaces}
 \label{subs:hardwareinterfaces}
@@ -112,7 +109,7 @@ Both the \textbf{\nameref{app:mobileuser}} and the \textbf{\nameref{app:backend}
 \subsubsection{Communication Interfaces} 
 \label{ssub:communication_interfaces}
 \paragraph{\nameref{app:web}}\mbox{} \\
-Every application must interface with the Internet network. This interface is handled by the operative systems and not by The applications themselves.
+Every application must interface with the Internet network. This interface is handled by the operative systems and not by the applications themselves.
 
 \subsubsection{Memory Constrains} 
 
@@ -120,18 +117,18 @@ Every application must interface with the Internet network. This interface is ha
 \paragraph{\nameref{app:web} and \nameref{app:mobileuser} and \nameref{app:mobiledriver} }
 The Mobile and Web Applications can not exceed 75MB of RAM usage.
 \paragraph{\nameref{app:backend}}
-The Back-End application can not exceed 15GB of total RAM usage.
+The Back-End application can not exceed 150GB of total RAM usage.
 
 \subsubsection{Site Adaptation Requirements} 
 \label{ssub:site_adaptation_requirements}
 \paragraph{Software Adaptation} \mbox{} \\
-Every Mobile Application must be developed according to the platforms design guidelines.
+Every Mobile Application must be developed according to the platforms design guidelines \footnote{\url{http://developer.android.com/design/index.html}} \footnote{\url{https://developer.apple.com/design/}}.
 
 \subsection{Product Functions} 
 \label{sub:product_functions}
 This section highlights the main product functions sorted by application.\\
 Functions are here described in high level language to give a general overview of the products.\\
-Detailed requirements are listed in section \ref{sec:functionalrequirement} on page \pageref{sec:functionalrequirement}
+Detailed requirements are listed in section \ref{sec:functionalrequirement} on page \pageref{sec:functionalrequirement}.
 
 \subsubsection{\nameref{app:web} and \nameref{app:mobileuser}}
 \label{ssub:web_application_and_mobile_application_}
@@ -146,11 +143,11 @@ Detailed requirements are listed in section \ref{sec:functionalrequirement} on p
 \label{ssub:mobile_application_driver}
 \begin{enumerate} [resume*]
 	\item The app must allow the taxi driver to login
-	\item  The app must provide position updates to the \emph{back-end application}
-	\item  The app must allow the taxi driver handle ride requests
+	\item  The app must provide position updates to the \nameref{app:backend}
+	\item  The app must allow the taxi driver to handle ride requests
 	\item  The app must allow the taxi driver to report issues that could delay his arrival (traffic jam, car faults, etc ...)
 	\item  The app must allow the taxi driver to overview a history of his last rides.
-	\item  The app must allow the taxi driver to report a absent user.
+	\item  The app must allow the taxi driver to report an absent user.
 \end{enumerate}
 
 \subsubsection{\nameref{app:backend}} 
@@ -160,7 +157,7 @@ Detailed requirements are listed in section \ref{sec:functionalrequirement} on p
 	\item  The application must provide an interface for the registration process of users and taxi drivers
 	\item The application must provide an interface for the data modification process of the users
 	\item The application must implement a password recovery system
-	\item  The application must handle the request queue using a fair policy 
+	\item  The application must handle the request queue using a fair \footnote{For clarification see requirements in the  subsection \ref{subs:backend_requirements} on page \pageref{subs:backend_requirements}} policy 
 	\item  The application must provide an accurate estimate of the total cost and time of a ride
 	\item  The application must provide an interface to allow an operator to perform all basics CRUD operations
 
@@ -168,10 +165,10 @@ Detailed requirements are listed in section \ref{sec:functionalrequirement} on p
 
 \subsection{User Characteristics} 
 \label{sub:user_characteristics}
-This section highlights the main characteristics of the  \emph{actors} defined in section \ref{sub:def} on page \pageref{sub:def}.
+This section highlights the main characteristics of the actors defined in section \ref{sub:def} on page \pageref{sub:def}.
 
 \paragraph{\nameref{def:user}} The user has to be at least 14 years old and own a valid ID.\\ 
-The user to be familiar with standard mobile applications interfaces.
+The user has to be familiar with standard mobile applications interfaces.
 \paragraph{\nameref{def:taxidriver}} The driver has to be a regularly licensed taxi driver.\\ The driver has to be familiar with standard mobile applications interfaces.
 \paragraph{\nameref{def:technician}} 
 The technician must be able to debug and identify issues in a full stack environment. The technician must be familiar with the application requirements and the overall infrastructure and design.
@@ -183,8 +180,8 @@ The technician must be able to debug and identify issues in a full stack environ
 \subsubsection{Regulatory Policies} 
 \label{ssub:regulatory_policies}
 \begin{itemize}
-	\item \textbf{Privacy Policy} Data should be collected and stored following the privacy policy guidelines provided by Mozzilla Foundation \url{https://developer.mozilla.org/en-US/Marketplace/Publishing/Policies_and_Guidelines/Privacy_policies}
-	\item \textbf{Taxi Driver Policy} The client application for taxi drivers must be accessible only by registered and regularly licensed driver.
+	\item \textbf{Privacy Policy} Data should be collected and stored following the privacy policy guidelines provided by Mozilla Foundation \url{https://developer.mozilla.org/en-US/Marketplace/Publishing/Policies_and_Guidelines/Privacy_policies}
+	\item \textbf{Taxi Driver Policy} The client application for taxi drivers must be accessible only by registered and regularly licensed taxi driver.
 \end{itemize}
 
 \subsubsection{Hardware Limitations} 
@@ -192,14 +189,14 @@ The technician must be able to debug and identify issues in a full stack environ
 \paragraph{Mobile Application (User)} 
 The Mobile Application (User) must be developed in order to be available for the 80\% of the devices currently on the market for each different platform.
 \paragraph{Web Application (User)}
-The Web Application must be developed in order to be available for the 100\% of devices that support the latest version of most used browser \footnote {\url{http://www.w3schools.com/browsers/browsers_stats.asp}}
+The Web Application must be developed in order to be available for the 100\% of devices that support the latest version of most used browser \footnote {\url{http://www.w3schools.com/browsers/browsers_stats.asp}}.
 
 
 \subsubsection{Interfaces to other applications} 
 \label{ssub:interfaces_to_other_applications}
 \paragraph{\nameref{app:mobileuser}} 
 The developer of the \textbf{\nameref{app:mobileuser}} must follow the design guideline \footnote{\url{http://developer.android.com/design/index.html}} \footnote{\url{https://developer.apple.com/design/}} of the platform and has to interface with the respective Developer Console and make sure that the app will be accepted and published. \\
-The application must interface with Google's Maps API \footnote{See section \ref{subs:softwareinterfaces} on page \pageref{subs:softwareinterfaces}}
+The application must interface with Google's Maps API \footnote{See section \ref{subs:softwareinterfaces} on page \pageref{subs:softwareinterfaces}}.
 \paragraph{\nameref{app:web}} 
 The application must interface with Google's Maps API.
 \paragraph{\nameref{app:mobiledriver}} 
@@ -210,7 +207,7 @@ The application must interface with Google's Maps API.
 \subsubsection{Parallel Operations} 
 \label{ssub:parrallel_operations}
 \paragraph{\nameref{app:backend}} 
-The \textbf{\nameref{app:backend}} must handle parallel request from multiple users without generating conflicts or inconsistency.\\
+The \nameref{app:backend} must handle parallel request from multiple users without generating conflicts or inconsistency.\\
 The system must decline a request from a user if it finds another active request from the same user.
 
 \subsubsection{Reliability Requirements} 

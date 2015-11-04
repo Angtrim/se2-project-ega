@@ -9,7 +9,6 @@ An incredible amount of effort has been put into every section of this document;
 
 In the following sections the system is broken down into its components, examining its functional and non-functional requirements. An in depth analysis of the relationship between the system and the external world is conducted throughout the document, stressing the assumptions that have been taken and highlighting the constraints that every requirement has to satisfy in order to have a functional and useful system.
 
-%TODO: refer to specific sections of the document, saying where to find the mentioned resources.
 
 The reader of this document will find UML class diagrams, sequence diagrams and use cases that provide all the needed information required to build the system.
 Furthermore, every use case is justified by the goals and assumptions that lead to the need of a specific use case.
@@ -23,6 +22,7 @@ This way, each and every reader will have a clear understanding of the \emph{sys
 \end{abstract}
 
 \section{Introduction}
+\label{sec:introduction}
 
 This section introduces the \emph{system-to-be}, and provides a high level description of its functioning, together with the main functionalities that the system will offer.
 
@@ -39,7 +39,7 @@ The aim of \emph{myTaxiService} presented in the RASD is to:
 \begin{enumerate} [label = \textbf{[G\arabic*]}]
 \item \textbf{Intuitive service}\hfill \\
 \label{goal:intuitive}
-Make the process of requesting a service intuitive for any kind of user.
+Make the process of requesting a service intuitive for the majority of potential users.
 \item \textbf{Fast}\hfill \\
 \label{goal:time}
 Lower the time required from a user to request or book a taxi. Request time is less than 30 seconds, booking time is less than 1,5 minutes.
@@ -49,7 +49,6 @@ Enable the user to take advantage of the taxi service from a wide range of locat
 \item \textbf{Fair queues}\hfill \\
 \label{goal:queue}
 Guarantee a fair management of the taxi queue by minimizing the idle time of every taxi driver using the service.
-%TODO: molti altri goal
 \end{enumerate}
 % subsubsection goals (end)
 
@@ -62,8 +61,12 @@ To accommodate these goals the following pieces of software are to be developed:
 \label{app:mobileuser}
   The mobile application is available for all major mobile OS (Android, iOS, Windows Mobile, Blackberry).
   This one is specifically addressed towards the \emph{\nameref{def:user}}, giving him a broad range of actions to perform.
-  It gives the \emph{\nameref{def:user}} the opportunity to manage his profile, request a taxi and make or dismiss a reservation. %TODO: and maybe more
+  It gives the \emph{\nameref{def:user}} the opportunity to manage his profile, request a taxi and make or cancel a reservation. 
 % subsubsection mobile_application_ (end)
+
+\paragraph{Web Application} % (fold)
+  \label{app:web}
+  The web application is thought as an alternate way, for the \emph{\nameref{def:user}} to manage his profile, request a taxi and make or cancel a reservation.
 
 \paragraph{Mobile Application (\emph{\nameref{def:taxidriver}})} % (fold)
   \label{app:mobiledriver}
@@ -71,10 +74,7 @@ To accommodate these goals the following pieces of software are to be developed:
   This one is specifically addressed towards the \emph{\nameref{def:taxidriver}}.
   It enables the \emph{\nameref{def:taxidriver}} to accept a request issued by the system or dismiss it, signal any problem to the \emph{\nameref{def:operator}}.
 
-\paragraph{Web Application} % (fold)
-  \label{app:web}
-  %TODO: alternate way to what?
-  The web application is thought as an alternate way, for the \emph{\nameref{def:user}} to manage his profile, request a taxi and make or dismiss a reservation.
+
 
 \paragraph{Back-End Application} % (fold)
   \label{app:backend}
@@ -88,7 +88,7 @@ Here is a list of the words used in this document:
 
 %paragraph
 \paragraph{User} \hfill \\
-\label{def:user} He/She is the end user of the service that, once subscribed, makes use of the taxi service, by 
+\label{def:user} He/She is the end user of the service that, once subscribed, makes use of the taxi service as a passenger.
 
 \paragraph{Taxi Driver} \hfill \\
 \label{def:taxidriver} He/She is another kind of customer of the service. He/She is the one that, once subscribed, will be commissioned with a work.
@@ -103,26 +103,28 @@ Here is a list of the words used in this document:
 \label{def:taxi_zone} Area of the city of 2km\textsuperscript{2} .
 
 \paragraph{Admissible Paths} \hfill \\
-\label{def:admissible} Two paths are admissible if the destination point of path is included in the other path and the starting points belong to the same taxi zone.
+\label{def:admissible} Two paths are admissible if the destination point of one path is included in the other and the starting points belong to the same taxi zone.
 
 
 \subsection{References}
 \begin{itemize}
 \item IEEE Std 830-1998: ``IEEE Recommended Practice for Software Requirements Specifications"
 \item Project description: ``Software Engineering 2 Project, AA 2015/2016"
+\item Alloy Language Reference: \url{http://alloy.mit.edu/alloy/documentation/book-chapters/alloy-language-reference.pdf}
+\item UML Language Reference: \url{https://www.utdallas.edu/~chung/Fujitsu/UML_2.0/Rumbaugh--UML_2.0_Reference_CD.pdf}
 \end{itemize}
 %%\item iOS guideline
 
 %%\item Android guideline
 
-\subsection{Overview}
+\subsection{Document Overview}
 This document provides a detailed description of the system and it is structured in three main sections:
 
 \begin{description}
-  \item[Introduction] \hfill \\
+  \item[\nameref{sec:introduction}] \hfill \\
   This section gives a high level description of the main topics covered throughout the whole document, that is the system purpose and its scope.
-  \item[Overall description] \hfill \\
-  This section offers the reader an overview over the general factors that affect the product and its requirements.
-  \item[Specific requirements] \hfill \\
+  \item[\nameref{sec:overall-description}] \hfill \\
+  This section offers the reader an overview over the general factors and functions that affect the product and its requirements.
+  \item[\nameref{sec:specific-requirements}] \hfill \\
   This offers an insight over every functional and non functional requirement.
 \end{description}
