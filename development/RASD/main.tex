@@ -1,4 +1,7 @@
 \documentclass[12pt, a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{../alloy/alloy}
 \usepackage{enumitem, lmodern}
 \usepackage[bottom]{footmisc}
 \usepackage{import}
@@ -9,7 +12,10 @@
 \usepackage{graphicx}
 \usepackage{mwe}
 
+
+
 \graphicspath{ {../images/} }
+\linespread{1}
 
 \begin{document}
 \title{ \emph{ myTaxiService}\\ Requirements Analysis and Specification Document }
@@ -44,5 +50,9 @@
 
 % 6 - Functions
 \import{../specific-requirements/}{functions.tex}
+
+
+% 6 - Functions
+\import{../specific-requirements/}{alloy.tex}
 
 \end{document}
