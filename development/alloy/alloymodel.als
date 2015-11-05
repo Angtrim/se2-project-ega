@@ -8,8 +8,8 @@ abstract sig Ride {
     passenger: some User
 }
 
-sig SingleRide extends Ride {}
-sig SharedRide extends Ride {}
+sig SingleRide extends Ride {} {#passenger = 1}
+sig SharedRide extends Ride {} {#passenger > 1}
 
 sig TaxiDriver {
     car: one Taxi,
@@ -34,8 +34,9 @@ one sig QueueManager {
 }
 
 
-one sig RideManager {
-    rides: some Ride
+one sig RidesManager {
+    rides: some Ride,
+    qm: one QueueManager
 }
 
 abstract sig TaxiStatus {}
@@ -45,14 +46,6 @@ lone sig TaxiAvailable extends TaxiStatus {}
 
 /*************** Facts ***************/
 
-// Single Ride has exactly one user
-fact singleRideHasOneUser{
-    no r : SingleRide | #r.passenger != 1
-}
-
-fact sharedRideHasMoreThanOneUser {
-    no r : SharedRide | #r.passenger = 1
-}
 
 fact allPassengersFit {
     no r: Ride | #r.passenger > r.driver.car.seats
@@ -128,17 +121,11 @@ fact oneZoneOneQueue {
 
 //all rides belong to the RideManager
 fact allRidesBelongToRideManager {
-    all r: Ride | one rm: RideManager | r in rm.rides
+    all r: Ride | one rm: RidesManager | r in rm.rides
 }
 
 /*************** Assertions ***************/
-/*
-assert availableDriver {
-    some d: TaxiDriver | one s: TaxiBusy | some q: Queue | d.status = s && d in q.driver
-}
 
-check availableDriver for 10
-*/
 /*************** Predicates ***************/
 
 pred isAvailable [ d: TaxiDriver ] {
@@ -158,6 +145,10 @@ pred isNotInQueue[ d: TaxiDriver]{
 }
 
 pred show {
+#User = 10
+#SharedRide = 1
+#SingleRide = 0
+#TaxiDriver = 2
 }
 
 run show for 10
