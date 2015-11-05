@@ -4,10 +4,10 @@
 \begin{tabular}{|c|c|}
 \hline
 Actor            & User                                                                                                                                                                                                                                                        \\ \hline
-Goal             & Call a taxi on the actual spot({[}F1{]})                                                                                                                                                                                                                    \\ \hline
-Input condition  & \begin{tabular}[c]{@{}c@{}}User is correctly logged in.\\  Internet connection is available. \\ If the GPS signal is not available the user will have to \\ specify manually the location dragging the pin or inserting the\\ current address.\end{tabular} \\ \hline
-Event flow       & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. User press the request button\\ 2. Backend compute the request and notify a taxi driver\\ 3. As the driver confirm the availability the user will be notified\end{tabular}}                               \\ \hline
-Output condition & User successfully ends call taxi process. Now he/she can access the.                                                                                                                                                                                        \\ \hline
+Goal             & User is logged in({[}F1{]})                                                                                                                                                                                                                    \\ \hline
+Input condition  & \begin{tabular}[c]{@{}c@{}}User is correctly registered.\\  Internet connection is available. \end{tabular} \\ \hline
+Event flow       & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. User enters his credentials \\ 2. User presses the login button \\ 3. The backend checks the credential\end{tabular}}                               \\ \hline
+Output condition & User can access the service.                                                                                                                                                                                        \\ \hline
 Exception        & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. Wrong email or password\\ 2. No connection available\\ 3. App has to be updated\end{tabular}}                                                                                                             \\ \hline
 \end{tabular}
 \end{table}
