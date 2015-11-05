@@ -1,46 +1,32 @@
 module myTaxiService
 
 /*************** Classes ***************/
-
-one sig GenericString {}
-
-sig User {
-    ID: one GenericString
-}
+sig User {}
 
 abstract sig Ride {
     driver: one TaxiDriver,
     passenger: some User
 }
 
-sig SingleRide extends Ride {
-
-}
-
-sig SharedRide extends Ride {
-
-} 
+sig SingleRide extends Ride {}
+sig SharedRide extends Ride {}
 
 sig TaxiDriver {
-    ID: one GenericString,
-    license: one GenericString,
     car: one Taxi,
     status: one TaxiStatus
 }
 
 
 sig TaxiZone {
-    ID: one GenericString,
     queue: one Queue
 }
 
 sig Taxi {
-    seats: one Int,
-    plate: one GenericString
+    seats: one Int
 }
 
 sig Queue {
-    driver: some TaxiDriver,
+    driver: some TaxiDriver
 }
 
 one sig QueueManager {
@@ -54,8 +40,8 @@ one sig RideManager {
 
 abstract sig TaxiStatus {}
 
-one sig TaxiBusy extends TaxiStatus {}
-one sig TaxiAvailable extends TaxiStatus {}
+lone sig TaxiBusy extends TaxiStatus {}
+lone sig TaxiAvailable extends TaxiStatus {}
 
 /*************** Facts ***************/
 
@@ -65,11 +51,11 @@ fact singleRideHasOneUser{
 }
 
 fact sharedRideHasMoreThanOneUser {
-	no r : SharedRide | #r.passenger = 1
+    no r : SharedRide | #r.passenger = 1
 }
 
 fact allPassengersFit {
-	no r: Ride | #r.passenger > r.driver.car.seats
+    no r: Ride | #r.passenger > r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
@@ -80,7 +66,7 @@ fact maxTaxiSeats {
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
-	no r: SingleRide | #r.passenger < 1
+    no r: SingleRide | #r.passenger < 1
 
 }
 
@@ -174,6 +160,4 @@ pred isNotInQueue[ d: TaxiDriver]{
 pred show {
 }
 
-
-
-run show for 3
+run show for 10
