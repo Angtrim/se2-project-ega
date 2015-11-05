@@ -218,7 +218,8 @@ The system must reach a 99.99\% uptime (corresponding to a inactivity time of 50
 \subsubsection{Safety and Security} 
 \label{ssub:safety_and_security}
 \paragraph{\nameref{app:mobiledriver}} 
-The application must include an automatic night mode and gallery mode in order not to compromise the driver security.
+The application must include an automatic night mode and gallery mode in order not to compromise the driver security.\\
+All the network connections must be encrypted.
 
 \subsection{Assumptions And Dependencies} 
 \label{sub:assumptions_and_dependencies}
@@ -229,7 +230,10 @@ We assume that at launch time the \emph{\nameref{app:mobileuser}} will reach an 
 We assume that the city is dived in \emph{\nameref{def:taxi_zone}}.
 \subsubsection{Taxi Driver Assumptions} 
 We assume that every taxi driver will have a compatible device  \footnote{See section \ref{sub:constraints} on page \pageref{sub:constraints}} (personal or provided by the project client) with a working GPS module.\\
-We assume that our system and the \emph{\nameref{def:operator}} have access to an internal database of valid taxi licenses of the city.
+We assume that our system and the \emph{\nameref{def:operator}} have access to an internal database of valid taxi licenses of the city.\\
+We assume that a taxi can have at most 6 passengers.\\
+We assume that a taxi ride always ends and that exceptional problems are solved outside the system.\\
+We assume that every taxi driver has only one car and that every car belongs only to one taxi driver.
 \subsubsection{User Assumptions} 
 \label{ssub:user_assumptions}
 We assume that every user will have a device with an enabled Internet connection.\\

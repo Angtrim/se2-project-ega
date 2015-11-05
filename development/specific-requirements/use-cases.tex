@@ -2,7 +2,17 @@
 
 \subsection{Scenarios}
 \label{sec:scenarios}
-This section describes the most common scenarios of the \emph{system-to-be} highlighting all the interactions between the \emph{\nameref{def:user}} and the system.
+This section describes the most common scenarios of the \emph{system-to-be} highlighting all the interactions between the \emph{\nameref{def:user}} and the system.\\
+The image below gives a general overview of the use cases.
+
+
+\begin{figure}[h!]
+\caption{Use Cases}
+\includegraphics[width=\textwidth]{use-cases/UseCaseDiagram1}
+\centering
+\end{figure}
+
+\newpage
 
 % Sign Up
 \subsubsection{User Sign-up} 
@@ -65,9 +75,8 @@ Alice is logged in. She wants to change some data she entered wrong.
 \subsubsection{Taxi Request} 
 \label{ssub:taxirequest_scenario}
 \paragraph{Scenario} \hfill \\
-Alice is logged in. She wants to book a taxi. She opens the app, she fills all the fields, she asks for a taxi and waits for the response.\\
-Bob is a taxi driver, he is now free.\\
-Bob receives a ride request and decide whether to accept it or not.
+Alice is logged in. She wants to book a taxi. She opens the app, she fills all the fields, she decides if she wants the taxi now or later and waits for the response.\\
+
 % Table
 \import{../tables/}{userbooktaxitable.tex}
 % Sequence diagram
@@ -185,6 +194,17 @@ Here are presented the state charts of the main objects of the \emph{system-to-b
 \begin{figure}
 \caption{Driver State Chart}
 \includegraphics[width=\textwidth]{state-charts/StateMachine3__DriverStateChart_11}
+\centering
+\end{figure}
+\vfill
+\clearpage
+
+% Driver
+\newpage
+\vfill
+\begin{figure}
+\caption{Request State Chart}
+\includegraphics[width=\textwidth]{state-charts/RequestStateChart}
 \centering
 \end{figure}
 \vfill
