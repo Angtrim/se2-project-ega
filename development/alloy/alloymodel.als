@@ -172,11 +172,6 @@ fact uniqueRequestForMap{
     all rq:Request | one u: User |rq in u.requests
 }
 
-// if a user is active it means he requested
-fact userActiveRequested {
-    all u: User | isActive[u] implies !(u.requests = none)
-}
-
 // for every request there is at most one map
 fact uniqueRequestForMap{
     all rq:Request | lone m: RideReqMap |rq in m.request
@@ -289,11 +284,13 @@ pred areConnected[rd:Ride,rq: Request]{
 
 
 
-pred show {
-    #SharedRide = 1
-    #Request = 2
-    #User = 5
+pred showGeneral {
+	#SingleRide = 1
+	#SharedRide = 1
+	#User = 5
+	#TaxiDriver > #Ride
+	#Queue = 1
 }
 
-run show for 7
+run showGeneral for 5
 
