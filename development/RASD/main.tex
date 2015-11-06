@@ -1,0 +1,109 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{../alloy/alloy}
+\usepackage{enumitem, lmodern}
+\usepackage[bottom]{footmisc}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tocbibind}
+\usepackage[bookmarks, breaklinks]{hyperref} 
+\usepackage{graphicx}
+\usepackage{mwe}
+\usepackage[toc,page]{appendix}
+\usepackage{pdflscape}
+
+
+\graphicspath{ {../images/} }
+\linespread{1}
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width=0.25\paperwidth]{logo}\\[0.5cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Politecnico di Milano}\\[0.4cm] % Name of your university/college
+\textsc{\Large Scuola di Ingegneria Industriale e dell'Informazione}\\[0.1cm] % Major heading such as course name
+\textsc{\large M.Sc. in Computer Science and Engineering}\\[1.8cm] % Minor heading such as course title
+
+ 
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries myTaxiService} \\[0.2cm]% Title of your document
+	{\Large Requirements Analysis and Specification Document}
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+\large \emph{Authors:}\\
+Angelo  \textsc{Gallarello}\\
+Edoardo  \textsc{Longo}\\
+Giacomo  \textsc{Locci}\\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today} % Date, change the \today to a set date if you want to be precise
+
+
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% 1 - Intro
+\import{../introduction/}{introduction.tex}
+
+% 2 - Overall description
+\import{../overall-description/}{overall-description.tex}
+
+% 3 - Specific requirements
+\newpage
+\vfill
+\section{Specific Requirements} % (fold)
+\label{sec:specific-requirements}
+
+% 4 - Use cases
+\import{../specific-requirements/}{user-interface.tex}
+
+% 5 - Use cases
+\import{../specific-requirements/}{use-cases.tex}
+
+% 6 - Functions
+\import{../specific-requirements/}{functions.tex}
+
+% 7 - Alloy
+\import{../specific-requirements/}{alloy.tex}
+
+% 8 - Appendix
+\import{../appendix/}{appendix.tex}
+
+\end{document}

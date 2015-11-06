@@ -1,0 +1,81 @@
+%!TEX root = ../RASD/main.tex
+
+\subsection{Functional Requirements} % (fold)
+\label{sec:functionalrequirement}
+\subsubsection{\nameref{app:web}}
+This subsection specifies in a more detailed level the requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
+\begin{enumerate}[label = \textbf{[FR\arabic*]}]
+	\item The application must allow every unregistered person above 13 years old to register providing email, ID number, password, name, surname and date of birth
+	\item The application must allow only registered user to access the service
+	\item The application must allow the user to choose his starting position
+	\item The application must allow the user to select the destination position
+	\item The application must allow the user to select the number of passengers
+	\item The application must check that only valid coordinates and addresses  are selected by the user
+	\item The application must allow the user to reserve a taxi for a chosen  date and position
+	\item The application must allow a taxi reservation only if booked 2 hours before the chosen date
+	\item The application must allow the user to active the sharing option to allow other users to share the ride
+	\item The application must allow the user to find sharing rides available in his path.
+	\item The application must allow the user to modify his personal information (except for the ID number) 
+\end{enumerate}
+
+
+\subsubsection{\nameref{app:mobileuser}}
+Requirements for the main functions specified in section \ref{ssub:web_application_and_mobile_application_} on page \pageref{ssub:web_application_and_mobile_application_}.
+\begin{enumerate}[resume*]
+	\item The application must allow every unregistered person above 13 years old to register providing email, ID number, password, name, surname and date of birth
+	\item The application must allow only registered user to access the service
+	\item The application must allow the user to choose his starting position
+	\item The application must allow the user to use the GPS interface to select the starting position
+	\item The application must allow the user to select the destination position
+	\item The application must allow the user to select the number of passengers
+	\item The application must check that only valid coordinates and addresses  are selected by the user
+	\item The application must allow the user to reserve a taxi for a chosen  date and position
+	\item The application must allow a taxi reservation only if booked 2 hours before the chosen date
+	\item The application must allow the user to active the sharing option to allow other users to share the ride
+	\item The application must allow the user to find sharing rides available in his path. 
+	\item The application must allow the user to modify his personal information (except for the ID number)
+\end{enumerate}
+
+\subsubsection{\nameref{app:mobiledriver}}
+Requirements for the main functions specified in section \ref{ssub:mobile_application_driver} on page \pageref{ssub:mobile_application_driver}.
+\begin{enumerate}[resume*]
+	\item The application must allow only registered drivers \footnote{See section \ref{ssub:driver_assumptions} on page \pageref{ssub:driver_assumptions}} to access the service
+	\item The application must send every 2 minutes a position update to the \nameref{app:backend}.
+	\item The application must allow the driver to accept a ride request in just one tap
+	\item The application must allow the driver to refuse a ride request in just one tap
+	\item The application must allow the driver to report most common issues using a drop-down 
+	\item The application must show a list of the last 30 rides, providing information about time, passenger and cost.
+	\item The application must allow the driver to report an absent user selecting the appropriate ride request.
+	\item The application must notify the driver when the sharing option is active
+	\item The application must show the driver all the starting and arrival position when the sharing option is active
+	\item The application must dim the screen light during late hours and when a gallery is detected by the GPS
+
+\end{enumerate}
+
+\subsubsection{\nameref{app:backend}}
+\label{subs:backend_requirements}
+Requirements for the main functions specified in section \ref{ssub:back_end_application} on page \pageref{ssub:back_end_application}.
+\begin{enumerate}[resume*]
+	\item The application must accept registration request from the \nameref{app:mobileuser} and the \nameref{app:web} and create a new user
+	\item The application must allow a taxi reservation only if booked 2 hours before the chosen date
+	\item The application must provide a control panel to allow the operator to register a new taxi driver
+	\item The control panel must be accessible only with a secret password
+	\item The application must generate automatically login credentials for new taxi driver
+	\item The application must record every ride and store all the data in the database
+	\item The application must handle one queue for every city zone
+	\item The application must assign a driver to a queue if and only if the driver is in the zone of the corresponding queue
+	\item The application must sort the queue in a descending order using the driver idle time as ordering parameter
+	\item The application must calculate an estimated time and cost for every ride request using Google's Maps API
+	\item The application must allow two users to share a taxi ride only if their path are admissible\footnote{See section \ref{def:admissible} on page \pageref{def:admissible}}
+	\item The application must update the database after a user request some data modification
+	\item The application must send a password reset email when the user signals that he has lost his password
+	\item The application must ban a user if he cancel a request that has been already processed
+	\item The application must ban a user if the taxi driver report the user as absent
+	\item The application must accept a ride request from a user only if the user is not banned 
+	\item The application must decline an \nameref{def:immediate-request} from a user if it finds another pending \nameref{def:immediate-request} from the same user or if the user is involved in an \nameref{def:active-ride}.	
+	\item The application must reply to reservation immediately but must look for an available taxi only 10 minutes before the chosen date
+	\item The application must be developed in order to be extensible \footnote{The application developer should follows these guidelines \url{https://docs.oracle.com/javase/tutorial/ext/basics/spi.html}}
+
+
+\end{enumerate}
+

@@ -1,0 +1,205 @@
+1) Scope
+
+	a) Identifying the softwares to be developed :
+		- Web application, mobile application(Android, iOS, Blackberry, Winzozz) per utente
+		- app per taxisti
+		- Backend + pannello di controllo
+
+	b) Explain software product purposes :
+		
+		simplifiy the access to the taxi service and create a fair system of queueing and a ride share system. make it intuitive.
+
+	c) Describe application :
+		benefits, objective, goals;
+
+		- tutte le app: 
+			applicazione assai veloce, rensponsiva, fresh, material, consistent,
+			tempo di prenotazione inferiore al minuto, compatibilità 
+
+2) Definitions
+	
+	a) 
+
+3) References
+
+	a) 
+
+4) Overview
+
+	una bella structure
+
+5) Overall description 
+ 
+	a) Product Perspective :
+
+		- block diagram con le varie API utilizzate, statistiche al comune, Google Maps, varie librerie
+
+		- User Interface :
+			layout spiegati 
+
+		- Hardware interface :
+			dispositivi supportati dalle tre applicazioni, GPS
+
+		- Software interface :
+			tutte le API
+			— Name;— Mnemonic;— Specification number;— Version number;— Source.
+
+		- Communication interfaces :
+			3G/4G o wi-fi
+
+		- Memory constraints :
+			un poco di memoria 
+
+		- Operation : 
+			nella user interface
+			(cio che l'utente deve fare per usare tutte le funzionalita)
+
+		- Site adaptation requirements :
+			differenze tra le varie piattaforme, ad esempio i layout tra android e ios, le diverse api di google maps ecc. ecc.
+
+	b) Product Function 2.2 SRS:
+
+		Funzioni principali : FARE BENE LA LISTA CON REFERENCES
+
+		- User application :
+			prenotare taxi quando ti pare all'interno del perimetro del servizio,riservare, condividere.
+
+		- App per taxisti :
+			segnalare posizione, accettare incarico, segnalazione problemi relativi alla strada,
+			sommario degli incarichi eseguiti.
+			segnalazione utente assente.
+
+		- Backend :
+			gestione dei servizi, mappature dei movimenti, heatmap delle chiamate, registrazione utenti
+			database, interfaccia di controllo per operatore.
+
+	c) Actors 2.3 SRS :
+
+		Multiple types actors to be described to use them later in the uses cases. 
+		I.e. Students, managers, pope & renato zero. 
+		Taxists.
+		Operator.
+
+	d) Constraints 2.4 SRS:
+
+		- Regulatory policies :
+			data treatment, data crypting, taxists policy.
+
+		- Hardware limitation : 
+			compatible hardware i.e. gps, right version of android/iOS.
+			internet connection.
+
+		- Interfaces to other application :
+			the app should be compatible with the design guidelines of the respective system stores.
+			google maps.
+
+		- Parallel operation : 
+			user's requests queue  and overlapping requests problem.
+
+		- Higher order language requirements:
+			limiti dati dai linguaggi di programmazione; applicazioni native, sql...
+
+		- Reliability requirements:
+			sistema di prenotazione 99.999% di uptime.
+
+				* User side: se l utente riceve conferma, il taxi arriva davvero
+
+				* Taxi driver side: Se il sistema conferma la sua presenza in coda, allora é veramente in coda.
+
+		- Safety and security: Modalità notturna e galleria automatica.
+
+	e) Assumptions and Dependencies 2.5 SRS:
+
+		Telefono giusto su cui può essere installata l app: 
+			con hardware appropriato.
+
+		- Taxi driver: hardware per connettersi a internet, gps.
+		- User: hardware per internet.
+
+	f) Apportioning of requirements 2.6 SRS :
+
+		- non ho capito, comunque le cose che saranno sviluppate in futuro
+
+Specific Requirements: 
+
+	a) External interfaces: 
+
+		USER
+		- input posizione+identificativo output disponibilità taxi
+		- input tratta output possibilità di sharing
+		- input cancella richiesta output conferma
+		- input prenotazione output conferma
+		- input modifica dati output conferma
+
+		TAXIST
+		- input accetta corse output conferma
+		- input log in output corse disponibili 
+		- input refresh output refresh corse
+		- input segnalazione generica output conferma 
+		- input modifica dati output conferma
+
+		OPERATOR 
+		- input segnalazione problema broadcast output conferma
+		- input richiesta di comunicazione con tassista output 
+		- input get taxi info output taxi info
+
+		MAINTENANCER TODO(add actor)
+		- input restart system output ok
+		- input log status output status log 
+		- input 
+
+
+
+
+	b) Functions:
+
+		- Validity check of the inputs :
+			check of credential of all the actors, every request should have a hash key in its parameters
+
+		- Exact sequence of operation : 
+			sequence diagram
+
+		- Response to abnormal situations :
+			
+			* Overflow :
+				mirror server 
+				taxi non disponibili, aspetta un attimo
+
+			* Communication facilities :
+				connection down the system send an SMS broadcasting all the taxists warning them of the problem.
+
+			* Error Handling and recovery :
+				call service for taxists facing problems with the application.
+
+				USER 
+				◊ GPS fail, manual location or move
+				◊ Generic crash, automatic reporting SDK
+				◊ Internet fail, wait for connection
+				
+				TAXIST
+				◊ GPS fail, warn him, and wait for correction (5min wait)
+				◊ Internet fail, SMS/Call (5min wait)
+
+				OPERATOR 
+				◊ System fail call maintencer 
+
+				BACKEND 
+				◊ Crash, put down the system and warn the users
+
+				TODO (assumption a single crash doesn't influence the whole system)
+
+	c) Performance requirements:
+
+	d) Logical Database requirements:
+
+	e) Design Constraints:
+
+	f) Starndard Compliance:
+
+
+	
+
+
+
+
+

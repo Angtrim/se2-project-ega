@@ -1,0 +1,13 @@
+\begin{table}[h!]
+\centering
+\caption{User Taxi Request Use Case}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+Actor            & User                                                                                                                                                                                                        \\ \hline
+Goal             & Request a taxi                                                                                                                                                                                     \\ \hline
+Input condition  & \begin{tabular}[c]{@{}c@{}}User is correctly logged in.\\ \end{tabular}                                                                                                       \\ \hline
+Event flow       & \multicolumn{1}{p{10cm}|}{\begin{tabular}[c]{p{10cm}}1. User press the request taxi button\\ 2. User fill the form\\ 3. Used decides if he want to perform an \nameref{def:immediate-request}  or an \nameref{def:reservation-request}\\ 4. User press confirm button\\ 5. Backend confirm the reservation\end{tabular}} \\ \hline
+Output condition & {NULL}                                                                                                                                                                \\ \hline
+Exception        & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. Connection unavailable\\ 2. Data in the form are not consistent with requirements\end{tabular}}                                                           \\ \hline
+\end{tabular}
+\end{table}

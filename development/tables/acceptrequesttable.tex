@@ -1,0 +1,13 @@
+\begin{table}[h!]
+\centering
+\caption{Driver Accept Ride Request Use Case}
+\begin{tabular}{|c|l|}
+\hline
+Actor            & \multicolumn{1}{c|}{Taxi Driver}                                                                                                                                                                                                               \\ \hline
+Goal             & \multicolumn{1}{c|}{Accept request ({[}F5{]})}                                                                                                                                                                                                 \\ \hline
+Input condition  & \begin{tabular}[c]{@{}l@{}}Driver is correctly logged in.\\ Driver is available and ready to accept a request.\end{tabular}                                                                                                                    \\ \hline
+Event flow       & \begin{tabular}[c]{@{}l@{}}1. Driver receive a notification with the request details\\ 2. Driver accept the request pushing the accept button\\ 3. Backend notify the user who required the taxi\\ 4. Backend notify the driver\end{tabular} \\ \hline
+Output condition & \multicolumn{1}{c|}{Driver can leave to reach the agreed address.}                                                                                                                                                                             \\ \hline
+Exception        & 1. Connection down                                                                                                                                                                                                                             \\ \hline
+\end{tabular}
+\end{table}
