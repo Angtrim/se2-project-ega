@@ -1,14 +1,41 @@
 module myTaxiService
 
 /*************** Classes ***************/
-abstract sig User {
-    status: one UserStatus
+
+
+/** User **/
+sig User {
+    status: one UserStatus,
+	requests : set Request
 }
 
 abstract sig UserStatus {}
 
 lone sig ActiveUserStatus extends UserStatus {}
 lone sig InactiveUserStatus extends UserStatus {}
+
+/** Request **/
+abstract sig RequestStatus{
+}
+
+lone sig ApprovedRequestStatus extends RequestStatus {}
+lone sig RefuseRequestStatus extends RequestStatus {}
+
+abstract sig Request{
+	status: one RequestStatus,
+	numOfPeople : one Int
+}
+
+sig ImmediateRequest extends Request{
+}
+
+sig ReservationRequest extends Request{
+}
+
+/** Ride **/
+
+
+
 
 abstract sig Ride {
     driver: one TaxiDriver,
@@ -23,7 +50,6 @@ sig TaxiDriver {
     status: one TaxiStatus
 }
 
-
 sig TaxiZone {
     queue: one Queue
 }
@@ -33,18 +59,26 @@ sig Taxi {
 }
 
 sig Queue {
-    driver: some TaxiDriver
+    driver: set TaxiDriver
 }
 
 one sig QueueManager {
-    queues: some Queue
+    queues: set Queue
 }
+/*************** RideManager ***************/
 
+sig RideReqMap{
+	ride : lone Ride,
+	request : some Request
+}
 
 one sig RidesManager {
-    rides: some Ride,
-    qm: one QueueManager
+    qm: one QueueManager,
+	ridesmap :  set RideReqMap
 }
+
+
+
 
 abstract sig TaxiStatus {}
 
@@ -129,10 +163,82 @@ fact oneZoneOneQueue {
 }
 
 
+
 //all rides belong to the RideManager
 fact allRidesBelongToRideManager {
-    all r: Ride | one rm: RidesManager | r in rm.rides
+  // all r: Ride | one rm: RidesManager | r in rm.rides
 }
+
+// num of people in request is in bound
+fact numOfPeopleInBound{
+	all r: Request |quantityIsInBounds [r.numOfPeople]
+}
+
+// for every request must exist exctly one map with a ride associated
+fact aMapForEveryRequest{
+
+//	all r: Request | one m : RideReqMap |one rd : Ride | m.request = r && m.ride = rd
+
+}
+
+//two different maps cant have the same ride
+fact uniqueRideForMap{
+    all r: Ride | one m: RideReqMap | r in m.ride
+}
+
+
+// for every request there is one user
+fact uniqueRequestForMap{
+	all rq:Request | one u: User |rq in u.requests
+}
+
+// for every request there is at most one map
+fact uniqueRequestForMap{
+	all rq:Request | lone m: RideReqMap |rq in m.request
+}
+
+// if the req is approved there is exactly one map
+fact mapForApproved{
+	all rq:Request |  isApprovedRequest[rq] implies one m: RideReqMap | rq in m.request
+}
+
+// if the req is  not approved there is exactly zero map
+fact mapForRefused{
+	all rq:Request |  !isApprovedRequest[rq] implies no m: RideReqMap | rq in m.request
+}
+
+
+//two different maps cant have the same req
+fact uniqueRequestForMap{
+    all rq: Request |  one m: RideReqMap | isApprovedRequest[rq] iff rq in m.request
+}
+
+//all maps belong to ridemanager
+fact allMapToRideManager{
+	all m : RideReqMap | one mn: RidesManager | m in mn.ridesmap
+}
+
+
+// a request and a ride are connected iff the have the same user
+fact userInRideAndInRequest{
+//	all rq: Request | all rd: Ride | areConnected[rd,rq] iff rd.passenger = userOfRequest[rq]
+//all rq: Request | all rd: Ride | areConnected[rd,rq] iff haveSameUser[rd,rq]
+}
+
+// if the map has a single ride the map has only one request
+fact oneRequestInMapForSingleRide{
+	all m: RideReqMap | m.ride in SingleRide implies #m.request = 1
+}
+
+// if the map has a single ride the map has only one request
+fact correctRequestInMapForSharedRide{
+	all m: RideReqMap | m.ride in SharedRide implies #m.request = #m.ride.passenger
+}
+
+fact passengerNumberCorrect {
+	all m: RideReqMap | m.ride.driver.car.seats >= sum m.request.numOfPeople
+}
+
 
 /*************** Functions ***************/
 
@@ -140,9 +246,26 @@ fun numberOfSeats [r: Ride]: Int {
     r.driver.car.seats
 }
 
+fun userOfRequest[rq:Request]:  User{
+  { u: User | rq in u.requests }  
+}
+
+
 /*************** Assertions ***************/
 
+
+
+
 /*************** Predicates ***************/
+
+pred haveSameUser[rd:Ride,rq:Request]{
+
+all u1 : User | one u2: User |  u1 in rd.passenger && u2 = u1 &&  rq in u2.requests
+
+}
+
+
+
 
 pred isAvailable [ d: TaxiDriver ] {
     some s: TaxiAvailable | d.status in s
@@ -176,11 +299,22 @@ pred quantityIsInBounds [n: Int] {
     n > 1 && n < 6
 }
 
+pred isApprovedRequest[r:Request]{
+	one s: ApprovedRequestStatus | r.status in s
+}
+
+pred areConnected[rd:Ride,rq: Request]{
+
+	one m : RideReqMap | rd = m.ride && rq = m.request
+
+}
+
+
+
 pred show {
-    #SingleRide = 1
-    #Ride = 1 
-    #TaxiDriver = 3
-    #User = 5
+
+
+	#User = 2
 }
 
 run show for 10
