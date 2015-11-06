@@ -1,15 +1,22 @@
 module myTaxiService
 
 /*************** Classes ***************/
-sig User {}
+abstract sig User {
+    status: one UserStatus
+}
+
+abstract sig UserStatus {}
+
+lone sig ActiveUserStatus extends UserStatus {}
+lone sig InactiveUserStatus extends UserStatus {}
 
 abstract sig Ride {
     driver: one TaxiDriver,
     passenger: some User
 }
 
-sig SingleRide extends Ride {}
-sig SharedRide extends Ride {}
+sig SingleRide extends Ride {} {#passenger = 1}
+sig SharedRide extends Ride {} {#passenger > 1}
 
 sig TaxiDriver {
     car: one Taxi,
@@ -34,8 +41,9 @@ one sig QueueManager {
 }
 
 
-one sig RideManager {
-    rides: some Ride
+one sig RidesManager {
+    rides: some Ride,
+    qm: one QueueManager
 }
 
 abstract sig TaxiStatus {}
@@ -45,29 +53,19 @@ lone sig TaxiAvailable extends TaxiStatus {}
 
 /*************** Facts ***************/
 
-// Single Ride has exactly one user
-fact singleRideHasOneUser{
-    no r : SingleRide | #r.passenger != 1
-}
-
-fact sharedRideHasMoreThanOneUser {
-    no r : SharedRide | #r.passenger = 1
-}
-
+//there are enough seats to accommodate all the passengers 
 fact allPassengersFit {
-    no r: Ride | #r.passenger > r.driver.car.seats
+    all r: Ride | #r.passenger =< r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
 fact maxTaxiSeats {
-    no t1: Taxi | t1.seats < 1
-    no t2: Taxi | t2.seats > 6
+    all t: Taxi | quantityIsInBounds[t.seats]
 }
 
 //there exists at least one passenger per ride
 fact rideHasReasonToExist {
     no r: SingleRide | #r.passenger < 1
-
 }
 
 //there exists at least one driver per taxi 
@@ -100,6 +98,11 @@ fact availability {
     all d: TaxiDriver | isAvailable[d]  implies !( isInRide[d] )  
 }
 
+//if the user is active he is in a ride
+fact activity {
+    all u: User | isActive[u]  iff ( isUserInRide[u] )  
+}
+
 //if the driver is available he is in a queue
 fact availabilityInQueue {
     all d: TaxiDriver | isAvailable[d] implies !( isNotInQueue[d] )  
@@ -128,36 +131,56 @@ fact oneZoneOneQueue {
 
 //all rides belong to the RideManager
 fact allRidesBelongToRideManager {
-    all r: Ride | one rm: RideManager | r in rm.rides
+    all r: Ride | one rm: RidesManager | r in rm.rides
+}
+
+/*************** Functions ***************/
+
+fun numberOfSeats [r: Ride]: Int {
+    r.driver.car.seats
 }
 
 /*************** Assertions ***************/
-/*
-assert availableDriver {
-    some d: TaxiDriver | one s: TaxiBusy | some q: Queue | d.status = s && d in q.driver
-}
 
-check availableDriver for 10
-*/
 /*************** Predicates ***************/
 
 pred isAvailable [ d: TaxiDriver ] {
     some s: TaxiAvailable | d.status in s
 }
 
+pred isActive [ u: User ] {
+    some s: ActiveUserStatus | u.status in s
+}
+
 pred isBusy [ d: TaxiDriver ] {
     some s: TaxiBusy | d.status in s
+}
+
+pred isInactive [ u: User ] {
+    some s: InactiveUserStatus | u.status in s
 }
 
 pred isInRide [ d: TaxiDriver ] {
     some r:Ride | d in r.driver
 }
 
+pred isUserInRide [ u: User ] {
+    some r:Ride | u in r.passenger
+}
+
 pred isNotInQueue[ d: TaxiDriver]{
     no q:Queue | d in q.driver
 }
 
+pred quantityIsInBounds [n: Int] {
+    n > 1 && n < 6
+}
+
 pred show {
+    #SingleRide = 1
+    #Ride = 1 
+    #TaxiDriver = 3
+    #User = 5
 }
 
 run show for 10
