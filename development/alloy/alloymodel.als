@@ -2,11 +2,12 @@ module myTaxiService
 
 /*************** Classes ***************/
 
+sig Person {}
 
 /** User **/
 sig User {
     status: one UserStatus,
-	requests : set Request
+    requests : set Request
 }
 
 abstract sig UserStatus {}
@@ -22,8 +23,7 @@ lone sig ApprovedRequestStatus extends RequestStatus {}
 lone sig RefuseRequestStatus extends RequestStatus {}
 
 abstract sig Request{
-	status: one RequestStatus,
-	numOfPeople : one Int
+    status: one RequestStatus
 }
 
 sig ImmediateRequest extends Request{
@@ -34,16 +34,13 @@ sig ReservationRequest extends Request{
 
 /** Ride **/
 
-
-
-
 abstract sig Ride {
     driver: one TaxiDriver,
-    passenger: some User
+    user: some User
 }
 
-sig SingleRide extends Ride {} {#passenger = 1}
-sig SharedRide extends Ride {} {#passenger > 1}
+sig SingleRide extends Ride {} {#user = 1}
+sig SharedRide extends Ride {} {#user > 1}
 
 sig TaxiDriver {
     car: one Taxi,
@@ -68,17 +65,14 @@ one sig QueueManager {
 /*************** RideManager ***************/
 
 sig RideReqMap{
-	ride : lone Ride,
-	request : some Request
+    ride : lone Ride,
+    request : some Request
 }
 
 one sig RidesManager {
     qm: one QueueManager,
-	ridesmap :  set RideReqMap
+    ridesmap :  set RideReqMap
 }
-
-
-
 
 abstract sig TaxiStatus {}
 
@@ -87,9 +81,9 @@ lone sig TaxiAvailable extends TaxiStatus {}
 
 /*************** Facts ***************/
 
-//there are enough seats to accommodate all the passengers 
-fact allPassengersFit {
-    all r: Ride | #r.passenger =< r.driver.car.seats
+//there are enough seats to accommodate all the users 
+fact allusersFit {
+    all r: Ride | #r.user =< r.driver.car.seats
 }
 
 //each taxi has a maximum number of seats
@@ -97,9 +91,9 @@ fact maxTaxiSeats {
     all t: Taxi | quantityIsInBounds[t.seats]
 }
 
-//there exists at least one passenger per ride
+//there exists at least one user per ride
 fact rideHasReasonToExist {
-    no r: SingleRide | #r.passenger < 1
+    no r: SingleRide | #r.user < 1
 }
 
 //there exists at least one driver per taxi 
@@ -109,7 +103,7 @@ fact taxiCarHasReasonToExist {
 
 //two different rides can't have the same user
 fact userHasOneRide {
-    all u: User | lone r: Ride | u in r.passenger
+    all u: User | lone r: Ride | u in r.user
 }
 
 //two different queues can't have the same taxi driver
@@ -137,12 +131,18 @@ fact activity {
     all u: User | isActive[u]  iff ( isUserInRide[u] )  
 }
 
+//if the user is active he is in a ride
+fact inactivity {
+    all u: User | isInactive[u]  iff !( isUserInRide[u] )  
+}
+
 //if the driver is available he is in a queue
 fact availabilityInQueue {
-    all d: TaxiDriver | isAvailable[d] implies !( isNotInQueue[d] )  
+    all d: TaxiDriver | isAvailable[d] iff !( isNotInQueue[d] )  
 }
 
 //if the driver is in a ride then the status is busy 
+//this is simply one sided because it may happen that a driver is simply busy but not working
 fact unavailability {
     all d: TaxiDriver | isInRide[d] implies isBusy[d]
 }
@@ -159,26 +159,7 @@ fact allQueuesBelongToQueueManager {
 
 //two zones cannot have the same queue 
 fact oneZoneOneQueue {
-    all q: Queue | one z: TaxiZone | q in z.*queue
-}
-
-
-
-//all rides belong to the RideManager
-fact allRidesBelongToRideManager {
-  // all r: Ride | one rm: RidesManager | r in rm.rides
-}
-
-// num of people in request is in bound
-fact numOfPeopleInBound{
-	all r: Request |quantityIsInBounds [r.numOfPeople]
-}
-
-// for every request must exist exctly one map with a ride associated
-fact aMapForEveryRequest{
-
-//	all r: Request | one m : RideReqMap |one rd : Ride | m.request = r && m.ride = rd
-
+    all q: Queue | one z: TaxiZone | q in z.queue
 }
 
 //two different maps cant have the same ride
@@ -186,25 +167,29 @@ fact uniqueRideForMap{
     all r: Ride | one m: RideReqMap | r in m.ride
 }
 
-
 // for every request there is one user
 fact uniqueRequestForMap{
-	all rq:Request | one u: User |rq in u.requests
+    all rq:Request | one u: User |rq in u.requests
+}
+
+// if a user is active it means he requested
+fact userActiveRequested {
+    all u: User | isActive[u] implies !(u.requests = none)
 }
 
 // for every request there is at most one map
 fact uniqueRequestForMap{
-	all rq:Request | lone m: RideReqMap |rq in m.request
+    all rq:Request | lone m: RideReqMap |rq in m.request
 }
 
 // if the req is approved there is exactly one map
 fact mapForApproved{
-	all rq:Request |  isApprovedRequest[rq] implies one m: RideReqMap | rq in m.request
+    all rq:Request |  isApprovedRequest[rq] implies one m: RideReqMap | rq in m.request
 }
 
 // if the req is  not approved there is exactly zero map
 fact mapForRefused{
-	all rq:Request |  !isApprovedRequest[rq] implies no m: RideReqMap | rq in m.request
+    all rq:Request |  !isApprovedRequest[rq] implies no m: RideReqMap | rq in m.request
 }
 
 
@@ -213,32 +198,30 @@ fact uniqueRequestForMap{
     all rq: Request |  one m: RideReqMap | isApprovedRequest[rq] iff rq in m.request
 }
 
-//all maps belong to ridemanager
+//all maps belong to ride manager
 fact allMapToRideManager{
-	all m : RideReqMap | one mn: RidesManager | m in mn.ridesmap
-}
-
-
-// a request and a ride are connected iff the have the same user
-fact userInRideAndInRequest{
-//	all rq: Request | all rd: Ride | areConnected[rd,rq] iff rd.passenger = userOfRequest[rq]
-//all rq: Request | all rd: Ride | areConnected[rd,rq] iff haveSameUser[rd,rq]
+    all m : RideReqMap | one mn: RidesManager | m in mn.ridesmap
 }
 
 // if the map has a single ride the map has only one request
 fact oneRequestInMapForSingleRide{
-	all m: RideReqMap | m.ride in SingleRide implies #m.request = 1
+    all m: RideReqMap | m.ride in SingleRide implies #m.request = 1
 }
 
-// if the map has a single ride the map has only one request
+// if the map has a shared ride the map has the same much users as the ones that requested it
 fact correctRequestInMapForSharedRide{
-	all m: RideReqMap | m.ride in SharedRide implies #m.request = #m.ride.passenger
+    all m: RideReqMap | m.ride in SharedRide implies #m.request = #m.ride.user
 }
 
-fact passengerNumberCorrect {
-	all m: RideReqMap | m.ride.driver.car.seats >= sum m.request.numOfPeople
+fact userNumberCorrect {
+    all m: RideReqMap | m.ride.driver.car.seats >= #m.request
 }
 
+
+// a request and a ride are connected iff the have the same user
+fact userInRideAndInRequest {
+    all m: RideReqMap | userOfMap[m] = ridersOfMap[m] 
+}
 
 /*************** Functions ***************/
 
@@ -247,25 +230,22 @@ fun numberOfSeats [r: Ride]: Int {
 }
 
 fun userOfRequest[rq:Request]:  User{
-  { u: User | rq in u.requests }  
+    { u: User | rq in u.requests }  
 }
 
+fun ridersOfMap[m: RideReqMap]: User {
+    {u: User | some rd: Ride | rd = m.ride && u in rd.user}
+}
 
-/*************** Assertions ***************/
+fun userOfMap[m: RideReqMap]: User {
+    {u: User | some r: Request | r in u.requests && r in m.request}
+}
 
-
-
+fun mapOfRideRequest[rd:Ride, rq: Request]: RideReqMap {
+    {m: RideReqMap | m.ride = rd && rq in m.request}
+}
 
 /*************** Predicates ***************/
-
-pred haveSameUser[rd:Ride,rq:Request]{
-
-all u1 : User | one u2: User |  u1 in rd.passenger && u2 = u1 &&  rq in u2.requests
-
-}
-
-
-
 
 pred isAvailable [ d: TaxiDriver ] {
     some s: TaxiAvailable | d.status in s
@@ -288,7 +268,7 @@ pred isInRide [ d: TaxiDriver ] {
 }
 
 pred isUserInRide [ u: User ] {
-    some r:Ride | u in r.passenger
+    some r:Ride | u in r.user
 }
 
 pred isNotInQueue[ d: TaxiDriver]{
@@ -300,21 +280,20 @@ pred quantityIsInBounds [n: Int] {
 }
 
 pred isApprovedRequest[r:Request]{
-	one s: ApprovedRequestStatus | r.status in s
+    one s: ApprovedRequestStatus | r.status in s
 }
 
 pred areConnected[rd:Ride,rq: Request]{
-
-	one m : RideReqMap | rd = m.ride && rq = m.request
-
+    one m : RideReqMap | rd = m.ride && rq = m.request
 }
 
 
 
 pred show {
-
-
-	#User = 2
+    #SharedRide = 1
+    #Request = 2
+    #User = 5
 }
 
-run show for 10
+run show for 7
+
