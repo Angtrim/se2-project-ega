@@ -1,0 +1,32 @@
+FRONT PAGE
+
+Title
+Version
+Names
+release date
+
+TABLE OF CONTENT
+
+INTRODUCTION
+
+- Purpose
+
+
+
+- Scope
+
+- Definitions, Acronyms, Abbreviations
+
+- Reference documents
+
+- Document structure
+
+ARCHITECTURAL DESIGN
+
+ALGORITHM DESIGN
+
+USER INTERFACE DESIGN
+
+REQUIREMENTS TRACEABILITY
+
+REFERENCES
