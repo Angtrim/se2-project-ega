@@ -27,8 +27,8 @@ The clients never communicates directly one with the other.
 \section{Component View} % (fold)
 \label{sec:component_view}
 This section highlights the main features and roles of every component of the system.
-\subsubsection{\nameref{comp:server}} % (fold)
-\label{ssub:nameref_}
+\subsection{\nameref{comp:server}} % (fold)
+\label{sub:nameref_}
 The \nameref{comp:server} is composed by :
 
 \paragraph{Back-End Application} % (fold)
@@ -42,9 +42,15 @@ The MySQL database fulfill the task off storing and granting access to all the d
 A \emph{database dump} is performed daily during the period of minor activity of the service \footnote{At first, when no activity data is available, the dump will be performed at 04:00 A.M}.\\
 The connection between the \emph{Java EE} application and the databased is supported by the \emph{JDBC connector}\footnote{See \url{http://dev.mysql.com/downloads/connector/j/}}\\
 % TO-DO : Connections diagram
-% paragraph mysql_database (end)
-% paragraph back_end_application (end)
-% subsubsection nameref_ (end)
+
+\subsection{User Client} % (fold)
+\label{sub:user_client}
+Different real clients are available to the end users of the system.\\
+As stated in \emph{section 1.2.2} of the \emph{RASD} a native mobile application is developed for Android, iOS, Blackberry and WP.\\
+Moreover a Web Application is also available.\\
+To fulfill the requirements expressed in \emph{section 3.5.1} and \emph{section 3.5.2} of the \emph{RASD}, all the clients need to communicate with the \nameref{comp:server} making calls to the REST API using platform specific API for REST HTTP calls.
+
+% subsection user_client (end)
 % section component_view (end)
 
 
