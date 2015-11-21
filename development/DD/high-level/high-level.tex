@@ -2,12 +2,53 @@
 \section{High Level Components} % (fold)
 \label{sec:high_level_components}
 The system could be divide in three main high level components that not necessarily correspond only to one real application:
-\begin{itemize}
-	\item User Client
-	\item Taxi Driver Client
-	\item Server
-\end{itemize}
-The \textbf{Server} component is the kernel of the service we want to provide, it incorporates most of the \emph{business logic}, it stores most of the \emph{data} and it provides programmatic interfaces to the clients.\\\\
-The \textbf{User Client} components is an high level representation of the real clients available to the users of our service. It's modeled as a \emph{thin client} and relies on the \emph{Server} to fulfill its tasks.\\\\
-The \textbf{Taxi Driver Client} component is an high level representation of the real clients available to the taxi drivers registered aaa
+\paragraph{Server} % (fold)
+\label{comp:server}\hfill \\
+The Server component is the kernel of the service we want to provide, it incorporates most of the \emph{business logic}, it stores most of the \emph{data} and it provides programmatic interfaces to the clients.
+% paragraph server (end)
+\paragraph{User Client} % (fold)
+\label{comp:user_client}\hfill \\
+The User Client components is an high level representation of the real clients available to the users of our service. It's modeled as a \emph{thin client} and it relies on the \emph{Server} to fulfill its tasks.
+% paragraph user_client (end)
+\paragraph{Taxi Driver Client} % (fold)
+\label{par:taxi_driver_client}\hfill \\
+The Taxi Driver Client component is an high level representation of the real clients available to the taxi drivers registered to the service. It's modeled as a \emph{thin client} and it relies on the \emph{Server} to fulfill its tasks.
+% paragraph taxi_driver_client (end)
+
+
+\subsubsection{Components Interaction} % (fold)
+\label{ssub:components_interaction}
+From a high level prospective the system is design following the well known \emph{client-server} paradigm.\\
+The interaction between the components is handled by \nameref{comp:server} that provides a programmatic interfaces that is able to receive remote call from the clients.\\
+The clients never communicates directly one with the other.
+% subsubsection components_interaction (end)
 % section high_level_components (end)
+
+\section{Component View} % (fold)
+\label{sec:component_view}
+This section highlights the main features and roles of every component of the system.
+\subsubsection{\nameref{comp:server}} % (fold)
+\label{ssub:nameref_}
+The \nameref{comp:server} is composed by :
+
+\paragraph{Back-End Application} % (fold)
+\label{par:back_end_application}\hfill \\
+As stated in \emph{section 1.2.2} of the \emph{RASD}, the \emph{Back-End Application} is the system component that handles most of the business logic.\\
+The application is written in \emph{Java EE} and to fulfill its tasks (see \emph{section 3.5.3} of the \emph{RASD}) it needs to interface with the Internet network using the \emph{HTTPS protocol} and the \emph{JAVA API for RESTful Web Service}\footnote{See \url{https://jax-rs-spec.java.net/}}, with a \emph{MySQL database} and with external Google Maps API.\\
+
+\paragraph{MySQL Database} % (fold)
+\label{par:mysql_database}\hfill \\
+The MySQL database fulfill the task off storing and granting access to all the data generated and used by the service.\\
+A \emph{database dump} is performed daily during the period of minor activity of the service \footnote{At first, when no activity data is available, the dump will be performed at 04:00 A.M}.\\
+The connection between the \emph{Java EE} application and the databased is supported by the \emph{JDBC connector}\footnote{See \url{http://dev.mysql.com/downloads/connector/j/}}\\
+% TO-DO : Connections diagram
+% paragraph mysql_database (end)
+% paragraph back_end_application (end)
+% subsubsection nameref_ (end)
+% section component_view (end)
+
+
+
+
+
+
