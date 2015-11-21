@@ -1,32 +1,49 @@
-FRONT PAGE
+Overview 
 
-Title
-Version
-Names
-release date
+	what is mytaxyservice... 
+	why we decide to use this kind of design...
+	why this system is cool and elastic...
 
-TABLE OF CONTENT
+High level components and interaction
 
-INTRODUCTION
+	how the high level components interact between them, 
+	these are client, server, taxi driver client and so on.
 
-- Purpose
+Component View
 
+	for every component describe functionality, responsability and role
+	Describe interfaces, used framework and library
 
+Deployment View
 
-- Scope
+	Hardware point of you, mainly in the server side components.
 
-- Definitions, Acronyms, Abbreviations
+Runtime View
 
-- Reference documents
+	Interaction between components in a detailed way
 
-- Document structure
+Components Interfaces
+	
+	Server API, interfaces between backend components
 
-ARCHITECTURAL DESIGN
+Selected acrchitectural styles and patterns
+
+	we use a Client-Server pattern
 
 ALGORITHM DESIGN
 
+	algoritmi FICHI:
+
+		- queue management
+		- shortest path finding
+		- path interpolation for shared ride
+
 USER INTERFACE DESIGN
+
+	mock up a pioggia
 
 REQUIREMENTS TRACEABILITY
 
-REFERENCES
+	insert during the stuff
+
+References
