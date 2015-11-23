@@ -17,6 +17,11 @@ Component View
 Deployment View
 
 	Hardware point of you, mainly in the server side components.
+	client server, 2 tier architecture
+	Distributed presentation
+	pubblicazione sugli store
+	mail agli utenti registrati
+	
 
 Runtime View
 
