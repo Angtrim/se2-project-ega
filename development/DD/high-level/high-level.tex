@@ -16,42 +16,15 @@ The Taxi Driver Client component is an high level representation of the real cli
 % paragraph taxi_driver_client (end)
 
 
-\subsubsection{Components Interaction} % (fold)
-\label{ssub:components_interaction}
+\subsection{Components Interaction} % (fold)
+\label{sub:components_interaction}
 From a high level prospective the system is design following the well known \emph{client-server} paradigm.\\
 The interaction between the components is handled by \nameref{comp:server} that provides a programmatic interfaces that is able to receive remote call from the clients.\\
 The clients never communicates directly one with the other.
 % subsubsection components_interaction (end)
 % section high_level_components (end)
 
-\section{Component View} % (fold)
-\label{sec:component_view}
-This section highlights the main features and roles of every component of the system.
-\subsection{\nameref{comp:server}} % (fold)
-\label{sub:nameref_}
-The \nameref{comp:server} is composed by :
 
-\paragraph{Back-End Application} % (fold)
-\label{par:back_end_application}\hfill \\
-As stated in \emph{section 1.2.2} of the \emph{RASD}, the \emph{Back-End Application} is the system component that handles most of the business logic.\\
-The application is written in \emph{Java EE} and to fulfill its tasks (see \emph{section 3.5.3} of the \emph{RASD}) it needs to interface with the Internet network using the \emph{HTTPS protocol} and the \emph{JAVA API for RESTful Web Service}\footnote{See \url{https://jax-rs-spec.java.net/}}, with a \emph{MySQL database} and with external Google Maps API.\\
-
-\paragraph{MySQL Database} % (fold)
-\label{par:mysql_database}\hfill \\
-The MySQL database fulfill the task off storing and granting access to all the data generated and used by the service.\\
-A \emph{database dump} is performed daily during the period of minor activity of the service \footnote{At first, when no activity data is available, the dump will be performed at 04:00 A.M}.\\
-The connection between the \emph{Java EE} application and the databased is supported by the \emph{JDBC connector}\footnote{See \url{http://dev.mysql.com/downloads/connector/j/}}\\
-% TO-DO : Connections diagram
-
-\subsection{User Client} % (fold)
-\label{sub:user_client}
-Different real clients are available to the end users of the system.\\
-As stated in \emph{section 1.2.2} of the \emph{RASD} a native mobile application is developed for Android, iOS, Blackberry and WP.\\
-Moreover a Web Application is also available.\\
-To fulfill the requirements expressed in \emph{section 3.5.1} and \emph{section 3.5.2} of the \emph{RASD}, all the clients need to communicate with the \nameref{comp:server} making calls to the REST API using platform specific API for REST HTTP calls.
-
-% subsection user_client (end)
-% section component_view (end)
 
 
 
