@@ -5,6 +5,18 @@ This section provides a description of the interfaces between the main component
 Internal interfaces between different objects of every component are described in \emph{section \ref{sec:component_view}}
 \subsection{Back-End Application - Database} % (fold)
 \label{sub:back_end_application_database}
-
+The \emph{Back-End Application} uses \emph{SQL} language to query the \emph{Database}. Queries from \emph{Java} are supported by the \emph{Java Database Connectivity (JDBC) API} which is the \emph{API is the industry standard for database-independent connectivity between the Java programming language and a wide range of SQL databases}\footnote{See \url{http://www.oracle.com/technetwork/java/javase/jdbc/index.html}}.\\
+This choice is made in order to exploit the \emph{"Write Once, Run Anywhere"} feature of the \emph{JDBC}.
 % subsection back_end_application_database (end)
+\subsection{Back-End Application - Client User} % (fold)
+\label{sub:back_end_application_client_user}
+The connection between the \emph{Back-End Application} and the \emph{Client User}is provided by the Internet network and based on the \emph{HTTP} protocol and supported by a \emph{RESTful API} service.\\
+The two components use different internal interfaces to connect to the network\footnote{See \emph{section \ref{sec:component_view}}}
+% subsection back_end_application_client_user (end)
+\subsection{Back-End Application - Client Taxi Driver} % (fold)
+\label{sub:back_end_application_client_user}
+The connection between the \emph{Back-End Application} and the \emph{Client Taxi Driver}is provided by the Internet network and based on the \emph{HTTP} protocol and supported by a \emph{RESTful API} service.\\
+The two components use different internal interfaces to connect to the network.
+% subsection back_end_application_client_user (end)
+
 % section components_interfaces (end)
