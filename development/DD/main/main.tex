@@ -14,6 +14,7 @@
 \usepackage[procnames]{listings}
 \usepackage{color}
 
+
 \setcounter{tocdepth}{5}
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
@@ -25,6 +26,8 @@
                                      {0.0001pt \@plus .2ex}%
                                      {\normalfont\normalsize\bfseries}}
 \makeatother
+
+
 
 \graphicspath{ {../images/} }
 \linespread{1}
@@ -90,6 +93,13 @@ Giacomo  \textsc{Locci}\\[1.5cm]
 
 \newpage
 
+\listoffigures
+
+\newpage
+
+% 0 - Abstract
+\import{../main/}{abstract.tex}
+
 % 1 - Overview
 \import{../overview/}{overview.tex}
 \newpage
@@ -111,12 +121,15 @@ Giacomo  \textsc{Locci}\\[1.5cm]
 % 7 - Arch styles and patterns
 \import{../architecture/}{architecture.tex}
 \newpage
-% 8 - Algorithm desing
+% 8 - Data management view
+\import{../data-management/}{data.tex}
+\newpage
+% 9 - Algorithm desing
 \import{../algorithm-design/}{algorithm-design.tex}
 \newpage
-% 9 - User interface design
+% 10 - User interface design
 \import{../user-interface/}{user-interface.tex}
-% 10 - Appendix
+% 11 - Appendix
 \import{../appendix/}{appendix.tex}
 
 

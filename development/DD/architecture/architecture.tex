@@ -5,6 +5,16 @@ This section highlights both hardware and software selected styles and design pa
 It's important to underline that the rules described below are just a general guideline for the actual developers of the project.\\
 During the development phase it's often required to switch style or rely on other patterns to carry on.\\
 Developers should not recur to \emph{hacks} in order to comply with design rules provided while the \emph{system to be} is not fully specified.
+\subsection{Software styles and patterns} % (fold)
+\label{sub:software_styles_and_patterns}
+The overall software system must follow the \emph{Object Oriented Paradigm}.\\
+In particular, developers should follow the principles of \emph{encapsulation}, \emph{composition}, \emph{inheritance}, \emph{delegation} and \emph{polymorphism}.\\
+Developers should promote code reuse and should try to solve programming problems using common \emph{OO Design Patterns}\footnote{\emph{See Design Patterns:
+Elements of Reusable Object-Oriented Software} by Erich Gamma,
+Richard Helm,
+Ralph Johnson,
+John Vlissides}.\\
+Code produced by develpers, must be fully commented and documented in order to promote simple refactoring and maintenance.
 \subsection{Harwdare styles and patterns} % (fold)
 \label{sub:harwdare_styles_and_patterns}
 As outlined in \emph{section \ref{sec:deployment_view}}, our hardware system is based on a \emph{2 tier} architecture:
@@ -20,18 +30,14 @@ From the logical point of view, our system is divided in \emph{3 layers}:
 	\item \textbf{Data Store Layer} This layer is responsible for storing all the data meaningful to the system. This layer is deployed in the \emph{second tier}.
 \end{itemize}
 A schema of the overall architecture is provided below.
-%TODO schema
+\begin{figure}[h!t]
+\caption{Deployment Diagram}
+\includegraphics[width=\textwidth]{diagram/png/architecture}
+\centering
+\end{figure}
+\newpage
 
-\subsection{Software styles and patterns} % (fold)
-\label{sub:software_styles_and_patterns}
-The overall software system must follow the \emph{Object Oriented Paradigm}.\\
-In particular, developers should follow the principles of \emph{encapsulation}, \emph{composition}, \emph{inheritance}, \emph{delegation} and \emph{polymorphism}.\\
-Developers should promote code reuse and should try to solve programming problems using common \emph{OO Design Patterns}\footnote{\emph{See Design Patterns:
-Elements of Reusable Object-Oriented Software} by Erich Gamma,
-Richard Helm,
-Ralph Johnson,
-John Vlissides}.\\
-Code produced by develpers, must be fully commented and documented in order to promote simple refactoring and maintenance.
+
 
 % subsection software_styles_and_patterns (end)
 
