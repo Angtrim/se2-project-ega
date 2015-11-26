@@ -1,0 +1,92 @@
+%!TEX root = ../main/main.tex
+
+
+\section{Algorithm design} % (fold)
+\label{sec:algorithm_design}
+
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+
+\subsection{Precedence Management Algorithm} % (fold)
+\label{sub:first_algorithm}
+This algorythm it's created to manage the way taxi drivers are popped out from the queue.
+It needs:
+
+\begin{itemize}
+	\item The list of all the available drivers, and in every driver object should be included a reliable coordinates.
+	\item The possibility to interact with the Google Maps API to calculate the time to reach the position of the taxi request.
+	\item A generic math library to compute the precedenceFactor
+\end{itemize}
+
+
+
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{red},
+        showstringspaces=false,
+        identifierstyle=\color{green},
+        procnamekeys={def,class},
+        breaklines = true}
+
+\lstinputlisting{taxi.py}
+
+% subsection first_algor (end)
+
+\subsection{Shared Ride Compatibility Algorithm} % (fold)
+\label{sub:second_algorithm}
+This is the algorithm used to check wheter two users have to possibility to share the ride.
+It needs:
+\begin{itemize}
+	\item The list of all the users that are waiting for sharing a ride.
+	\item The possibility to query the Google Maps API to calculate an estimated time to complete the ride.
+	\item The list of all the zone objects.
+\end{itemize}
+
+Notice that user that is waiting in the queue has not found a compatible user yet, as he/she would be immediately popped out from the list in case of matching.
+A timer of 10 minutes starts as the user request the shared ride and as it ends a dialog of shared ride not found will be shown.
+
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{red},
+        showstringspaces=false,
+        identifierstyle=\color{green},
+        procnamekeys={def,class},
+        breaklines = true}
+
+\lstinputlisting{pathfinding.py}
+
+% subsection second_algor (end)
+
+\subsection{Zone Assignment Algorithm} % (fold)
+\label{sub:third_algorithm}
+This algorithm assign the taxi driver at the right zone.
+It requires:
+\begin{itemize}
+	\item To be periodically triggered to update the membership of every taxi driver.
+	\item The list of all the taxi drivers active.
+	\item The list of all the zone objects.
+\end{itemize}
+
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{red},
+        showstringspaces=false,
+        identifierstyle=\color{green},
+        procnamekeys={def,class},
+        breaklines = true}
+
+\lstinputlisting{taxyzone.py}
+
+% subsection third_algor (end)
+
+
+
+% section algorithm_design (end)
