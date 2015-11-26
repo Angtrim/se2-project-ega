@@ -9,7 +9,7 @@ This section focuses on policies and data storing management.\\
 Data about \emph{Users} and \emph{Taxi Drivers} is never automatically eliminated from the system.\\
 However rides log are kept for 12 months to save storage space and to speed up queries.
 % subsubsection data_elimination (end)
-\subsubsection{Data caching} % (fold)
+\subsubsection{Data caching policy} % (fold)
 \label{ssub:data_caching}
 In order to reduce the load on the \emph{Server} and to speed up user's query response, all the data that does not change frequently (like the user's profile data) is saved locally on the device and reloaded only when a modification of the profile occurs.
 
