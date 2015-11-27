@@ -1,7 +1,4 @@
 
-#it could be possible to implement a waiting time to match shared rides!
-#and it's not 100% guaranteed to find one
-
 class User:
 	ID = "UserID"
 	path = [(0,192), (34,90)]
