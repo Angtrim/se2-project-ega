@@ -3237,7 +3237,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 280,
+									"left": 311,
 									"top": 480,
 									"width": 34,
 									"height": 13,
@@ -3298,7 +3298,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 258,
+									"left": 289,
 									"top": 468,
 									"width": 0,
 									"height": 13,
@@ -3330,7 +3330,7 @@
 								"$ref": "AAAAAAFRRMBzGfl9Yoc="
 							},
 							"lineStyle": 2,
-							"points": "224:512;273:512;273:449",
+							"points": "224:512;304:512;304:449",
 							"nameLabel": {
 								"$ref": "AAAAAAFRRMMwQvoLqXw="
 							},
@@ -3829,9 +3829,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 200,
+									"left": 212,
 									"top": 143,
-									"width": 75,
+									"width": 50,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -1.8347596966328132,
@@ -3841,7 +3841,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "Management",
+									"text": "Handling",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -4589,7 +4589,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFRRPdO/PqEA94="
 							},
-							"name": "Management",
+							"name": "Handling",
 							"end1": {
 								"_type": "ERDRelationshipEnd",
 								"_id": "AAAAAAFRSF/d2fv6JOI=",
