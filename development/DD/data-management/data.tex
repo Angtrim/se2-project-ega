@@ -34,9 +34,24 @@ Here is an explanation of all the entities and relations:
 \paragraph{Entities} % (fold)
 \label{par:entities}
 The schema is composed of a total of 6 entities:
+
 \begin{itemize}
-	\item {\textbf{Operator}}\\
-	The operator
+	\item {\textbf{Operator}} \\
+		Its primary is a unique ID, and it is the number of his/her identity card.
+		Some of his/her personal information is stored, together with the date in wich he/she was employed.
+	\item {\textbf{User}} \\
+		Its primary is a unique ID, and it is the number of his/her identity card.
+		Some of his/her personal information is stored, together with the date in wich he/she registered to the service.
+	\item {\textbf{TaxiDriver}} \\
+		Its primary is a unique ID, and it is the number of his/her identity card.
+		Some of his/her personal information is stored, together with the date in wich he/she registered to the service.
+		The taxi license is also stored for this entity.
+	\item {\textbf{TaxiCar}} \\
+		Its primary is the license plate. Each \emph{TaxiCar} has also the number of passenger seats available.
+	\item {\textbf{Ride}} \\
+		Its primary is a unique number. In this entity it is also stored the date in which the ride has happened.
+	\item {\textbf{Report}} \\
+		Its primary is a unique number. The other attributes are the date of the report and the reason of the report.
 \end{itemize}
 
 
@@ -44,6 +59,7 @@ The schema is composed of a total of 6 entities:
 
 \paragraph{Relations} % (fold)
 \label{par:relations}
+
 
 % paragraph relations (end)
 
