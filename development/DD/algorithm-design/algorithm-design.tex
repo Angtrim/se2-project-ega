@@ -15,9 +15,9 @@ This algorithm it's created to manage the way taxi drivers are popped out from t
 It needs:
 
 \begin{itemize}
-	\item The list of all the available drivers, and in every driver object should be included a reliable coordinates.
+	\item The list of all the available drivers, and in every driver object a reliable coordinate should be included.
 	\item The possibility to interact with the Google Maps API to calculate the time to reach the position of the taxi request.
-	\item A generic math library to compute the precedenceFactor
+	\item A generic math library to compute the precedenceFactor.
 \end{itemize}
 
 
@@ -38,16 +38,16 @@ It needs:
 
 \subsection{Shared Ride Compatibility Algorithm} % (fold)
 \label{sub:second_algorithm}
-This is the algorithm used to check whether two users have to possibility to share the ride.
+This is the algorithm used to check whether two users have the possibility to share the ride.
 It needs:
 \begin{itemize}
-	\item The list of all the users that are waiting for sharing a ride.
+	\item The list of all the users that are waiting for a shared ride.
 	\item The possibility to query the Google Maps API to calculate an estimated time to complete the ride.
 	\item The list of all the zone objects.
 \end{itemize}
 
-Notice that user that is waiting in the queue has not found a compatible user yet, as he/she would be immediately popped out from the list in case of matching.
-A timer of 10 minutes starts as the user request the shared ride and as it ends a dialog of shared ride not found will be shown.
+Notice that if a user is still waiting in the queue, that means he/she has not found a compatible user yet, as he/she would be immediately popped out of the list in case of matching.
+A timer of 10 minutes starts as the user requests the shared ride and as soon as it ends a dialog informing that a shared ride has not been found, will be shown.
 
 \lstset{language=Python, 
         basicstyle=\ttfamily\small, 
@@ -65,11 +65,11 @@ A timer of 10 minutes starts as the user request the shared ride and as it ends 
 
 \subsection{Zone Assignment Algorithm} % (fold)
 \label{sub:third_algorithm}
-This algorithm assign the taxi driver at the right zone.
+This algorithm assign the taxi driver to the right zone.
 It requires:
 \begin{itemize}
 	\item To be periodically triggered to update the membership of every taxi driver.
-	\item The list of all the taxi drivers active.
+	\item The list of all the active taxi drivers.
 	\item The list of all the zone objects.
 \end{itemize}
 
