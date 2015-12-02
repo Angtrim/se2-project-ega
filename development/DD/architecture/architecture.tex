@@ -19,14 +19,14 @@ Code produced by develpers, must be fully commented and documented in order to p
 \label{sub:harwdare_styles_and_patterns}
 As outlined in \emph{section \ref{sec:deployment_view}}, our hardware system is based on a \emph{2 tier} architecture:
 \begin{itemize}
-	\item \textbf{First Tier} The first tier is composed by \emph{clients} devices. Such as mobile phone, tablets, and browser enabled computers.
-	\item \textbf{Second Tier} The second tier is composed by a rack of \emph{Servers} controlled by a load balancing component.
+	\item \textbf{First Tier} The first tier is composed of \emph{clients} devices. Such as mobile phone, tablets, and browser enabled computers.
+	\item \textbf{Second Tier} The second tier is composed of a rack of \emph{Servers} controlled by a load balancing component.
 \end{itemize}
 From the logical point of view, our system is divided in \emph{3 layers}:
 \begin{itemize}
-	\item \textbf{Presentation Layer} This layer is responsible for displaying data to the users and for transmitting input data to the \emph{business logic layer}. The \emph{presentation layer} is deployed in the \emph{First Tier}
+	\item \textbf{Presentation Layer} This layer is responsible for displaying data to the users and for transmitting input data to the \emph{business logic layer}. The \emph{presentation layer} is deployed in the \emph{First Tier}.
 	\item \textbf{Business Logic Layer} This layer is responsible for receiving data from the \emph{presentation layer}, for computing and transmitting a response (using also data provided by the \emph{data store layer}) to the presentation layer.\\
-	This layer implements most of the business logic and is deployed in the \emph{second tier},
+	This layer implements most of the business logic and is deployed in the \emph{second tier}.
 	\item \textbf{Data Store Layer} This layer is responsible for storing all the data meaningful to the system. This layer is deployed in the \emph{second tier}.
 \end{itemize}
 A schema of the overall architecture is provided below.
