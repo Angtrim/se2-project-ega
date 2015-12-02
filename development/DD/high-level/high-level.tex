@@ -1,0 +1,25 @@
+%!TEX root = ../main/main.tex
+\section{High Level Components} % (fold)
+\label{sec:high_level_components}
+The system could be divided into three main high level components that do not necessarily correspond only to one real application:
+\paragraph{Server} % (fold)
+\label{comp:server}\hfill \\
+The Server component is the kernel of the service we want to provide, it incorporates most of the \emph{business logic}, it stores most of the \emph{data} and it provides programmatic interfaces to the clients.
+% paragraph server (end)
+\paragraph{User Client} % (fold)
+\label{comp:user_client}\hfill \\
+The User Client components is an high level representation of the real clients available to the users of our service. It's modeled as a \emph{thin client} and it relies on the \emph{Server} to fulfill its tasks.
+% paragraph user_client (end)
+\paragraph{Taxi Driver Client} % (fold)
+\label{par:taxi_driver_client}\hfill \\
+The Taxi Driver Client component is an high level representation of the real clients available to the taxi drivers registered to the service. It's modeled as a \emph{thin client} and it relies on the \emph{Server} to fulfill its tasks.
+% paragraph taxi_driver_client (end)
+
+
+\subsubsection{Components Interaction} % (fold)
+\label{ssub:components_interaction}
+From a high level perspective the system is designed following the well known \emph{client-server} paradigm.\\
+The interaction between the components is handled by the \nameref{comp:server} that provides a programmatic interface that is able to receive remote call from the clients.\\
+The clients never communicate directly with one another.
+% subsubsection components_interaction (end)
+% section high_level_components (end)

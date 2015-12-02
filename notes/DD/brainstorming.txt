@@ -1,0 +1,54 @@
+Overview 
+
+	what is mytaxyservice... 
+	why we decide to use this kind of design...
+	why this system is cool and elastic...
+
+High level components and interaction
+
+	how the high level components interact between them, 
+	these are client, server, taxi driver client and so on.
+
+Component View
+
+	for every component describe functionality, responsability and role
+	Describe interfaces, used framework and library
+
+Deployment View
+
+	Hardware point of you, mainly in the server side components.
+	client server, 2 tier architecture
+	Distributed presentation
+	pubblicazione sugli store
+	mail agli utenti registrati
+	
+
+Runtime View
+
+	Interaction between components in a detailed way
+
+Components Interfaces
+	
+	Server API, interfaces between backend components
+
+Selected acrchitectural styles and patterns
+
+	we use a Client-Server pattern
+
+ALGORITHM DESIGN
+
+	algoritmi FICHI:
+
+		- queue management
+		- shortest path finding
+		- path interpolation for shared ride
+
+USER INTERFACE DESIGN
+
+	mock up a pioggia
+
+REQUIREMENTS TRACEABILITY
+
+	insert during the stuff
+
+References

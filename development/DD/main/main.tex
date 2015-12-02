@@ -1,0 +1,138 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem, lmodern}
+\usepackage[bottom]{footmisc}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tocbibind}
+\usepackage[bookmarks, breaklinks]{hyperref} 
+\usepackage{graphicx}
+\usepackage{mwe}
+\usepackage[toc,page]{appendix}
+\usepackage{pdflscape}
+\usepackage[procnames]{listings}
+\usepackage{color}
+
+
+\setcounter{tocdepth}{5}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.0001pt \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.0001pt \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+
+\graphicspath{ {../images/} }
+\linespread{1}
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width=0.25\paperwidth]{logo}\\[0.5cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Politecnico di Milano}\\[0.4cm] % Name of your university/college
+\textsc{\Large Scuola di Ingegneria Industriale e dell'Informazione}\\[0.1cm] % Major heading such as course name
+\textsc{\large M.Sc. in Computer Science and Engineering}\\[1.8cm] % Minor heading such as course title
+
+ 
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries myTaxiService} \\[0.2cm]% Title of your document
+	{\Large Software Design Document}
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+\large \emph{Authors:}\\
+Angelo  \textsc{Gallarello}\\
+Edoardo  \textsc{Longo}\\
+Giacomo  \textsc{Locci}\\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today \\Version 1.0} % Date, change the \today to a set date if you want to be precise
+
+
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+% 0 - Abstract
+\import{../main/}{abstract.tex}
+
+% 1 - Overview
+\import{../overview/}{overview.tex}
+\newpage
+% 2 - High level components
+\import{../high-level/}{high-level.tex}
+\newpage
+% 3 - Component view
+\import{../component-view/}{component-view.tex}
+\newpage
+% 4 - Deployment view
+\import{../deployment-view/}{deployment-view.tex}
+\newpage
+% 5 - Runtime view
+\import{../runtime-view/}{runtime-view.tex}
+\newpage
+% 6 - Component interfaces
+\import{../component-interfaces/}{component-interfaces.tex}
+\newpage
+% 7 - Arch styles and patterns
+\import{../architecture/}{architecture.tex}
+\newpage
+% 8 - Data management view
+\import{../data-management/}{data.tex}
+\newpage
+% 9 - Algorithm desing
+\import{../algorithm-design/}{algorithm-design.tex}
+\newpage
+% 10 - User interface design
+\import{../user-interface/}{user-interface.tex}
+% 11 - Appendix
+\import{../appendix/}{appendix.tex}
+
+
+
+
+\end{document}
