@@ -1,7 +1,7 @@
 %!TEX root = ../main/main.tex
 \section{High Level Components} % (fold)
 \label{sec:high_level_components}
-The system could be divide in three main high level components that do not necessarily correspond only to one real application:
+The system could be divided into three main high level components that do not necessarily correspond only to one real application:
 \paragraph{Server} % (fold)
 \label{comp:server}\hfill \\
 The Server component is the kernel of the service we want to provide, it incorporates most of the \emph{business logic}, it stores most of the \emph{data} and it provides programmatic interfaces to the clients.
@@ -18,7 +18,7 @@ The Taxi Driver Client component is an high level representation of the real cli
 
 \subsubsection{Components Interaction} % (fold)
 \label{ssub:components_interaction}
-From a high level perspective the system is design following the well known \emph{client-server} paradigm.\\
+From a high level perspective the system is designed following the well known \emph{client-server} paradigm.\\
 The interaction between the components is handled by the \nameref{comp:server} that provides a programmatic interface that is able to receive remote call from the clients.\\
 The clients never communicate directly with one another.
 % subsubsection components_interaction (end)
