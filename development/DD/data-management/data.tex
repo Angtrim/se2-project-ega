@@ -15,7 +15,7 @@ In order to reduce the load on the \emph{Server} and to speed up user's query re
 The caching systems is implemented in this way :
 \begin{itemize}
 	\item At the first access the user enters his personal data and preferences (like name, surname, home address ...)
-	\item This data are sent to the server and saved locally on the device.
+	\item This data are sent to the server (with a timestamp parameter) and saved locally on the device.
 	\item If a different client connects to server, the server can tell the client that his data are old and sends it the new data (checking a timestamp parameter sent by the client).
 \end{itemize}
 
