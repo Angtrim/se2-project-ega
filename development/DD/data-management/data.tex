@@ -11,7 +11,13 @@ However rides logs are kept for 12 months to save storage space and to speed up 
 % subsubsection data_elimination (end)
 \subsubsection{Data caching policy} % (fold)
 \label{ssub:data_caching}
-In order to reduce the load on the \emph{Server} and to speed up user's query response, all the data that does not change frequently (like the user's profile data) is saved locally on the device and reloaded only when a modification of the profile occurs.
+In order to reduce the load on the \emph{Server} and to speed up user's query response, all the data that does not change frequently (user's profile data and user's preferences) is saved locally on the device and reloaded only when a modification of the profile occurs.\\
+The caching systems is implemented in this way :
+\begin{itemize}
+	\item At the first access the user enters his personal data and preferences (like name, surname, home address ...)
+	\item This data are sent to the server and saved locally on the device.
+	\item If a different client connects to server, the server can tell the client that his data are old and sends it the new data (checking a timestamp parameter sent by the client).
+\end{itemize}
 
 % subsubsection data_caching (end)
 \subsection{Data storing} % (fold)
