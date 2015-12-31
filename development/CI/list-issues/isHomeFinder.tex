@@ -1,12 +1,12 @@
 %!TEX root = ../main/main.tex
-\subsection{preInvokeNoTx} % (fold)
-\label{sub:preinvokenotx}
+\subsection{isHomeFinder} % (fold)
+\label{sub:isHomeFinder}
 
 \paragraph{Method}
 \label{par:method}
 \begin{itemize}
-	\item \textbf{Name:} preInvokeNoTx( EjbInvocation inv )
-	\item \textbf{Start Line:} 1599
+	\item \textbf{Name:} isHomeFinder( Method method )
+	\item \textbf{Start Line:} 1652
 	\item \textbf{Location:} \url{appserver/persistence/entitybean-container/src/main/java/org/glassfish/persistence/ejb/entitybean/container/EntityContainer.java}
 \end{itemize}
 
@@ -16,7 +16,7 @@
 
 \begin{enumerate}
 	\item \emph{\checkA}: No issues found.
-	\item \emph{\checkB}: \textbf{In \emph{line 1609} a single char name is used for a not throwaway var.}
+	\item \emph{\checkB}: No issues found.
 	\item \emph{\checkC}: No issues found.
 	\item \emph{\checkD}: No issues found.
 	\item \emph{\checkE}: No issues found.
@@ -139,7 +139,7 @@
 \label{par:object_comparison}
 
 \begin{enumerate} [resume]
-	\item \emph{\checkAN}: No issues found.
+	\item \emph{\checkAN}: \textbf{In \emph{line 1657} it's not used \emph{equals} to compare two objects.}
 \end{enumerate}
 % paragraph object_comparison (end)
 
