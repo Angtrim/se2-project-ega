@@ -3,3 +3,33 @@
 \label{sec:functional_role_of_classes}
 
 % section functional_role_of_classes (end)
+The \emph{EntityContainer} class implements the \emph{Container} interface for BMP (Bean Managed Persistence) and CMP (Container Managed Persistence) EntityBeans manging their instance and lifecycle.\\
+The EntityContainer implements option B of the commit-time options
+ described in the EJB2.0 spec section 10.5.\\\\
+ \emph{The Container caches a \emph{ready} instance between transactions. In contrast to Option
+A, in this option the Container does not ensure that the instance has exclusive access to the
+state of the object in the persistent storage. Therefore, the Container must synchronize the
+instances state from the persistent storage at the beginning of the next transaction.}\\\\
+It also implements optimistic concurrency (i.e. multiple non-exclusive bean instances per primary key) when there are multiple concurrent transactions on a EntityBean.
+\\\\
+The \emph{EntityContainer} can perform different action for each \emph{EJB} lifecycle stage (\emph{Creation, Finding, Invocation}).\\
+
+The EntityContainer manages collections of EJBs
+in  5 different states.
+\begin{enumerate}
+	\item \textbf{POOLED} : the EB does not have an identity.
+	\item \textbf{READY} : the EB is ready for invocation and there are no transactions in progress.
+	\item \textbf{INVOKING} : the EB is processing an invocation.
+	\item \textbf{INCOMPLETE\_TX} : the EB is ready for invocation and there are transactions in progress.
+	\item \textbf{DESTROYED} : the EB does not exist.
+\end{enumerate}
+
+\paragraph{Documentation sources} % (fold)
+\label{par:documentation_sources}
+\begin{itemize}
+	\item \emph{EntityContainer.java} Javadoc
+	\item \emph{Enterprise JavaBeansTM Specification,
+Version 2.0} (\url{http://www.dbs.ethz.ch/education/oho/SS_02/additional-info/ejb-2_0-fr2-spec.pdf})
+\end{itemize}
+
+% paragraph documentation_sources (end)
