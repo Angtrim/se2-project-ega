@@ -8,15 +8,71 @@
 
 \subsection{Elements to be Integrated} % (fold)
 \label{sub:elements_to_be_integrated}
+All the components described in section 3 of the DD will have to be tested.
+In detail:
+\begin{itemize}
+	\item \textbf{Server Component}:
+	\begin{itemize}
+		\item Queue Manager
+		\item Ride Manager
+		\item Actor Manager
+		\item Position Manager
+		\item Request Manager
+		\item Database Interface
+	\end{itemize}
+	\item \textbf{User Client}
+	\begin{itemize}
+		\item Main Activity
+		\item Signup Activity
+	\end{itemize}
+	\item \textbf{Driver Client}
+	\begin{itemize}
+		\item Driving Request Fragment
+		\item Driving Activity
+	\end{itemize}
+\end{itemize}
 % subsection elements_to_be_integrated (end)
 
 \subsection{Integration Testing Strategy} % (fold)
 \label{sub:integration_testing_strategy}
+This plan will follow a bottom-up approach. This strategy enables the integration to almost always use the actual code that will be deployed, allowing the testing team to hardly ever create stubs and use dummy code.
+Of course this is not always possible and the document will specify when and what stubs are needed.
 % subsection integration_testing_strategy (end)
 
 \subsection{Sequence of Components} % (fold)
 \label{sub:sequence_of_components}
+
+\subsubsection{Server Component} % (fold)
+\label{ssub:server_component}
+
+\begin{tabularx} {\textwidth} { l|l c l|l }
+	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
+	I1 & Request Manager & \textrightarrow & Actor Manager & 3.1 \\ \hline
+	I2 & Request Manager & \textrightarrow & Ride Manager & 3.1 \\ \hline
+	I3 & Request Manager & \textrightarrow & Position Manager & 3.1 \\ \hline
+	I4 & Ride Manager & \textrightarrow & Queue Manager & 3.1 \\ \hline
+	I5 & Database Interface & \textrightarrow & DBMS & 3.1 \\ \hline
+\end{tabularx}
+% subsubsection server_component (end)
+
+\subsubsection{User Client} % (fold)
+\label{ssub:user_client}
+
+\begin{tabularx} {\textwidth} { l|l c l|l }
+	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
+	I6 & Signup Activity & \textrightarrow & Main Activity & 3.1 \\ \hline
+\end{tabularx}
+% subsubsection user_client (end)
+
+\subsubsection{Driver Client} % (fold)
+\label{ssub:driver_client}
+
+\begin{tabularx} {\textwidth} { l|l c l|l }
+	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
+	I6 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.1 \\ \hline
+\end{tabularx}
+
+% subsubsection driver_client (end)
+
 % subsection sequence_of_components (end)
-
-
 % section integration_strategy (end)
