@@ -3,19 +3,64 @@
 \label{sec:individual_steps_and_test_description}
 
 
-\subsubsection{Integration test case I1} % (fold)
-\label{ssub:integration_test_case_i1}
+\subsubsection{Integration test case I6} % (fold)
+\label{ssub:integration_test_case_i6}
 
 \begin{tabularx}{\textwidth}{X|X}
 
 \hline
 
-\textbf{Test Case Identifier}          & FR1,  FR2, FR13, FR14                 \\ \hline
-\textbf{Test Item(s)}                  & FR3-FR11, FR15-FR23                   \\ \hline
-\textbf{Input Specification}           & FR12, FR24                            \\ \hline
-\textbf{Output Specification}          & FR25                                  \\ \hline
-\textbf{Environmental Needs}           & FR26, FR27, FR28, FR31                \\ \hline
+\textbf{Test Case Identifier}          & I6T1                 \\ \hline
+\textbf{Test Item(s)}                  & SignUpActivity \textrightarrow MainActivity \emph{(User Client)} \\ \hline
+\textbf{Input Specification}           & Data from SignUpActivity (username, home position)                           \\ \hline
+\textbf{Output Specification}          & Initialize MainActivity with user's data                                \\ \hline
+\textbf{Environmental Needs}           & Mock server response from Sig-Up              \\ \hline
 
 \end{tabularx}
-% subsubsection integration_test_case_i1 (end)
-% section individual_steps_and_test_description (end)
+
+
+\subsubsection{Integration test case I7} % (fold)
+\label{ssub:integration_test_case_i7}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I7T1                 \\ \hline
+\textbf{Test Item(s)}                  & DrivingRequestFragment \textrightarrow DrivingActivity \emph{(Driver Client)}\\ \hline
+\textbf{Input Specification}           & Data about the request from the fragment (username, home position)                           \\ \hline
+\textbf{Output Specification}          & Initialize the DrivingActivity with the correct data for the ride                               \\ \hline
+\textbf{Environmental Needs}           & Mock server notification of new ride request                \\ \hline
+
+\end{tabularx}
+
+
+\subsubsection{Integration test case I8} % (fold)
+\label{ssub:integration_test_case_i8}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I8T1                 \\ \hline
+\textbf{Test Item(s)}                  & User Client \textrightarrow Server \\ \hline
+\textbf{Input Specification}           & User Client mock request                           \\ \hline
+\textbf{Output Specification}          & Request received correctly by the server       \\ \hline
+\textbf{Environmental Needs}           & Server running
+
+\end{tabularx}
+
+\subsubsection{Integration test case I9} % (fold)
+\label{ssub:integration_test_case_i9}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I9T1                 \\ \hline
+\textbf{Test Item(s)}                  & Driver Client \textrightarrow Server \\ \hline
+\textbf{Input Specification}           & Driver Client mock request                           \\ \hline
+\textbf{Output Specification}          & Request received correctly by the server       \\ \hline
+\textbf{Environmental Needs}           & Server running
+
+\end{tabularx}
