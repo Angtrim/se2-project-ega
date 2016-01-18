@@ -10,12 +10,73 @@
 
 \hline
 
-\textbf{Test Case Identifier}          & FR1,  FR2, FR13, FR14                 \\ \hline
-\textbf{Test Item(s)}                  & FR3-FR11, FR15-FR23                   \\ \hline
-\textbf{Input Specification}           & FR12, FR24                            \\ \hline
-\textbf{Output Specification}          & FR25                                  \\ \hline
-\textbf{Environmental Needs}           & FR26, FR27, FR28, FR31                \\ \hline
+\textbf{Test Case Identifier}          & I1T1                \\ \hline
+\textbf{Test Item(s)}                  & RequestManager \textrightarrow ActorManager               \\ \hline
+\textbf{Input Specification}           & Give a input to manage actors behaviour                            \\ \hline
+\textbf{Output Specification}          & Check if the object received by the ActorManager is consistent      \\ \hline
+\textbf{Environmental Needs}           & Server running                \\ \hline
 
 \end{tabularx}
+
+\subsubsection{Integration test case I2} % (fold)
+\label{ssub:integration_test_case_i2}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I2T1                 \\ \hline
+\textbf{Test Item(s)}                  & RequestManager \textrightarrow RideManager                   \\ \hline
+\textbf{Input Specification}           & Give a input to manage ride behaviour                           \\ \hline
+\textbf{Output Specification}          & Check if the ride object generated is consistent                                 \\ \hline
+\textbf{Environmental Needs}           & Server running                \\ \hline
+
+\end{tabularx}
+
+\subsubsection{Integration test case I3} % (fold)
+\label{ssub:integration_test_case_i3}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I3T1                 \\ \hline
+\textbf{Test Item(s)}                  & RequestManager \textrightarrow PositionManager                   \\ \hline
+\textbf{Input Specification}           & Give a input to manage positions and geo-data                            \\ \hline
+\textbf{Output Specification}          & Check if data received are consistent and functional                     \\ \hline
+\textbf{Environmental Needs}           & Server running                \\ \hline
+
+\end{tabularx}
+
+\subsubsection{Integration test case I4} % (fold)
+\label{ssub:integration_test_case_i4}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I4T1                \\ \hline
+\textbf{Test Item(s)}                  & RideManager \textrightarrow QueueManager                  \\ \hline
+\textbf{Input Specification}           & Give a Ride object to the QueueManager                            \\ \hline
+\textbf{Output Specification}          & The given object has satisfiable and consistent parameters         \\ \hline
+\textbf{Environmental Needs}           & Server running               \\ \hline
+
+\end{tabularx}
+
+\subsubsection{Integration test case I5} % (fold)
+\label{ssub:integration_test_case_i5}
+
+\begin{tabularx}{\textwidth}{X|X}
+
+\hline
+
+\textbf{Test Case Identifier}          & I5T1                \\ \hline
+\textbf{Test Item(s)}                  & DatabaseInterface \textrightarrow DBMS                   \\ \hline
+\textbf{Input Specification}           & Typical SQL query                            \\ \hline
+\textbf{Output Specification}          & Database tables are update as expected                                  \\ \hline
+\textbf{Environmental Needs}           & Server and database running                \\ \hline
+
+\end{tabularx}
+
 % subsubsection integration_test_case_i1 (end)
 % section individual_steps_and_test_description (end)
