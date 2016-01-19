@@ -35,44 +35,64 @@ In detail:
 
 \subsection{Integration Testing Strategy} % (fold)
 \label{sub:integration_testing_strategy}
-This plan will follow a bottom-up approach. This strategy enables the integration to almost always use the actual code that will be deployed, allowing the testing team to hardly ever create stubs and use dummy code.
-Of course this is not always possible and the document will specify when and what stubs are needed.
+This plan will follow a bottom-up approach. Provided that the unit testing is completed, this strategy enables the integration to almost always use the actual code that will be deployed, allowing the testing team to hardly ever create stubs and mocks, and reduce the use of dummy code.
+Of course this is not always possible and section \emph{\nameref{sec:program_stubs_and_test_data_required}} will specify when and what stubs are needed.
 % subsection integration_testing_strategy (end)
 
 \subsection{Sequence of Components} % (fold)
 \label{sub:sequence_of_components}
+The integration plan will follow this order:
+\begin{enumerate}
+	\item \nameref{ssub:server_component}
+	\item \nameref{ssub:user_client}
+	\item \nameref{ssub:driver_client}
+	\item \nameref{ssub:client_server}
+\end{enumerate}
+
+The first three are needed in order to test the internal submodules. Once the first three test have taken place then it is possible to test the \emph{Client-Server} interaction, with both the \emph{User Client} and the \emph{Driver Client}.
 
 \subsubsection{Server Component} % (fold)
 \label{ssub:server_component}
 
-\begin{tabularx} {\textwidth} { l|l c l|l }
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
 	I1 & Request Manager & \textrightarrow & Actor Manager & 3.1 \\ \hline
 	I2 & Request Manager & \textrightarrow & Ride Manager & 3.1 \\ \hline
 	I3 & Request Manager & \textrightarrow & Position Manager & 3.1 \\ \hline
 	I4 & Ride Manager & \textrightarrow & Queue Manager & 3.1 \\ \hline
 	I5 & Database Interface & \textrightarrow & DBMS & 3.1 \\ \hline
-\end{tabularx}
+\end{tabular}
 % subsubsection server_component (end)
 
 \subsubsection{User Client} % (fold)
 \label{ssub:user_client}
 
-\begin{tabularx} {\textwidth} { l|l c l|l }
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
 	I6 & Signup Activity & \textrightarrow & Main Activity & 3.1 \\ \hline
-\end{tabularx}
+\end{tabular}
 % subsubsection user_client (end)
 
 \subsubsection{Driver Client} % (fold)
 \label{ssub:driver_client}
 
-\begin{tabularx} {\textwidth} { l|l c l|l }
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I6 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.1 \\ \hline
-\end{tabularx}
-
+	I7 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.1 \\ \hline
+\end{tabular}
 % subsubsection driver_client (end)
 
+\subsubsection{Client-Server} % (fold)
+\label{ssub:client_server}
+
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
+	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
+	I8 & User Client & \textrightarrow & Server & 3.1 \\ \hline
+	I9 & Driver Client & \textrightarrow & Server & 3.1 \\ \hline
+\end{tabular}
+
+% subsubsection client_server (end)
+
 % subsection sequence_of_components (end)
+
 % section integration_strategy (end)
