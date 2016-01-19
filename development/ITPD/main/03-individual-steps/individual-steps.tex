@@ -42,9 +42,21 @@
 
 \textbf{Test Case Identifier}          & I3T1                 \\ \hline
 \textbf{Test Item(s)}                  & RequestManager \textrightarrow PositionManager                   \\ \hline
-\textbf{Input Specification}           & Give a input to manage positions and geo-data                            \\ \hline
-\textbf{Output Specification}          & Check if data received are consistent and functional                     \\ \hline
-\textbf{Environmental Needs}           & Server running                \\ \hline
+\textbf{Input Specification}           & Stubbed User requests (Signup, Login, Ride)                            \\ \hline
+\textbf{Output Specification}          & Check if data received are consistent and the correct function are called                    \\ \hline
+\textbf{Environmental Needs}           & Server running and stubbed user request             \\ \hline
+
+
+\multicolumn{2}{c}{} \\
+\multicolumn{2}{c}{} \\
+
+
+\hline
+\textbf{Test Case Identifier}          & I3T2                 \\ \hline
+\textbf{Test Item(s)}                  & RequestManager \textrightarrow PositionManager                   \\ \hline
+\textbf{Input Specification}           & Stubbed Driver requests ( Login, Ride Management)                            \\ \hline
+\textbf{Output Specification}          & Check if data received are consistent and if the correct function are called                   \\ \hline
+\textbf{Environmental Needs}           & Server running and stubbed driver request              \\ \hline
 
 \end{tabularx}
 
@@ -57,9 +69,9 @@
 
 \textbf{Test Case Identifier}          & I4T1                \\ \hline
 \textbf{Test Item(s)}                  & RideManager \textrightarrow QueueManager                  \\ \hline
-\textbf{Input Specification}           & Give a Ride object to the QueueManager                            \\ \hline
+\textbf{Input Specification}           & Ride object data to the QueueManager                            \\ \hline
 \textbf{Output Specification}          & The given object has satisfiable and consistent parameters         \\ \hline
-\textbf{Environmental Needs}           & Server running               \\ \hline
+\textbf{Environmental Needs}           & Server running and test data             \\ \hline
 
 \end{tabularx}
 
@@ -74,7 +86,7 @@
 \textbf{Test Item(s)}                  & DatabaseInterface \textrightarrow DBMS                   \\ \hline
 \textbf{Input Specification}           & Typical SQL query                            \\ \hline
 \textbf{Output Specification}          & Database tables are update as expected                                  \\ \hline
-\textbf{Environmental Needs}           & Server and database running                \\ \hline
+\textbf{Environmental Needs}           & Server and database running with test data             \\ \hline
 
 \end{tabularx}
 
@@ -119,9 +131,9 @@
 
 \textbf{Test Case Identifier}          & I8T1                 \\ \hline
 \textbf{Test Item(s)}                  & User Client \textrightarrow Server \\ \hline
-\textbf{Input Specification}           & User Client mock request                           \\ \hline
+\textbf{Input Specification}           & User Client test request                           \\ \hline
 \textbf{Output Specification}          & Request received correctly by the server       \\ \hline
-\textbf{Environmental Needs}           & Server running
+\textbf{Environmental Needs}           & Server running and test data
 
 \end{tabularx}
 
@@ -134,8 +146,8 @@
 
 \textbf{Test Case Identifier}          & I9T1                 \\ \hline
 \textbf{Test Item(s)}                  & Driver Client \textrightarrow Server \\ \hline
-\textbf{Input Specification}           & Driver Client mock request                           \\ \hline
+\textbf{Input Specification}           & Driver Client test request      \\ \hline
 \textbf{Output Specification}          & Request received correctly by the server       \\ \hline
-\textbf{Environmental Needs}           & Server running
+\textbf{Environmental Needs}           & Server running and test data
 
 \end{tabularx}
