@@ -57,10 +57,18 @@ The integration plan will follow this order:
 
 The first three are needed in order to test the internal submodules. Once the first three test have taken place then it is possible to test the \emph{Client-Server} interaction, with both the \emph{User Client} and the \emph{Driver Client}.
 
-\begin{figure}[h!t]
-\includegraphics[width=\textwidth]{components}
-\centering
-\end{figure}
+% \begin{figure}[h!t]
+
+% \centering
+% \end{figure}
+
+\begin{figure*}[h!t]
+    \centering
+    \caption{A graphic representation of the modules and interfaces that will be tested. Each arrow has a label assigned to it that identifies the integration test.}
+	\includegraphics[width=\textwidth]{components}
+\end{figure*}
+\vfill
+\clearpage
 
 \subsubsection{Server Component} % (fold)
 \label{ssub:server_component}
@@ -68,10 +76,10 @@ The first three are needed in order to test the internal submodules. Once the fi
 \begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
 	I1 & Request Manager & \textrightarrow & Actor Manager & 3.1 \\ \hline
-	I2 & Request Manager & \textrightarrow & Ride Manager & 3.1 \\ \hline
-	I3 & Request Manager & \textrightarrow & Position Manager & 3.1 \\ \hline
-	I4 & Ride Manager & \textrightarrow & Queue Manager & 3.1 \\ \hline
-	I5 & Database Interface & \textrightarrow & DBMS & 3.1 \\ \hline
+	I2 & Request Manager & \textrightarrow & Ride Manager & 3.2 \\ \hline
+	I3 & Request Manager & \textrightarrow & Position Manager & 3.3 \\ \hline
+	I4 & Ride Manager & \textrightarrow & Queue Manager & 3.4 \\ \hline
+	I5 & Database Interface & \textrightarrow & DBMS & 3.5 \\ \hline
 \end{tabular}
 % subsubsection server_component (end)
 
@@ -80,7 +88,7 @@ The first three are needed in order to test the internal submodules. Once the fi
 
 \begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I6 & Signup Activity & \textrightarrow & Main Activity & 3.1 \\ \hline
+	I6 & Signup Activity & \textrightarrow & Main Activity & 3.6 \\ \hline
 \end{tabular}
 % subsubsection user_client (end)
 
@@ -89,7 +97,7 @@ The first three are needed in order to test the internal submodules. Once the fi
 
 \begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I7 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.1 \\ \hline
+	I7 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.7 \\ \hline
 \end{tabular}
 % subsubsection driver_client (end)
 
@@ -98,8 +106,8 @@ The first three are needed in order to test the internal submodules. Once the fi
 
 \begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I8 & User Client & \textrightarrow & Server & 3.1 \\ \hline
-	I9 & Driver Client & \textrightarrow & Server & 3.1 \\ \hline
+	I8 & User Client & \textrightarrow & Server & 3.8 \\ \hline
+	I9 & Driver Client & \textrightarrow & Server & 3.9 \\ \hline
 \end{tabular}
 
 % subsubsection client_server (end)
