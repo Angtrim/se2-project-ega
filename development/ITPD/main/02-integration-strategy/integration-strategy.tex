@@ -70,44 +70,46 @@ The first three are needed in order to test the internal submodules. Once the fi
 \vfill
 \clearpage
 
+The following tables show the integration tests needed highligthing their ID used in this document and the paragraph that describes them.
+
 \subsubsection{Server Component} % (fold)
 \label{ssub:server_component}
 
-\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{65pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I1 & Request Manager & \textrightarrow & Actor Manager & 3.1 \\ \hline
-	I2 & Request Manager & \textrightarrow & Ride Manager & 3.2 \\ \hline
-	I3 & Request Manager & \textrightarrow & Position Manager & 3.3 \\ \hline
-	I4 & Ride Manager & \textrightarrow & Queue Manager & 3.4 \\ \hline
-	I5 & Database Interface & \textrightarrow & DBMS & 3.5 \\ \hline
+	I1 & Request Manager & \textrightarrow & Actor Manager & \ref{sub:integration_test_case_i1} \\ \hline
+	I2 & Request Manager & \textrightarrow & Ride Manager & \ref{sub:integration_test_case_i2} \\ \hline
+	I3 & Request Manager & \textrightarrow & Position Manager & \ref{sub:integration_test_case_i3} \\ \hline
+	I4 & Ride Manager & \textrightarrow & Queue Manager & \ref{sub:integration_test_case_i4} \\ \hline
+	I5 & Database Interface & \textrightarrow & DBMS & \ref{sub:integration_test_case_i5} \\ \hline
 \end{tabular}
 % subsubsection server_component (end)
 
 \subsubsection{User Client} % (fold)
 \label{ssub:user_client}
 
-\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{65pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I6 & Signup Activity & \textrightarrow & Main Activity & 3.6 \\ \hline
+	I6 & Signup Activity & \textrightarrow & Main Activity & \ref{sub:integration_test_case_i6} \\ \hline
 \end{tabular}
 % subsubsection user_client (end)
 
 \subsubsection{Driver Client} % (fold)
 \label{ssub:driver_client}
 
-\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{65pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I7 & Driving Request Fragment & \textrightarrow & Driving Activity & 3.7 \\ \hline
+	I7 & Driving Request Fragment & \textrightarrow & Driving Activity & \ref{sub:integration_test_case_i7} \\ \hline
 \end{tabular}
 % subsubsection driver_client (end)
 
 \subsubsection{Client-Server} % (fold)
 \label{ssub:client_server}
 
-\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{60pt} } \hline
+\begin{tabular} { p{20.0pt} | p{135pt} p{20pt} p{100pt} | p{65pt} } \hline
 	\textbf{ID} & \multicolumn {3}{|c|}{\textbf{Integration Test}} & \textbf{Paragraphs} \\ \hline
-	I8 & User Client & \textrightarrow & Server & 3.8 \\ \hline
-	I9 & Driver Client & \textrightarrow & Server & 3.9 \\ \hline
+	I8 & User Client & \textrightarrow & Server & \ref{sub:integration_test_case_i8} \\ \hline
+	I9 & Driver Client & \textrightarrow & Server & \ref{sub:integration_test_case_i9} \\ \hline
 \end{tabular}
 
 % subsubsection client_server (end)
