@@ -35,7 +35,8 @@ In detail:
 
 \subsection{Integration Testing Strategy} % (fold)
 \label{sub:integration_testing_strategy}
-This plan will follow a bottom-up approach. This strategy enables the integration to almost always use the actual code that will be deployed, allowing the testing team to hardly ever create stubs and use dummy code.
+This plan will follow a bottom-up approach. This strategy 
+This strategy enables the integration to almost always use the actual code that will be deployed, allowing the testing team to hardly ever create stubs and mocks, and reduce the use of dummy code.
 Of course this is not always possible and section \emph{\nameref{sec:program_stubs_and_test_data_required}} will specify when and what stubs are needed.
 % subsection integration_testing_strategy (end)
 
@@ -49,7 +50,7 @@ The integration plan will follow this order:
 	\item \nameref{ssub:client_server}
 \end{enumerate}
 
-The first three are needed in order to test the internal submodules. Once the first three test have taken place then it is possible to test the \emph{Client-Server} interaction, both the \emph{User Client} and the \emph{Driver Client}.
+The first three are needed in order to test the internal submodules. Once the first three test have taken place then it is possible to test the \emph{Client-Server} interaction, with both the \emph{User Client} and the \emph{Driver Client}.
 
 \subsubsection{Server Component} % (fold)
 \label{ssub:server_component}
