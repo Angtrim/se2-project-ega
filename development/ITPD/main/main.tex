@@ -15,7 +15,11 @@
 \usepackage{color}
 \usepackage[english]{babel}
 \usepackage[autostyle, english = american]{csquotes}
+\usepackage{tabularx}
+\usepackage{multirow}
 \usepackage{textcomp}
+\usepackage{printlen}
+\usepackage{mathtools}
 \MakeOuterQuote{"}
 
 
@@ -33,10 +37,9 @@
 
 
 
-\graphicspath{ {../images/} }
+\graphicspath{ {images/} }
 \linespread{1}
 \begin{document}
-
 \begin{titlepage}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
@@ -64,8 +67,8 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries GlassFish Server} \\[0.2cm]% Title of your document
-	{\Large Code Inspection}
+{ \huge \bfseries myTaxiService} \\[0.2cm]% Title of your document
+	{\Large Integration Test Plan Document}
 \HRule \\[1.5cm]
  
 %----------------------------------------------------------------------------------------
@@ -95,26 +98,26 @@ Giacomo  \textsc{Locci}\\[1.5cm]
 
 \tableofcontents
 
-\newpage
-
-
+\listoffigures
 
 \newpage
-% 1 - Assigned Classes
-\import{../assigned-classes/}{class.tex}
-% 2 - Functional Role of Classes
-\import{../functional-role/}{functional-role.tex}
-\newpage
-% 3 - List of Issues
-\import{../list-issues/}{list-issues.tex}
-\newpage
-% 4 - Other Problems
-\import{../other-problems/}{other-problems.tex}
-\newpage
-% 12 - Appendix
-\import{../appendix/}{appendix.tex}
 
-
+% 1 - Introduction
+\import{01-introduction/}{introduction.tex}
+% 2 - Integration Strategy
+\newpage
+\import{02-integration-strategy/}{integration-strategy.tex}
+\newpage
+% 3 - Individual Steps
+\import{03-individual-steps/}{individual-steps.tex}
+\newpage
+% 4 - Tools and Test Equipment
+\import{04-tools-testequipment/}{tools-testequipment.tex}
+\newpage
+% 5 - Program Stubs
+\import{05-program-stubs/}{program-stubs.tex}
+% 6 - Appendix
+\import{06-appendix/}{appendix.tex}
 
 
 \end{document}

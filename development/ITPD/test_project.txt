@@ -1,0 +1,16 @@
+SERVER
+I1 RequestManager -> ActorManager
+I2 RequestManager -> RideManager
+I3 RequestManager -> PositionManager
+I4 RideManager -> QueueManager
+I5 DatabaseInterface -> DBMS
+
+CLIENT (user)
+I6 SignUpActivity -> MainActivity
+
+CLIENT (Driver)
+I7 DrivingRequestFragment -> Driving Activity
+
+
+SYSTEM
+I8 Client -> Server

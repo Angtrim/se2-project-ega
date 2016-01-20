@@ -1,0 +1,25 @@
+%!TEX root = ../main.tex
+\section{Tools and Test Equipment Required} % (fold)
+\label{sec:tools_and_test_equipment_required}
+
+During the integration test, the team should use the following tools:
+\begin{itemize}
+	\item \nameref{sub:manual}
+	\item \nameref{sub:arquillian}
+\end{itemize}
+
+\subsection{Manual} % (fold)
+\label{sub:manual}
+
+We will use manual testing when the integration testing will need mock data.
+For instance, test [I2] will need some example data in order to be properly tested, as desccribed is section \ref{sec:program_stubs_and_test_data_required}.
+This is the only reason why the integration will ever require manual testing.
+% subsection manual (end)
+
+\subsection{Arquillian + JUnit} % (fold)
+\label{sub:arquillian}
+Arquillian, together with JUnit, provides a simple, flexible and pluggable integration testing environment.
+This tool will be used because it minimizes the burden on the testing team to carry out integration testing by handling all aspects of test execution.
+% subsection arquillian (end)
+
+% section tools_and_test_equipment_required (end)
