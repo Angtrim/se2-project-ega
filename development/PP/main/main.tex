@@ -1,0 +1,117 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem, lmodern}
+\usepackage[bottom]{footmisc}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tocbibind}
+\usepackage[bookmarks, breaklinks]{hyperref} 
+\usepackage{graphicx}
+\usepackage{mwe}
+\usepackage[toc,page]{appendix}
+\usepackage{pdflscape}
+\usepackage[procnames]{listings}
+\usepackage{color}
+\usepackage[english]{babel}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{printlen}
+\usepackage{mathtools}
+\MakeOuterQuote{"}
+
+
+\setcounter{tocdepth}{5}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.0001pt \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.0001pt \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+
+\graphicspath{ {images/} }
+\linespread{1}
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width=0.25\paperwidth]{logo}\\[0.5cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Politecnico di Milano}\\[0.4cm] % Name of your university/college
+\textsc{\Large Scuola di Ingegneria Industriale e dell'Informazione}\\[0.1cm] % Major heading such as course name
+\textsc{\large M.Sc. in Computer Science and Engineering}\\[1.8cm] % Minor heading such as course title
+
+ 
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries myTaxiService} \\[0.2cm]% Title of your document
+	{\Large Integration Test Plan Document}
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+\large \emph{Authors:}\\
+Angelo  \textsc{Gallarello}\\
+Edoardo  \textsc{Longo}\\
+Giacomo  \textsc{Locci}\\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today \\Version 1.0} % Date, change the \today to a set date if you want to be precise
+
+
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\listoffigures
+
+\newpage
+
+% 1 - Introduction
+\import{01-introduction/}{introduction.tex}
+\newpage
+\import{02-fp-approach/}{fp-approach.tex}
+\newpage
+\import{03-cocomo-approach/}{cocomo-approach.tex}
+\newpage
+\import{04-resources/}{resources.tex}
+\newpage
+\import{05-risks/}{risks.tex}
+
+
+\end{document}
