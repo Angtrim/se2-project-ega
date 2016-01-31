@@ -1,0 +1,44 @@
+\section{Scale Drivers}
+
+Scale drivers are 5 factors of the equation that describe some 
+characteristics of the development environment.
+
+\begin{description}
+
+    \item[Precedentedness:] Describe our previous experience with this kind of project. It's set to Nominal as we all have some experiences in software development with client-server architecture and multiplatform rich client.
+
+    \item[Development flexibility:] Describe our freedom degree in develop this project. It's set to Nominal as we have some track to follow but we don't have strict constraints on the implementation tecniques.
+
+    \item[Risk resolution:] Describe the risk analysis. It's set to high, chapter 5 for details.
+
+    \item[Team cohesion:] Describe a the communication between the components of the teams. It's set to very high cause we worked togheter in many situation and we know each other very well.
+
+    \item[Process maturity:] It's set according to CMM Level 31: “It is characteristic of processes at this level that there are sets of defined and documented standard processes established and subject to some degree of improve- ment over time. These standard processes are in place (i.e., they are the AS-IS processes) and used to establish consistency of process per- formance across the organization.” which corresponds to the High level.
+
+\end{description}
+
+\begin{table}
+    \centering
+    \begin{tabular}{| l | l | l | l | l |}
+        \hline
+        \textbf{Code}   & \textbf{Name}             & \textbf{Factor}   & \textbf{Value}    \\
+        \hline
+        PREC            & Precedentedness           & Nominal               & 3.72                 \\
+        \hline
+        FLEX            & Development flexibility   & Nominal           & 3.04                 \\
+        \hline
+        RESL            & Risk resolution           & High              & 2.83                 \\
+        \hline
+        TEAM            & Team cohesion             & Very High         & 1.10                 \\
+        \hline
+        PMAT            & Process maturity          & High              & 3.12                 \\
+        \hline
+        \textbf{Total}  & \multicolumn{2}{|c|}{$E=0.91 + 0.01 \times \sum_{i}SF_i$}    & 1.0605       \\
+        \hline
+    \end{tabular}
+    \caption{Scale Drivers for our project.}
+    \label{tab:scale-drivers}
+\end{table}
+
+
+
