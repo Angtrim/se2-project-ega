@@ -1,0 +1,85 @@
+%!TEX root = ../main.tex
+\section{Tasks} % (fold)
+\label{sec:tasks}
+
+The fulfillment of the project requires a list of tasks to be completed in the order they are presented here, it is important to note, however that this list of tasks is intended to be used as a general guideline and all the tasks may receive updates along the way.
+Small changes can be made to the order, especially the last two and the first two steps that will be re-iterated over and over as new requirements emerge.
+So, the first version of each task will have strict deadlines, so that the following task can start, while the re-iterations will have specific deadlines that will be specified along the process.
+
+Here is the a table that summirises the main tasks to be completed:
+\begin{center}
+\begin{tabular}{ |c|l| } \hline
+	\textbf{Order} & \textbf{Task} \\ \hline
+	1 & RASD \\ \hline
+	2 & DD \\ \hline
+	3 & ITPD \\ \hline
+	4 & PPD \\ \hline
+	5 & Implementation \& Unit Testing \\ \hline
+	6 & Integration Testing \\ \hline
+\end{tabular}
+\end{center}
+
+Here we explain what each task is for:
+
+\begin{enumerate}
+	\item Prepare a document that specifies the goals of the system, the assumptions that had been made, and the requirements of the \emph{system-to-be}, namely the RASD.
+	\item Prepare a document that specifies the design and architecture of the \emph{system-to-be}, namely the DD.
+	\item Prepare a document that specifies the plan to follow in order to perform the integration testing, namely the ITPD.
+	\item Prepare a document that specifies the plan of the project, namely the PPD.
+	\item Write the software, according to what has been specified in the documents produces during the previous tasks, along with the unit testing.
+	\item Perform the integration testing, following the plan described in the ITPD.
+\end{enumerate}
+
+\subsection{Schedule} % (fold)
+\label{sub:schedule}
+
+In this subsection we present a schedule that must followed, however, as always, small changes can always be made.
+
+We explain the schedule through the Gantt chart that follows:
+
+\begin{figure}[!h]
+    \hspace*{-2.0cm}
+    \begin{ganttchart}[
+    		vgrid={*{6}{draw=none}, dotted},
+    		hgrid={dotted},
+    		time slot format=isodate,
+			x unit=0.5mm,
+			progress=today,
+			progress label text={#1}\%,
+	        today=2016-02-02,
+	        today rule/.style= {gray!80, thick},
+	        today label=Today,
+	        today label/.style = {black},
+	        link bulge=1, link tolerance=0,
+    	]{2015-10-10}{2016-06-20}
+        \gantttitlecalendar{year, month} \\
+        \ganttbar[name=rasd, progress=100]{RASD}{2015-10-15}{2015-11-06} \\
+        \ganttbar[name=dd, progress=100]{DD}{2015-11-12}{2015-12-04} \\
+        \ganttbar[name=itpd, progress=100]{ITPD}{2016-01-07}{2016-01-21} \\
+        \ganttbar[name=pp, progress=100]{PPD}{2016-01-22}{2016-02-02} \\
+        \ganttbar[name=impl, progress=0]{Implementation}{2016-02-03}{2016-05-15} \\
+        \ganttbar[name=int-test, progress=0]{Integration Test}{2016-05-16}{2016-06-15}
+        \ganttlink[link/.append style=gray!90]{rasd}{dd}
+        \ganttlink[link/.append style=gray!90]{dd}{itpd}
+        \ganttlink[link/.append style=gray!90]{impl}{int-test}
+    \end{ganttchart}
+    \label{tab:gantt}
+\end{figure}
+% subsection schedule (end)
+
+Since the precise deadlines are not legible from the Gantt chart, we give also a table summarising the main deadlines.
+
+\begin{center}
+\begin{tabular}{ |c|c|l|c| } \hline
+	\textbf{Order} & \textbf{Begin date} & \textbf{Task} & \textbf{Deadline} \\ \hline
+	1 & 15-10-2015 & RASD & 06-11-2015 \\ \hline
+	2 & 12-11-2015 & DD & 04-12-2015 \\ \hline
+	3 & 07-01-2016 & ITPD & 21-01-2016 \\ \hline
+	4 & 22-01-2016 & PPD & 02-02-2016 \\ \hline
+	5 & 03-02-2016 & Implementation \& Unit Testing  & 15-05-2016 \\ \hline
+	6 & 16-05-2016 & Integration Testing  & 15-06-2016 \\ \hline
+\end{tabular}
+\end{center}
+
+
+% section tasks (end)

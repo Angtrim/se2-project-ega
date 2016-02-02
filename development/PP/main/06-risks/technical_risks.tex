@@ -1,0 +1,32 @@
+\subsection{Technical risks}
+
+\begin{description}
+
+    \item[System fail] System could go down for a period for technical reason, a emergency cluster of servers will guarantee that the service will just slow down avoiding the complete interruption.
+
+    \item[Bad written code] The code can become less usable and extensible with time, a good Design Document and a periodic code review will reduce this risk.
+
+    \item[Data loss] Hardware or software issue may cause a data loss. It will be very important to have a reliable back up plan to reduce the effect of this eventuality.
+
+    \item[Data leaks] Users data may be leaked with some deliberate attack to our servers. Testing security and cripting data movements will reduce drastically this risk.
+
+\end{description}
+
+\begin{table}[!htbp]
+\centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{Risk}                   & \textbf{Probability}  & \textbf{Effects}  \\
+        \hline
+        System fail                        & Low              & High              \\  
+        \hline
+        Bad written code                  & Very low                   & Catastrophic          \\
+        \hline
+        Data loss                       & Very low                   & High      \\
+        \hline
+        Data leaks                      & Very low              & Catastrophic      \\
+        \hline
+    \end{tabular}
+    \caption{Technical risks.}
+    \label{tab:technical-risks}
+\end{table}

@@ -1,0 +1,122 @@
+%!TEX root = ../main.tex
+\subsection{COCOMO II Approach} % (fold)
+\label{sec:cocomo_approach}
+
+\subsubsection{Effort estimation model}
+The \emph{COCOMO II} model expresses \textbf{effort} as \emph{PERSON-MONTHS}.\\
+In particular, to estimate the total \textbf{effort} the following formula is used :
+\begin{equation}
+    \textrm{Effort} = A \times SIZE^E \times \prod_i EM_i
+    \label{eq:effort}
+\end{equation}
+where :
+\begin{itemize}
+	\item $A$ is given statistically and is equal to $2.94$
+	\item $SIZE$ is the size of the software expressed in KLOC
+	\item $E$ is an aggregation of five scale factors (SF) (retrieved in the \emph{\nameref{sub:scale_factors}} section)
+	\item $EM$ are the \emph{effort multipliers} of the \emph{cost drivers} (retrieved in the \emph{\nameref{sub:cost_drivers}} section)
+\end{itemize}
+In the following sections all the parameters are calculated to generate the final result of the formula.
+
+\subsubsection{Scale factors estimation}
+\label{sub:scale_factors}
+This section provides the estimation for the scale factors.
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{Name}             & \textbf{Factor}   & \textbf{Value}    \\
+        \hline
+        Precedentedness           & Nominal           & 3.72                 \\
+        \hline
+        Development flexibility   & Nominal           & 3.04                 \\
+        \hline
+        Risk resolution           & High              & 2.83                 \\
+        \hline
+        Team cohesion             & Very High         & 1.10                 \\
+        \hline
+        Process maturity          & High              & 3.12                 \\
+        \hline
+        \textbf{Total}  & \multicolumn{1}{|c|}{$E=0.91 + 0.01 \times \sum_{i}SF_i$}    & 1.0481       \\
+        \hline
+    \end{tabular}
+    \caption{Scale Drivers estimations}
+    \label{tab:scale-drivers}
+\end{table}
+
+
+\subsubsection{Cost drivers effort multipliers estimation}
+\label{sub:cost_drivers}
+This section provides the estimation for the effort multipliers of the cost drivers.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{| l | l | l | l | l |}
+        \hline
+        \textbf{$C_i$}   & \textbf{Name}                             & \textbf{Factor}   & \textbf{Value}    \\
+        \hline
+        RELY            & Required Software Reliability             & Low              & 0.92             \\
+        \hline
+        DATA            & Data base size                            & Low              & 0.90               \\
+        \hline
+        CPLX            & Product Complexity                        & Nominal              & 1.00              \\
+        \hline
+        RUSE            & Required Reusability                      & High                 & 1.07              \\
+        \hline
+        DOCU            & Documentation match to life-cycle needs   & High              & 1.11              \\
+        \hline
+        TIME            & Execution Time Constraint                 & Nominal              & 1.00              \\
+        \hline
+        STOR            & Main Storage Constraint                   & Nominal              & 1.00              \\
+        \hline
+        PVOL            & Platform Volatility                       & Low                  & 0.87              \\
+        \hline
+        ACAP            & Analyst Capability                        & High                 & 0.85              \\
+        \hline
+        PCAP            & Programmer Capability                     & Nominal              & 1.00              \\
+        \hline
+        APEX            & Application Experience                    & Very low             & 1.22              \\
+        \hline
+        PLEX            & Platform Experience                       & Very low             & 1.19              \\
+        \hline
+        LTEX            & Language and Tool Experience              & Low                  & 1.09              \\
+        \hline
+        PCON            & Personnel Continuity                      & Very high            & 0.81              \\
+        \hline
+        TOOL            & Usage of Software Tools                   & Nominal              & 1.00              \\
+        \hline
+        SITE            & Multisite Development                     & High                 & 0.93              \\
+        \hline
+        SCED            & Required Development Schedule             & High                 & 1.00              \\
+        \hline
+        \textbf{Total}  & \multicolumn{2}{|c|}{$EM=\prod_i C_i$}                              & 0.795             \\
+        \hline
+    \end{tabular}
+    \caption{Effort multipliers estimation}
+    \label{tab:cost-drivers}
+\end{table}
+
+\subsubsection{Final effort estimation}
+\label{sub:effort_estimation}
+Given :
+\begin{itemize}
+	\item $A = 2.94$
+	\item $SIZE = 91UFP  \times  53  = 4.823  KLOC$ ($53$ is the JAVA multiplier)
+	\item $\prod_i EM_i = 0.795$
+	\item $E = 1.0481$
+\end{itemize}
+
+\begin{equation}
+    \textrm{Effort} = A \times SIZE^E \times \prod_i EM_i = 12.15 PM
+    \label{eq:effort}
+\end{equation}
+The effort to develop the project is 12.15 person-months.\\
+Given that we are 3 people this means a 4 months development. 
+
+\subsubsection{Time to develop estimation}
+\label{sub:time_to_develop}
+We calculate the \emph{TDEV} parameter that \emph{"for the waterfall model goes from the determination of a product's requirements baseline to the completion of an acceptance activity certifying that the product satisfies its requirements."}\footnote{\url{http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf}}
+\begin{equation}
+    \textrm{Duration} = 3.67 \times (Effort)^{0.28 + 0.2 \times (E-0.91)} = 7.91 months
+    \label{eq:duration}
+\end{equation}

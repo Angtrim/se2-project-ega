@@ -1,0 +1,229 @@
+%!TEX root = ../main.tex
+\section{Project size, effort and cost}
+\subsection{Function Points Approach} % (fold)
+\label{sec:function_points_approach}
+This section tries to estimate the size of the software using the \emph{function points} approach.\\
+This approach is based on the concepts of :
+\begin{itemize}
+\item \textbf{External Input}: an elementary process in which data crosses the boundary from outside to inside.
+\item \textbf{External Output}: an elementary process in which derived data passes across the boundary from inside to outside
+\item \textbf{External Inquiry}: an elementary process with both input and output components that result in data retrieval from one or more internal logical files and external interface files
+\item \textbf{Internal Logical Files}: a user identifiable group of logically related data that resides entirely within the applications boundary and is maintained through external inputs
+\item \textbf{External Logical Files}: a user identifiable group of logically related data that is used for reference purposes only.
+\end{itemize}
+\emph{Data elements} are counted following the \emph{Function Point Modeler} \footnote{\url{http://www.functionpointmodeler.com/fpm-infocenter/index.jsp}} guide.\\
+It's important to underline that the following estimation in done base on the assumption that we will have to develop \textbf{the Client apps} only for the Android Platform. 
+
+\subsubsection{Function Points Tables} % (fold)
+\label{sub:function_points_tables}
+
+\begin{table}[!htbp]
+\caption{Internal and External Logical Files Weights}
+\begin{tabularx}{\textwidth}{|c|X|X|X|}
+\hline
+& \multicolumn{3}{|c|}{\textbf{Data Elements}}
+\\ \hline
+\textbf{\textbf{Record Elements Types}}      & \textbf{1-19} & \textbf{20-50}   & \textbf{51+}
+\\ \hline
+1 									   & Low           & Low              & Avg.
+\\ \hline
+2-5									   & Low           & Avg.             & High
+\\ \hline
+6+									   & Avg.          & High             & High
+\\ \hline
+
+
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[!htbp]
+\caption{External Input}
+\begin{tabularx}{\textwidth}{|c|X|X|X|}
+\hline
+& \multicolumn{3}{|c|}{\textbf{Data Elements}}
+\\ \hline
+\textbf{\textbf{Files Type Referenced }}      & \textbf{1-4} & \textbf{5-15}   & \textbf{16+}
+\\ \hline
+1-2									   & Low           & Low              & Avg.
+\\ \hline
+2									   & Low           & Avg.             & High
+\\ \hline
+2+									   & Avg.          & High             & High
+\\ \hline
+
+
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{External Output and External Inquiry Weights}
+\begin{tabularx}{\textwidth}{|c|X|X|X|}
+\hline
+& \multicolumn{3}{|c|}{\textbf{Data Elements}}
+\\ \hline
+\textbf{\textbf{Files Type Referenced }}      & \textbf{1-5} & \textbf{6-19}   & \textbf{19+}
+\\ \hline
+2									   & Low           & Low              & Avg.
+\\ \hline
+2-3									   & Low           & Avg.             & High
+\\ \hline
+3+  								   & Avg.          & High             & High
+\\ \hline
+
+
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{UFP Complexity Weights}
+\begin{tabularx}{\textwidth}{|c|X|X|X|}
+\hline
+& \multicolumn{3}{|c|}{\textbf{Complexity-Weight}}
+\\ \hline
+\textbf{Function Types}   & \textbf{Low} & \textbf{Average}   & \textbf{High}
+\\ \hline
+Internal Logical Files 			   & 7          & 10             & 15
+\\ \hline
+External Logical Files             & 5          & 7				 & 10
+\\ \hline
+External Inputs             	   & 3          & 4				 & 6
+\\ \hline
+External Outputs                   & 4          & 5				 & 7
+\\ \hline
+External Inquiries                 & 3          & 4				 & 6
+\\ \hline
+\end{tabularx}
+\end{table}
+
+% subsubsection function_points_tables (end)
+
+\subsubsection{External Input} % (fold)
+\label{sub:external_inputs}
+\begin{itemize}
+	\item User sign-up (from \emph{User Client} to \emph{Backend})
+	\item User login (from \emph{User Client} to \emph{Backend})
+	\item User data update (from \emph{User Client} to \emph{Backend})
+	\item User ride request (from \emph{User Client} to \emph{Backend})
+	\item User reservation request (from \emph{Driver Client} to \emph{Backend})
+	\item Taxi driver response (from \emph{Driver Client} to \emph{Backend})
+	\item Taxi driver login (from \emph{Driver Client} to \emph{Backend})
+	\item Taxi driver problem report (from \emph{Driver Client} to \emph{Backend})
+\end{itemize}
+
+\subsubsection{External Outputs} % (fold)
+\label{sub:external_outputs}
+\begin{itemize}
+	\item Ride request notification (from \emph{Backend} to \emph{Driver Client})
+	\item Ride sharing notification (from \emph{Backend} to \emph{User Client})
+	\item Ride cost estimation (from \emph{Backend} to \emph{User Client})
+
+\end{itemize}
+
+\subsubsection{External Inquiry} % (fold)
+\label{sub:external_inquiry}
+\begin{itemize}
+	\item Ride sharing request
+\end{itemize}
+
+\subsubsection{Internal Logical Files} % (fold)
+\label{sub:internal_logical_files}
+\begin{itemize}
+	\item User
+	\item Taxi Driver
+	\item Sigle Ride
+	\item Shared Ride
+	\item Taxi Queue
+\end{itemize}
+
+\subsubsection{External Logical Files} % (fold)
+\label{sub:internal_logical_files}
+\begin{itemize}
+	\item Google Maps (from Google Maps API)
+\end{itemize}
+
+\subsubsection{Unadjusted Function Points} % (fold)
+\label{sub:unadjusted_function_points}
+In this section we calculate the UFP for our system, using a reference the tables provided in section \nameref{sub:function_points_tables}
+
+\begin{table}[!htbp]
+\caption{Internal and External Logical Files Weights}
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\textbf{\textbf{Function}}      & \textbf{Weight} & \textbf{Points}  
+\\ \hline
+\multicolumn{3}{|c|}{\emph{External Input}}
+\\ \hline
+User sign-up 	& LOW  & 3		
+\\ \hline
+User login 	& LOW  & 3		
+\\ \hline							                
+User data update & LOW & 3
+\\ \hline	
+User ride request & AVG. & 4	
+\\ \hline
+User reservation request & AVG. & 4
+\\ \hline	
+Taxi driver response & LOW & 3	
+\\ \hline
+Taxi driver login & LOW & 3	
+\\ \hline
+Taxi driver problem report & LOW & 3	
+\\ \hline
+\multicolumn{3}{|c|}{\emph{External Outputs}}
+\\ \hline
+Ride request response & AVG & 5
+\\ \hline
+Ride sharing response & AVG & 5	
+\\ \hline
+Ride cost estimation & LOW & 4	
+\\ \hline
+\multicolumn{3}{|c|}{\emph{External Inquiry}}
+\\ \hline
+Ride sharing request & AVG & 4	
+\\ \hline
+\multicolumn{3}{|c|}{\emph{Internal Logical Files}}
+\\ \hline
+User & AVG & 10	
+\\ \hline
+Taxi Driver & AVG & 10	
+\\ \hline
+Shared Ride & AVG & 10	
+\\ \hline
+Taxi Queue & AVG & 10	
+\\ \hline
+\multicolumn{3}{|c|}{\emph{External Logical Files}}
+\\ \hline
+Google Maps & AVG & 7	
+\\ \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[!htbp]
+\caption{UFP Total}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Function Type}      &  \textbf{Points}
+\\ \hline
+External Input		& 26
+\\ \hline
+External Outputs & 14
+\\ \hline
+External Inquiry & 4
+\\ \hline
+Internal Logical Files & 40
+\\ \hline
+External Logical Files & 7
+\\ \hline
+\textbf{TOTAL} & \textbf{91 UFP}
+\\ \hline
+
+
+\end{tabularx}
+\end{table}
+
+
+
+
+% section function_points_approach (end)
