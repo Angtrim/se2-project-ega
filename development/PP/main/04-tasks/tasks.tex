@@ -8,14 +8,14 @@ So, the first version of each task will have strict deadlines, so that the follo
 
 Here is the a table that summirises the main tasks to be completed:
 \begin{center}
-\begin{tabular}{ c|l }
+\begin{tabular}{ |c|l| } \hline
 	\textbf{Order} & \textbf{Task} \\ \hline
 	1 & RASD \\ \hline
 	2 & DD \\ \hline
 	3 & ITPD \\ \hline
-	4 & PP \\ \hline
+	4 & PPD \\ \hline
 	5 & Implementation \& Unit Testing \\ \hline
-	6 & Integration Testing \\
+	6 & Integration Testing \\ \hline
 \end{tabular}
 \end{center}
 
@@ -25,7 +25,7 @@ Here we explain what each task is for:
 	\item Prepare a document that specifies the goals of the system, the assumptions that had been made, and the requirements of the \emph{system-to-be}, namely the RASD.
 	\item Prepare a document that specifies the design and architecture of the \emph{system-to-be}, namely the DD.
 	\item Prepare a document that specifies the plan to follow in order to perform the integration testing, namely the ITPD.
-	\item Prepare a document that specifies the plan of the project, namely the PP.
+	\item Prepare a document that specifies the plan of the project, namely the PPD.
 	\item Write the software, according to what has been specified in the documents produces during the previous tasks, along with the unit testing.
 	\item Perform the integration testing, following the plan described in the ITPD.
 \end{enumerate}
@@ -56,7 +56,7 @@ We explain the schedule through the Gantt chart that follows:
         \ganttbar[name=rasd, progress=100]{RASD}{2015-10-15}{2015-11-06} \\
         \ganttbar[name=dd, progress=100]{DD}{2015-11-12}{2015-12-04} \\
         \ganttbar[name=itpd, progress=100]{ITPD}{2016-01-07}{2016-01-21} \\
-        \ganttbar[name=pp, progress=100]{PP}{2016-01-22}{2016-02-02} \\
+        \ganttbar[name=pp, progress=100]{PPD}{2016-01-22}{2016-02-02} \\
         \ganttbar[name=impl, progress=0]{Implementation}{2016-02-03}{2016-06-01} \\
         \ganttbar[name=int-test, progress=0]{Integration Test}{2016-06-02}{2016-06-15}
         \ganttlink[link/.append style=gray!90]{rasd}{dd}
@@ -70,14 +70,14 @@ We explain the schedule through the Gantt chart that follows:
 Since the precise deadlines are not legible from the Gantt chart, we give also a table summarising the main deadlines.
 
 \begin{center}
-\begin{tabular}{ c|c|l|c }
+\begin{tabular}{ |c|c|l|c| } \hline
 	\textbf{Order} & \textbf{Begin date} & \textbf{Task} & \textbf{Deadline} \\ \hline
 	1 & 15-10-2015 & RASD & 06-11-2015 \\ \hline
 	2 & 12-11-2015 & DD & 04-12-2015 \\ \hline
 	3 & 07-01-2016 & ITPD & 21-01-2016 \\ \hline
-	4 & 22-01-2016 & PP & 02-02-2016 \\ \hline
+	4 & 22-01-2016 & PPD & 02-02-2016 \\ \hline
 	5 & 03-02-2016 & Implementation \& Unit Testing  & 01-06-2016 \\ \hline
-	6 & 02-06-2016 & Integration Testing  & 15-06-2016 \\
+	6 & 02-06-2016 & Integration Testing  & 15-06-2016 \\ \hline
 \end{tabular}
 \end{center}
 

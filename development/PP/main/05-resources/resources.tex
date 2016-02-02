@@ -2,11 +2,11 @@
 \section{Resources} % (fold)
 \label{sec:resources}
 
-In this section we specifiy the resource allocation, that is, for each task we specify to whom its subtasks are allocated. The timetables have already been defined in section \ref{sub:schedule}
-We choose to represent this data by means of a table:
+In this section we specifiy the resource allocation, that is, for each task we specify to whom its subtasks are allocated. The timetables have already been defined in section \ref{sub:schedule}.
+We choose to represent this data by means of tables. As far as the documents are concerned, we specify the resources for each section of the document, whereas, for what concerns the Implementation and Integration Testing ...
 
 \begin{center}
-\begin{tabular}{ l|l }
+\begin{tabular}{ |l|l| }
 	\multicolumn{2}{c}{\textbf{RASD}} \\ \hline
 	\textbf{Subtask} & \textbf{Resource} \\ \hline
 	\multirow{1}{*}{Introduction} & Edoardo \\ \hline
@@ -17,7 +17,108 @@ We choose to represent this data by means of a table:
 	\multirow{3}{*}{Appendices} & Angelo \\ 
 				& Giacomo \\
 				& Edoardo \\ \hline
-				
+
+\end{tabular}
+\end{center}
+
+\vspace* {30px}
+
+
+\begin{center}
+\begin{tabular} {|l|l|}
+	\multicolumn{2}{c}{\textbf{DD}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{Overview} & Edoardo \\ \hline
+	\multirow{1}{*}{High Level Components} & Angelo \\ \hline
+	\multirow{2}{*}{Component View} & Angelo \\
+									& Giacomo \\ \hline
+	\multirow{2}{*}{Deployment View} & Angelo \\
+				& Edoardo \\ \hline
+	\multirow{1}{*}{Component Interfaces} & Angelo \\ \hline
+	\multirow{3}{*}{Architectural Styles and Patterns} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+	\multirow{1}{*}{Data Management View} & Edoardo \\ \hline
+	\multirow{1}{*}{Algorithm Design} & Giacomo \\ \hline
+	\multirow{1}{*}{User Interface View} & Angelo \\ \hline
+	\multirow{3}{*}{Requirements Traceability} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+	\multirow{3}{*}{Appendices} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace* {30px}
+
+\begin{center}
+\begin{tabular}{ |l|l| }
+	\multicolumn{2}{c}{\textbf{ITPD}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{Introduction} & Edoardo \\ \hline
+	\multirow{2}{*}{Entry Criteria} & Angelo \\ 
+									& Edoardo \\ \hline
+	\multirow{2}{*}{Individual Steps} & Angelo \\
+										& Giacomo \\ \hline
+	\multirow{1}{*}{Tools and Test Equipment Required} & Edoardo \\ \hline
+	\multirow{3}{*}{Program Stubs and Test Data Required} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+	\multirow{3}{*}{Appendices} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+
+\end{tabular}
+\end{center}
+
+\vspace* {30px}
+
+\begin{center}
+\begin{tabular}{ |l|l| }
+	\multicolumn{2}{c}{\textbf{PPD}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{Introduction} & Edoardo \\ \hline
+	\multirow{2}{*}{Project Size, Effor and Cost} & Angelo \\ 
+									& Giacomo \\ \hline
+	\multirow{1}{*}{Tasks} & Edoardo \\ \hline
+	\multirow{1}{*}{Resources} & Edoardo \\ \hline
+	\multirow{2}{*}{Program Stubs and Test Data Required} & Angelo \\ 
+				& Giacomo \\ \hline
+	\multirow{3}{*}{Appendices} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+
+\end{tabular}
+\end{center}
+
+\vspace* {30px}
+
+\begin{center}
+\begin{tabular}{ |l|l| }
+	\multicolumn{2}{c}{\textbf{Implementation + Unit Testing}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{User Client} & Edoardo \\ \hline
+	\multirow{1}{*}{Driver Client} & Giacomo \\ \hline
+	\multirow{1}{*}{Server} & Angelo \\ \hline
+
+\end{tabular}
+\end{center}
+
+
+
+\vspace* {30px}
+
+\begin{center}
+\begin{tabular}{ |l|l| }
+	\multicolumn{2}{c}{\textbf{Integration Testing}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{User Client Submodules} & Edoardo \\ \hline
+	\multirow{1}{*}{User Client \textrightarrow Server} & Edoardo \\ \hline
+	\multirow{1}{*}{Driver Client Submodules} & Giacomo \\ \hline
+	\multirow{1}{*}{Driver Client \textrightarrow Server} & Giacomo \\ \hline
+	\multirow{1}{*}{Server Submodules} & Angelo \\ \hline
+
 \end{tabular}
 \end{center}
 
