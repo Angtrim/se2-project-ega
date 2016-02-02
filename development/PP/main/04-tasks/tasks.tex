@@ -57,8 +57,8 @@ We explain the schedule through the Gantt chart that follows:
         \ganttbar[name=dd, progress=100]{DD}{2015-11-12}{2015-12-04} \\
         \ganttbar[name=itpd, progress=100]{ITPD}{2016-01-07}{2016-01-21} \\
         \ganttbar[name=pp, progress=100]{PPD}{2016-01-22}{2016-02-02} \\
-        \ganttbar[name=impl, progress=0]{Implementation}{2016-02-03}{2016-06-01} \\
-        \ganttbar[name=int-test, progress=0]{Integration Test}{2016-06-02}{2016-06-15}
+        \ganttbar[name=impl, progress=0]{Implementation}{2016-02-03}{2016-05-15} \\
+        \ganttbar[name=int-test, progress=0]{Integration Test}{2016-05-16}{2016-06-15}
         \ganttlink[link/.append style=gray!90]{rasd}{dd}
         \ganttlink[link/.append style=gray!90]{dd}{itpd}
         \ganttlink[link/.append style=gray!90]{impl}{int-test}
@@ -76,8 +76,8 @@ Since the precise deadlines are not legible from the Gantt chart, we give also a
 	2 & 12-11-2015 & DD & 04-12-2015 \\ \hline
 	3 & 07-01-2016 & ITPD & 21-01-2016 \\ \hline
 	4 & 22-01-2016 & PPD & 02-02-2016 \\ \hline
-	5 & 03-02-2016 & Implementation \& Unit Testing  & 01-06-2016 \\ \hline
-	6 & 02-06-2016 & Integration Testing  & 15-06-2016 \\ \hline
+	5 & 03-02-2016 & Implementation \& Unit Testing  & 15-05-2016 \\ \hline
+	6 & 16-05-2016 & Integration Testing  & 15-06-2016 \\ \hline
 \end{tabular}
 \end{center}
 
