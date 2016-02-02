@@ -2,6 +2,23 @@
 \section{Resources} % (fold)
 \label{sec:resources}
 
-In this section we specifiy the resource allocation, that is, for each task we specify to whom it is allocated and for how long it is allocated to that person
+In this section we specifiy the resource allocation, that is, for each task we specify to whom its subtasks are allocated. The timetables have already been defined in section \ref{sub:schedule}
+We choose to represent this data by means of a table:
+
+\begin{center}
+\begin{tabular}{ l|l }
+	\multicolumn{2}{c}{\textbf{RASD}} \\ \hline
+	\textbf{Subtask} & \textbf{Resource} \\ \hline
+	\multirow{1}{*}{Introduction} & Edoardo \\ \hline
+	\multirow{2}{*}{Overall Description} & Angelo \\
+										 & Edoardo \\ \hline
+	\multirow{2}{*}{Specific Requirements} & Angelo \\
+										& Giacomo \\ \hline
+	\multirow{3}{*}{Appendices} & Angelo \\ 
+				& Giacomo \\
+				& Edoardo \\ \hline
+				
+\end{tabular}
+\end{center}
 
 % section resources (end)
